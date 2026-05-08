@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s step-start infinite;
+}
+
+.cursor::after {
+  content: '█';
+  animation: cursor-blink 1s step-start infinite;
+  margin-left: 2px;
+}
+
+.scanlines {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 65, 0.03) 2px,
+      rgba(0, 255, 65, 0.03) 4px
+    );
+  pointer-events: none;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 255, 65, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glow-green {
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.35), 0 0 20px rgba(0, 255, 65, 0.15);
+}
+.glow-green:hover {
+  box-shadow: 0 0 14px rgba(0, 255, 65, 0.7), 0 0 30px rgba(0, 255, 65, 0.35);
+}
+
+.glow-blue {
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.35), 0 0 20px rgba(59, 130, 246, 0.15);
+}
+.glow-blue:hover {
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.7), 0 0 30px rgba(59, 130, 246, 0.35);
+}
+
+.glow-gray {
+  box-shadow: 0 0 8px rgba(156, 163, 175, 0.25), 0 0 16px rgba(156, 163, 175, 0.1);
+}
+.glow-gray:hover {
+  box-shadow: 0 0 12px rgba(156, 163, 175, 0.5), 0 0 24px rgba(156, 163, 175, 0.25);
+}
+
+.dotted-underline {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 6px;
+  text-decoration-color: rgba(0, 255, 65, 0.6);
+}
+
+body {
+  margin: 0;
+  background-color: #020804;
+}
