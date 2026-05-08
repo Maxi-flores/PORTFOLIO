@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   addDoc,
   collection,
@@ -13,15 +13,19 @@ import {
   setDoc,
 } from 'firebase/firestore';
 import { getFirebaseApp, getFirebaseConfig } from './firebaseApp.js';
-
-const CloudStateContext = createContext(null);
+import { CloudStateContext } from './cloudStateContext.js';
 
 function nowIso() {
   return new Date().toISOString();
 }
 
-export function CloudStateProvider({ children }) {
-  const [status, setStatus] = useState('connecting'); // connecting | online | offline | error | unconfigured
+export default function CloudStateProvider({ children }) {
+  const config = useMemo(() => getFirebaseConfig(), []);
+
+  const [status, setStatus] = useState(() => {
+    if (!config) return 'unconfigured';
+    return navigator.onLine ? 'connecting' : 'offline';
+  }); // connecting | online | offline | error | unconfigured
   const [notes, setNotes] = useState('');
   const [notesHistory, setNotesHistory] = useState([]);
   const [feedItems, setFeedItems] = useState([]);
@@ -32,9 +36,7 @@ export function CloudStateProvider({ children }) {
   const hasHydratedRef = useRef(false);
 
   useEffect(() => {
-    const config = getFirebaseConfig();
     if (!config) {
-      setStatus('unconfigured');
       return;
     }
 
@@ -49,32 +51,30 @@ export function CloudStateProvider({ children }) {
 
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
-    if (!navigator.onLine) setStatus('offline');
 
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
     };
-  }, []);
+  }, [config]);
 
   useEffect(() => {
-    const config = getFirebaseConfig();
     if (!config) return;
     if (!navigator.onLine) return;
 
-    try {
-      const app = getFirebaseApp();
-      if (!app) {
-        setStatus('unconfigured');
-        return;
-      }
+    let unsubNotes = null;
+    let unsubHistory = null;
+    let unsubFeed = null;
+    let cancelled = false;
 
+    const start = async () => {
+      const app = getFirebaseApp();
+      if (!app) throw new Error('Firebase app init failed (missing config?)');
       const db = getFirestore(app);
+
       enableIndexedDbPersistence(db).catch(() => {
         // Best-effort; may fail in private browsing or multi-tab.
       });
-
-      setStatus('connecting');
 
       const notesDoc = doc(db, 'cloudState', 'powerframeNotes');
       const notesHistoryQuery = query(
@@ -90,9 +90,10 @@ export function CloudStateProvider({ children }) {
         limit(20),
       );
 
-      const unsubNotes = onSnapshot(
+      unsubNotes = onSnapshot(
         notesDoc,
         (snap) => {
+          if (cancelled) return;
           const data = snap.data() ?? {};
           setNotes(typeof data.text === 'string' ? data.text : '');
           setLastSyncAt(nowIso());
@@ -100,14 +101,16 @@ export function CloudStateProvider({ children }) {
           setStatus('online');
         },
         (e) => {
+          if (cancelled) return;
           setError(e);
           setStatus(navigator.onLine ? 'error' : 'offline');
         },
       );
 
-      const unsubHistory = onSnapshot(
+      unsubHistory = onSnapshot(
         notesHistoryQuery,
         (snap) => {
+          if (cancelled) return;
           setNotesHistory(
             snap.docs
               .map((d) => d.data())
@@ -121,14 +124,16 @@ export function CloudStateProvider({ children }) {
           setStatus('online');
         },
         (e) => {
+          if (cancelled) return;
           setError(e);
           setStatus(navigator.onLine ? 'error' : 'offline');
         },
       );
 
-      const unsubFeed = onSnapshot(
+      unsubFeed = onSnapshot(
         feedQuery,
         (snap) => {
+          if (cancelled) return;
           setFeedItems(
             snap.docs.map((d) => ({
               id: d.id,
@@ -140,26 +145,31 @@ export function CloudStateProvider({ children }) {
           setStatus('online');
         },
         (e) => {
+          if (cancelled) return;
           setError(e);
           setStatus(navigator.onLine ? 'error' : 'offline');
         },
       );
+    };
 
-      return () => {
-        unsubNotes();
-        unsubHistory();
-        unsubFeed();
-      };
-    } catch (e) {
-      setError(e);
-      setStatus('error');
-      return undefined;
-    }
-  }, [networkEpoch]);
+    start().catch((e) => {
+      Promise.resolve().then(() => {
+        if (cancelled) return;
+        setError(e);
+        setStatus('error');
+      });
+    });
+
+    return () => {
+      cancelled = true;
+      unsubNotes?.();
+      unsubHistory?.();
+      unsubFeed?.();
+    };
+  }, [config, networkEpoch]);
 
   const updateNotes = useCallback(
     async (nextText) => {
-      const config = getFirebaseConfig();
       if (!config) return;
       if (!navigator.onLine) {
         setStatus('offline');
@@ -188,11 +198,10 @@ export function CloudStateProvider({ children }) {
         });
       }
     },
-    [notes],
+    [config, notes],
   );
 
   const addFeedItem = useCallback(async (text) => {
-    const config = getFirebaseConfig();
     if (!config) return;
     if (!navigator.onLine) {
       setStatus('offline');
@@ -208,7 +217,7 @@ export function CloudStateProvider({ children }) {
       text,
       createdAt: serverTimestamp(),
     });
-  }, []);
+  }, [config]);
 
   const value = useMemo(
     () => ({
@@ -225,12 +234,4 @@ export function CloudStateProvider({ children }) {
   );
 
   return <CloudStateContext.Provider value={value}>{children}</CloudStateContext.Provider>;
-}
-
-export function useCloudState() {
-  const value = useContext(CloudStateContext);
-  if (!value) {
-    throw new Error('useCloudState must be used within CloudStateProvider');
-  }
-  return value;
 }

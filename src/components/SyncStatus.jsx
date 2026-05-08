@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useCloudState } from '../cloud/CloudStateProvider.jsx';
+import { useCloudState } from '../cloud/useCloudState.js';
 
 function dotClass(status) {
   switch (status) {
@@ -55,4 +55,3 @@ export default function SyncStatus() {
     </div>
   );
 }
-

@@ -30,7 +30,7 @@ function guessUrlForName(name, urls) {
     const hay = repo.toLowerCase().replace(/[^a-z0-9]+/g, '');
     if (!hay) continue;
 
-    let score = 0;
+    let score;
     if (hay === needle) score = 100;
     else if (hay.includes(needle) && needle.length >= 5) score = 60 + needle.length;
     else if (needle.includes(hay) && hay.length >= 5) score = 40 + hay.length;
@@ -168,4 +168,3 @@ export function priorityStyles(priority) {
       };
   }
 }
-
