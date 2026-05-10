@@ -6,7 +6,7 @@ Main home page for all apps which we have currently Vercel deployed within DNS r
 
 - Bms.powerframe.online:  
 
-Business Manager System dashboard template https://github.com/Maxi-flores/Powerframe-BMS 
+Business Manager System dashboard template https://github.com/Maxi-flores/Powerframe-BMS-V1 
 
 - Crm.powerframe.online: 
 
@@ -30,7 +30,7 @@ Currently having .online extension will need to be changed to .dev
 
 - Trt.Powerframe.online: 
 
-BMS clone at turbo mono repo intergration with Firebase > Business Manager System dashboard template https://github.com/Maxi-flores/Powerframe-BMS 
+BMS clone at turbo mono repo intergration with Firebase > Business Manager System dashboard template https://github.com/Maxi-flores/Powerframe-BMS-V1 
 
 - WAI.Powerframe.online: 
 

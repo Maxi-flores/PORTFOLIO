@@ -1,4 +1,11 @@
-import { useEffect, useState } from 'react';
+function getUtcOffset() {
+  const raw = -new Date().getTimezoneOffset(); // minutes
+  const sign = raw >= 0 ? '+' : '-';
+  const abs = Math.abs(raw);
+  const h = String(Math.floor(abs / 60)).padStart(2, '0');
+  const m = String(abs % 60).padStart(2, '0');
+  return `UTC${sign}${h}:${m}`;
+}
 
 // ── Icons ──────────────────────────────────────────────────────────────────
 
@@ -37,25 +44,10 @@ function TerminalIcon() {
   );
 }
 
-// ── Helpers ────────────────────────────────────────────────────────────────
-
-function useUtcOffset() {
-  const [offset, setOffset] = useState('');
-  useEffect(() => {
-    const raw = -new Date().getTimezoneOffset(); // minutes
-    const sign = raw >= 0 ? '+' : '-';
-    const abs = Math.abs(raw);
-    const h = String(Math.floor(abs / 60)).padStart(2, '0');
-    const m = String(abs % 60).padStart(2, '0');
-    setOffset(`UTC${sign}${h}:${m}`);
-  }, []);
-  return offset;
-}
-
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function PortfolioHero() {
-  const utcOffset = useUtcOffset();
+  const utcOffset = getUtcOffset();
 
   return (
     <div className="relative min-h-screen bg-[#020804] text-white font-mono overflow-hidden flex flex-col">

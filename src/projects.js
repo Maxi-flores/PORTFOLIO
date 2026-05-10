@@ -1,0 +1,98 @@
+export const projects = [
+  {
+    slug: 'powerframe-bms',
+    name: 'Powerframe BMS',
+    family: 'Powerframe',
+    customDomain: 'bms.powerframe.online',
+    githubUrl: 'https://github.com/Maxi-flores/Powerframe-BMS-V1',
+    vercel: {
+      status: 'deployed',
+      url: 'https://powerframe-bms.vercel.app',
+      source: 'github_homepage',
+    },
+  },
+  {
+    slug: 'powerframe-crm',
+    name: 'Powerframe CRM',
+    family: 'Powerframe',
+    customDomain: 'crm.powerframe.online',
+    githubUrl: 'https://github.com/Maxi-flores/Powerframe-CRM',
+    vercel: {
+      status: 'deployed',
+      url: 'https://powerframe-crm.vercel.app',
+      source: 'github_homepage',
+    },
+  },
+  {
+    slug: 'timeplanner',
+    name: 'TimePlanner (TPR)',
+    family: 'Powerframe',
+    customDomain: 'tpr.powerframe.online',
+    githubUrl: 'https://github.com/Maxi-flores/TimePlanner',
+    vercel: {
+      status: 'deployed',
+      url: 'https://powerframe-roadmap.vercel.app',
+      source: 'github_homepage',
+    },
+  },
+  {
+    slug: 'sapient-kb',
+    name: 'Sapient KB',
+    family: 'Powerframe',
+    customDomain: 'skb.powerframe.online',
+    githubUrl: 'https://github.com/Maxi-flores/Sapient',
+    vercel: {
+      status: 'unknown',
+      url: null,
+      source: 'github_integration_403',
+    },
+  },
+  {
+    slug: 'powerstarter',
+    name: 'PowerStarter',
+    family: 'PowerStarter',
+    customDomain: 'powerstarter.online',
+    githubUrl: 'https://github.com/Maxi-flores/PowerStarter',
+    vercel: {
+      status: 'deployed',
+      url: 'https://power-starter-web.vercel.app',
+      source: 'github_homepage',
+    },
+  },
+  {
+    slug: 'therockettree-app',
+    name: 'TheRocketTree App',
+    family: 'TheRocketTree',
+    customDomain: 'app.therockettree.io',
+    githubUrl: 'https://github.com/Maxi-flores/TheRocketTree-App',
+    vercel: {
+      status: 'unknown',
+      url: null,
+      source: 'github_integration_403',
+    },
+  },
+  {
+    slug: 'therockettree-web',
+    name: 'TheRocketTree Web',
+    family: 'TheRocketTree',
+    customDomain: 'web.therockettree.io',
+    githubUrl: 'https://github.com/Maxi-flores/TheRocketTree-Web',
+    vercel: {
+      status: 'deployed',
+      url: 'https://therockettree-web.vercel.app',
+      source: 'github_homepage',
+    },
+  },
+  {
+    slug: 'therockettree-unity',
+    name: 'TheRocketTree Unity',
+    family: 'TheRocketTree',
+    customDomain: 'therockettree.exe',
+    githubUrl: 'https://github.com/Maxi-flores/TheRocketTreeUnity',
+    vercel: {
+      status: 'unknown',
+      url: null,
+      source: 'github_integration_403',
+    },
+  },
+];
