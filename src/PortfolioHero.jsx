@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import NeuralShell from './layout/NeuralShell.jsx';
 
 // ── Icons ──────────────────────────────────────────────────────────────────
 
@@ -40,16 +42,14 @@ function TerminalIcon() {
 // ── Helpers ────────────────────────────────────────────────────────────────
 
 function useUtcOffset() {
-  const [offset, setOffset] = useState('');
-  useEffect(() => {
+  return useMemo(() => {
     const raw = -new Date().getTimezoneOffset(); // minutes
     const sign = raw >= 0 ? '+' : '-';
     const abs = Math.abs(raw);
     const h = String(Math.floor(abs / 60)).padStart(2, '0');
     const m = String(abs % 60).padStart(2, '0');
-    setOffset(`UTC${sign}${h}:${m}`);
+    return `UTC${sign}${h}:${m}`;
   }, []);
-  return offset;
 }
 
 // ── Component ──────────────────────────────────────────────────────────────
@@ -58,76 +58,56 @@ export default function PortfolioHero() {
   const utcOffset = useUtcOffset();
 
   return (
-    <div className="relative min-h-screen bg-[#020804] text-white font-mono overflow-hidden flex flex-col">
-
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg scanlines pointer-events-none z-0" />
-
-      {/* Content wrapper */}
-      <div className="relative z-10 flex flex-col min-h-screen px-6 sm:px-12 md:px-20 py-8 max-w-4xl mx-auto w-full">
-
-        {/* ── Header ─────────────────────────────────────────────────────── */}
-        <header className="flex flex-col gap-1 mb-auto">
-          {/* Status line */}
-          <div className="flex items-center gap-2 text-xs tracking-widest text-[#00ff41]">
-            <span className="blink inline-block w-2 h-2 rounded-full bg-[#00ff41]" />
-            <span>ALL_SYSTEMS_OPERATIONAL</span>
-          </div>
-
-          {/* Location / UTC line */}
-          <div className="text-xs tracking-widest text-gray-500 mt-0.5 ml-4">
-            <span className="text-gray-600">STATIONED_AT</span>
-            {'  '}
-            <span className="text-gray-400">San Francisco, CA</span>
-            {'  '}
-            <span className="text-[#00ff41]/70">{utcOffset}</span>
-          </div>
-        </header>
-
-        {/* ── Main ──────────────────────────────────────────────────────── */}
-        <main className="flex-1 flex flex-col justify-center py-16 gap-6">
+    <NeuralShell
+      prompt="~/portfolio $"
+      title="Maxi Flores"
+      subtitle={
+        <>
+          Full-stack engineer building the <span className="text-[#00ff41]">TRT-App</span> backbone and{' '}
+          <span className="text-[#00ff41]">PowerStarter</span> feedback loop.
+        </>
+      }
+      rightSlot={
+        <div className="text-right">
+          <p className="text-[10px] tracking-widest text-gray-600 uppercase">Stationed At</p>
+          <p className="mt-1 text-xs tracking-widest text-gray-400">
+            San Francisco, CA · <span className="text-[#00ff41]/70">{utcOffset}</span>
+          </p>
+        </div>
+      }
+    >
+      <div className="flex flex-col justify-center py-10 gap-6 max-w-3xl">
 
           {/* Prompt prefix */}
           <p className="text-[#00ff41]/60 text-sm tracking-widest">
             ~/portfolio <span className="text-[#00ff41]">$</span> ./whoami
           </p>
 
-          {/* Name */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-none cursor">
-            Maxi Flores
-          </h1>
-
           {/* Job title */}
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-[#00ff41] dotted-underline w-fit">
-            Full-Stack Engineer @ Acme Corp
+            Neural Architect · Cloud + Systems + UI
           </h2>
 
           {/* Bio */}
           <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl">
-            I build fast, reliable, and beautiful software. Passionate about
-            developer tooling, distributed systems, and crafting interfaces that
-            feel like magic. Currently shipping{' '}
-            <span className="text-[#00ff41]/80">open-source</span> tools for
-            humans who love the terminal.
+            Governance-first monorepo design with real-time cloud state. This portfolio renders the ecosystem directly
+            from <span className="text-gray-200">description.md</span> and mirrors priority weight across surfaces.
           </p>
 
           {/* ── Buttons ──────────────────────────────────────────────────── */}
           <div className="flex flex-wrap gap-4 mt-2">
-            {/* Contact */}
-            <button
+            <Link
+              to="/ecosystem"
               className="glow-green px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
-              type="button"
             >
-              Contact
-            </button>
-
-            {/* Resume */}
-            <button
-              className="glow-blue px-5 py-2.5 border border-blue-500 text-blue-400 text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-blue-500/10 hover:text-white"
-              type="button"
+              Ecosystem
+            </Link>
+            <Link
+              to="/sync"
+              className="glow-blue px-5 py-2.5 border border-cyan-300/40 text-cyan-200 text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-cyan-300/10 hover:text-white"
             >
-              Resume
-            </button>
+              Cloud Sync
+            </Link>
 
             {/* Launch Terminal */}
             <button
@@ -138,10 +118,7 @@ export default function PortfolioHero() {
               <span>&gt;_ Launch Terminal</span>
             </button>
           </div>
-        </main>
-
-        {/* ── Footer / Social icons ─────────────────────────────────────── */}
-        <footer className="flex items-center gap-6 pb-4">
+        <footer className="mt-10 flex items-center gap-6">
           <a
             href="https://github.com"
             target="_blank"
@@ -168,12 +145,9 @@ export default function PortfolioHero() {
             <EmailIcon />
           </a>
 
-          <span className="ml-auto text-[10px] tracking-widest text-gray-700 select-none">
-            v1.0.0 · 2026
-          </span>
+          <span className="ml-auto text-[10px] tracking-widest text-gray-700 select-none">v1.0.0 · 2026</span>
         </footer>
-
       </div>
-    </div>
+    </NeuralShell>
   );
 }
