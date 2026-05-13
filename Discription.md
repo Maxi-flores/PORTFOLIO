@@ -36,7 +36,9 @@ BMS clone at turbo mono repo intergration with Firebase > Business Manager Syste
 
 Becomes an Powerstarter function as coded page feed for an project expert role and showcase  
 
- 
+- WMS.Powerframe.online:
+
+Powerframe WMS (Wealth Mission System) is a gamified financial architecture that maps budgets, balances capital, and forecasts investments into real-life strategic goals within a single, secure platform
 
 * Sapient KB: Shape connected folder tree: 
 
