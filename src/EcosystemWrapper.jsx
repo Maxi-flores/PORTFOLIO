@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import descriptionText from '../description.md?raw';
+import descriptionText from '../Description.md?raw';
 import { parseEcosystemFromDescription, priorityStyles } from './ecosystem/parseEcosystemFromDescription.js';
 
 function PriorityBadge({ priority }) {
@@ -107,7 +107,7 @@ export default function EcosystemWrapper() {
       <div className="mt-8 rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
         <p className="text-[10px] tracking-widest text-gray-500 uppercase">Source of truth</p>
         <p className="mt-2 text-sm text-gray-300 leading-relaxed">
-          Update ecosystem priorities and rules in <span className="text-gray-200">description.md</span> and the UI
+          Update ecosystem priorities and rules in <span className="text-gray-200">Description.md</span> and the UI
           will follow automatically.
         </p>
       </div>
