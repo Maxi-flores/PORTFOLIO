@@ -60,18 +60,18 @@ export default function PortfolioHero() {
   return (
     <NeuralShell
       prompt="~/portfolio $"
-      title="Maxi Flores"
+      title="Who Am I — Maximiliano Flores"
       subtitle={
         <>
-          Full-stack engineer building the <span className="text-[#00ff41]">TRT-App</span> backbone and{' '}
-          <span className="text-[#00ff41]">PowerStarter</span> feedback loop.
+          AI user and cloud data developer building portfolio systems, web interfaces and automation workflows with both
+          traditional development skills and modern AI-assisted techniques.
         </>
       }
       rightSlot={
         <div className="text-right">
           <p className="text-[10px] tracking-widest text-gray-600 uppercase">Stationed At</p>
           <p className="mt-1 text-xs tracking-widest text-gray-400">
-            San Francisco, CA · <span className="text-[#00ff41]/70">{utcOffset}</span>
+            Lisbon, Portugal · <span className="text-[#00ff41]/70">{utcOffset}</span>
           </p>
         </div>
       }
@@ -85,13 +85,14 @@ export default function PortfolioHero() {
 
           {/* Job title */}
           <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-[#00ff41] dotted-underline w-fit">
-            Neural Architect · Cloud + Systems + UI
+            AI user · Cloud Data · Web + Automation
           </h2>
 
           {/* Bio */}
           <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl">
-            Governance-first monorepo design with real-time cloud state. This portfolio renders the ecosystem directly
-            from <span className="text-gray-200">description.md</span> and mirrors priority weight across surfaces.
+            Building portfolio systems, UI/UX implementations, and business-oriented digital workflows with cloud/data
+            fundamentals. Background includes BIM, Tekla, point clouds, technical project documentation, Microsoft Azure
+            Fundamentals (AZ-900), and Power Platform Functional Consultant (PL-200).
           </p>
 
           {/* ── Buttons ──────────────────────────────────────────────────── */}
@@ -100,27 +101,28 @@ export default function PortfolioHero() {
               to="/ecosystem"
               className="glow-green px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
             >
-              Ecosystem
+              Knowledgebase
             </Link>
             <Link
               to="/sync"
               className="glow-blue px-5 py-2.5 border border-cyan-300/40 text-cyan-200 text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-cyan-300/10 hover:text-white"
             >
-              Cloud Sync
+              Contact
             </Link>
 
-            {/* Launch Terminal */}
-            <button
+            <a
               className="glow-gray flex items-center gap-2 px-5 py-2.5 border border-gray-600 text-gray-300 text-sm tracking-widest uppercase rounded transition-all duration-200 hover:border-gray-400 hover:text-white hover:bg-white/5"
-              type="button"
+              href="https://github.com/Maxi-flores"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <TerminalIcon />
-              <span>&gt;_ Launch Terminal</span>
-            </button>
+              <span>Open GitHub</span>
+            </a>
           </div>
         <footer className="mt-10 flex items-center gap-6">
           <a
-            href="https://github.com"
+            href="https://github.com/Maxi-flores"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -129,7 +131,7 @@ export default function PortfolioHero() {
             <GitHubIcon />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/maximiliano-flores-68b534134/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -138,7 +140,7 @@ export default function PortfolioHero() {
             <LinkedInIcon />
           </a>
           <a
-            href="mailto:hello@maxiflores.dev"
+            href="mailto:info@powerframe.online"
             aria-label="Email"
             className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
           >
