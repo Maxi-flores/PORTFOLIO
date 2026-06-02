@@ -20,16 +20,16 @@ function dotClass(status) {
 function label(status) {
   switch (status) {
     case 'online':
-      return 'CLOUD_SYNC_ONLINE';
+      return 'STATUS_ONLINE';
     case 'connecting':
-      return 'CLOUD_SYNC_CONNECTING';
+      return 'STATUS_CONNECTING';
     case 'offline':
-      return 'CLOUD_SYNC_OFFLINE';
+      return 'STATUS_OFFLINE';
     case 'error':
-      return 'CLOUD_SYNC_ERROR';
+      return 'STATUS_ERROR';
     case 'unconfigured':
     default:
-      return 'CLOUD_SYNC_UNCONFIGURED';
+      return 'STATUS_READY';
   }
 }
 
