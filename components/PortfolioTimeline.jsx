@@ -167,8 +167,8 @@ export function PortfolioTimeline() {
             Portfolio Periods & Project Metadata
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl">
-            Runtime-fed timeline that maps each period and project to Google Competencies and
-            interview question coverage.
+            Runtime-fed timeline that maps each period and project to ad ecosystem competencies and interview question
+            coverage.
           </p>
         </div>
 

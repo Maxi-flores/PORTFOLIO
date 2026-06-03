@@ -38,14 +38,14 @@ const KNOWLEDGEBASE_MODULES = [
     ],
   },
   {
-    id: 'sapient-kb',
-    name: 'Sapient KB',
+    id: 'system-automation-layer',
+    name: 'System Automation Layer',
     tag: 'KNOWLEDGEBASE',
-    repoUrl: 'https://github.com/Maxi-flores/Sapient',
-    purpose: ['KnowledgeBase direction: “4D logic brain/tree” for organizing concepts and systems.'],
+    repoUrl: null,
+    purpose: ['System Automation Layer — Research and development on autonomous tools and custom cross-platform app integrations.'],
     direction: [
-      'Portfolio relevance: informs the knowledge tree and project mapping style used here.',
-      'Technical direction: interactive knowledge tree model and visualization surface.',
+      'Portfolio relevance: connector-first patterns and repeatable automation workflows.',
+      'Technical direction: autonomous tools, cross-platform integrations, and app orchestration.',
     ],
   },
 ];

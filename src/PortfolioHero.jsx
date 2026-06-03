@@ -99,9 +99,13 @@ export default function PortfolioHero() {
 
           {/* Bio */}
           <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl">
-            Building portfolio systems, UI/UX implementations, and business-oriented digital workflows with cloud/data
-            fundamentals. Background includes BIM, Tekla, point clouds, technical project documentation, Microsoft Azure
-            Fundamentals (AZ-900), and Power Platform Functional Consultant (PL-200).
+            I started out in architecture, designing with 2D and 3D building systems. To speed up my workflow, I picked
+            up Python to automate generating sheets of sketches. That process naturally hooked me onto development. When
+            I was living in Barcelona, alongside working in customer service, I spent my time diving deep into the basics
+            of web technology. I moved past simple CMS platforms and taught myself the ins and outs of web tools, DNS,
+            and domain mastering while bootstrapping webpages. As AI started dominating the visual coding space, I shifted
+            my focus from standard frontend webpage development to systems development—scaling up my cloud knowledge to
+            build and deploy complex infrastructure for all kinds of ideas.
           </p>
 
           {/* ── Buttons ──────────────────────────────────────────────────── */}
@@ -111,12 +115,6 @@ export default function PortfolioHero() {
               className="glow-green px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
             >
               Knowledgebase
-            </Link>
-            <Link
-              to="/sync"
-              className="glow-blue px-5 py-2.5 border border-cyan-300/40 text-cyan-200 text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-cyan-300/10 hover:text-white"
-            >
-              Contact
             </Link>
 
             <a

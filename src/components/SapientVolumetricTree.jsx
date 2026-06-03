@@ -1,30 +1,30 @@
 import { useMemo, useState } from 'react';
 
-const AXES = [
-  { key: 'X', label: 'concept' },
-  { key: 'Y', label: 'vibe' },
-  { key: 'Z', label: 'sophia' },
-  { key: 'W', label: 'powerframe' },
+const TOPICS = [
+  { key: 'R&D', label: 'autonomous tools' },
+  { key: 'INT', label: 'custom integrations' },
+  { key: 'XPL', label: 'cross-platform apps' },
+  { key: 'OPS', label: 'workflow orchestration' },
 ];
 
 export default function SapientVolumetricTree() {
   const [axisIndex, setAxisIndex] = useState(0);
-  const active = AXES[axisIndex];
+  const active = TOPICS[axisIndex];
 
-  const caption = useMemo(() => `${active.key} = ${active.label}`, [active]);
+  const caption = useMemo(() => `${active.key}: ${active.label}`, [active]);
 
   return (
     <button
       type="button"
-      onClick={() => setAxisIndex((i) => (i + 1) % AXES.length)}
+      onClick={() => setAxisIndex((i) => (i + 1) % TOPICS.length)}
       className="w-full text-left rounded-lg bg-black/50 border border-gray-800 px-4 py-4 hover:border-[#00ff41]/40 transition-colors"
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Volumetric Node</p>
+          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Automation Focus</p>
           <p className="mt-1 text-sm tracking-widest text-[#00ff41]">{caption}</p>
           <p className="mt-2 text-xs text-gray-400 leading-relaxed">
-            Click to rotate axes. Represents Sapient as a 4D topology node inside the ecosystem nav.
+            Click to cycle focus areas. Research and development on autonomous tools and cross-platform app integrations.
           </p>
         </div>
         <div className="shrink-0">
@@ -44,7 +44,7 @@ export default function SapientVolumetricTree() {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-2">
-        {AXES.map((axis) => (
+        {TOPICS.map((axis) => (
           <div
             key={axis.key}
             className={[
@@ -61,4 +61,3 @@ export default function SapientVolumetricTree() {
     </button>
   );
 }
-
