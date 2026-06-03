@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import CloudStateProvider from './cloud/CloudStateProvider.jsx';
+import AI from './routes/AI.jsx';
 import Ecosystem from './routes/Ecosystem.jsx';
 import Home from './routes/Home.jsx';
 import Sync from './routes/Sync.jsx';
@@ -11,6 +12,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/ecosystem" element={<Ecosystem />} />
+          <Route path="/ai" element={<AI />} />
           <Route path="/sync" element={<Sync />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

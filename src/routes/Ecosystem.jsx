@@ -7,7 +7,7 @@ export default function Ecosystem() {
     <NeuralShell
       prompt="~/portfolio/knowledgebase $"
       title="Knowledgebase"
-      subtitle="Concise project map of current portfolio systems and technical direction, sourced from PF_REPO_DETAILS.md."
+      subtitle="Concise project map of current portfolio systems and technical direction."
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 items-start">
         <EcosystemWrapper />

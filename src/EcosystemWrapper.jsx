@@ -118,19 +118,6 @@ function ModuleCard({ module }) {
             </h3>
             <TagBadge tag={module.tag} />
           </div>
-
-          {module.repoUrl ? (
-            <a
-              href={module.repoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[11px] tracking-widest text-gray-400 hover:text-[#00ff41] transition-colors"
-            >
-              {module.repoUrl.replace('https://', '')}
-            </a>
-          ) : (
-            <p className="text-[11px] tracking-widest text-gray-600 select-none">repo: not linked</p>
-          )}
         </div>
       </div>
 
@@ -184,13 +171,6 @@ export default function EcosystemWrapper() {
         {modules.map((module) => (
           <ModuleCard key={module.id} module={module} />
         ))}
-      </div>
-
-      <div className="mt-8 rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
-        <p className="text-[10px] tracking-widest text-gray-500 uppercase">Source of truth</p>
-        <p className="mt-2 text-sm text-gray-300 leading-relaxed">
-          Knowledgebase summaries are sourced from <span className="text-gray-200">PF_REPO_DETAILS.md</span>.
-        </p>
       </div>
     </div>
   );
