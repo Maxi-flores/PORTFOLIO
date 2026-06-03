@@ -79,9 +79,9 @@ export default function Sync() {
     const message = String(formData.get('message') || '');
     const email = String(formData.get('email') || '');
 
-    const subject = `Inquiry from ${name || 'Anonymous'}`;
-    const body = `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`;
-    const mailtoHref = `mailto:maxiflores.wommedia@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+	    const subject = `Inquiry from ${name || 'Anonymous'}`;
+	    const body = `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`;
+	    const mailtoHref = `mailto:studio@wommedia.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoHref;
   }
@@ -166,9 +166,9 @@ export default function Sync() {
             <SocialIconLink href="https://www.behance.net/gallery/212342817/Curriculum-Vitae" label="Behance" newTab>
               <BehanceIcon />
             </SocialIconLink>
-            <SocialIconLink href="mailto:maxiflores.wommedia@gmail.com" label="Email">
-              <EmailIcon />
-            </SocialIconLink>
+	            <SocialIconLink href="mailto:studio@wommedia.nl" label="Email">
+	              <EmailIcon />
+	            </SocialIconLink>
           </div>
         </section>
 
