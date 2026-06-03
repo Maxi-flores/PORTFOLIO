@@ -94,7 +94,7 @@
 
 - Audited Core UX friction: above-the-fold clarity, form/checkout complexity, and information hierarchy.
 - Diagnosed speed bottlenecks and mobile constraints using Lighthouse performance signals.
-- Translated the audit into a consultative pitch: “fix X to unlock Y”, then align the right Google product surface.
+- Translated the audit into a consultative pitch: fix performance + message match, then align the right Google product surface (Search/Display/Shopping).
 
 ---
 

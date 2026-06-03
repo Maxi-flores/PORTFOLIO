@@ -10,11 +10,36 @@
 
 ---
 
-## The literacy unlock (Windows/Cloud Data Fundamentals → Actionable Ops)
+## Core Stack (Certification → Automation)
 
-**Certifications (Formal anchors)**
+**Certifications**
 - Microsoft Azure Fundamentals (AZ-900)
 - Power Platform Functional Consultant (PL-200)
+
+**Cloud Services**
+- Firebase
+- Firestore
+- Firebase Authentication
+- Firebase Cloud Storage
+
+**Google Tracking**
+- Google Tag (gtag.js)
+- Google Analytics 4 (GA4)
+
+**Google Web Tools**
+- Chrome DevTools
+- Google Lighthouse
+- Wappalyzer
+- BuiltWith
+
+**Workflows**
+- Tag auditing
+- Technical readiness scoring
+- First-party data readiness
+
+---
+
+## The literacy unlock (Windows/Cloud Data Fundamentals → Actionable Ops)
 
 **What this changes operationally**
 - Treated “Windows/Cloud Data Fundamentals” as the applied baseline for cloud identity, data movement, and system governance (not a buzzword, a working mental model).
