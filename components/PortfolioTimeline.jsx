@@ -29,23 +29,14 @@ function formatDateRange(dateRange) {
 
 function normalizeCompetencies(value) {
   if (!Array.isArray(value)) return [];
-  return value.filter((id) => typeof id === 'string' && /^COMP-\d+$/.test(id));
-}
-
-function normalizeQuestions(value) {
-  if (!Array.isArray(value)) return [];
-  return value
-    .map((n) => (typeof n === 'number' ? n : Number(n)))
-    .filter((n) => Number.isInteger(n) && n >= 1 && n <= 7);
+  return value.filter((id) => typeof id === 'string' && /^[A-Za-z0-9-]+$/.test(id));
 }
 
 function Pill({ label, title, variant = 'default' }) {
   const variantClass =
     variant === 'competency'
       ? 'ring-cyan-400/30 text-cyan-800 bg-cyan-500/10 dark:text-cyan-200 dark:bg-cyan-300/10 dark:ring-cyan-300/25'
-      : variant === 'question'
-        ? 'ring-fuchsia-400/30 text-fuchsia-800 bg-fuchsia-500/10 dark:text-fuchsia-200 dark:bg-fuchsia-300/10 dark:ring-fuchsia-300/25'
-        : 'ring-slate-300 text-slate-700 bg-slate-100 dark:ring-white/15 dark:text-gray-200 dark:bg-white/5';
+      : 'ring-slate-300 text-slate-700 bg-slate-100 dark:ring-white/15 dark:text-gray-200 dark:bg-white/5';
 
   return (
     <span
@@ -61,11 +52,10 @@ function Pill({ label, title, variant = 'default' }) {
   );
 }
 
-function BadgeRow({ competencies, questions, competencyLookup, questionLookup }) {
+function BadgeRow({ competencies, competencyLookup }) {
   const normalizedCompetencies = normalizeCompetencies(competencies);
-  const normalizedQuestions = normalizeQuestions(questions);
 
-  if (normalizedCompetencies.length === 0 && normalizedQuestions.length === 0) return null;
+  if (normalizedCompetencies.length === 0) return null;
 
   return (
     <div className="mt-3 flex flex-wrap items-center gap-2">
@@ -77,18 +67,6 @@ function BadgeRow({ competencies, questions, competencyLookup, questionLookup })
             key={id}
             variant="competency"
             label={`[${id}]`}
-            title={title}
-          />
-        );
-      })}
-      {normalizedQuestions.map((number) => {
-        const question = questionLookup.get(number);
-        const title = question ? `${question.label}: ${question.theme}` : undefined;
-        return (
-          <Pill
-            key={number}
-            variant="question"
-            label={`[Q-${number}]`}
             title={title}
           />
         );
@@ -132,24 +110,12 @@ export function PortfolioTimeline() {
 
   const competencyLookup = useMemo(() => {
     const map = new Map();
-    const list = state.data?.google_competencies;
+    const list = state.data?.core_competencies;
     if (!Array.isArray(list)) return map;
     for (const item of list) {
       if (!item || typeof item !== 'object') continue;
       if (typeof item.id !== 'string') continue;
       map.set(item.id, item);
-    }
-    return map;
-  }, [state.data]);
-
-  const questionLookup = useMemo(() => {
-    const map = new Map();
-    const list = state.data?.interview_questions;
-    if (!Array.isArray(list)) return map;
-    for (const item of list) {
-      if (!item || typeof item !== 'object') continue;
-      if (typeof item.number !== 'number') continue;
-      map.set(item.number, item);
     }
     return map;
   }, [state.data]);
@@ -167,8 +133,7 @@ export function PortfolioTimeline() {
             Portfolio Periods & Project Metadata
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl">
-            Runtime-fed timeline that maps each period and project to ad ecosystem competencies and interview question
-            coverage.
+            Runtime-fed timeline that maps each period and project to core competency blocks.
           </p>
         </div>
 
@@ -251,10 +216,8 @@ export function PortfolioTimeline() {
                       ) : null}
 
                       <BadgeRow
-                        competencies={period.google_competencies}
-                        questions={period.interview_questions_answered}
+                        competencies={period.core_competencies}
                         competencyLookup={competencyLookup}
-                        questionLookup={questionLookup}
                       />
 
                       {projects.length ? (
@@ -289,10 +252,8 @@ export function PortfolioTimeline() {
                                 </div>
 
                                 <BadgeRow
-                                  competencies={project.google_competencies}
-                                  questions={project.interview_questions_answered}
+                                  competencies={project.core_competencies}
                                   competencyLookup={competencyLookup}
-                                  questionLookup={questionLookup}
                                 />
                               </div>
                             );

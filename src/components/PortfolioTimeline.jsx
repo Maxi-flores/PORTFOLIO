@@ -35,16 +35,18 @@ function formatDateRange(dateRange) {
 
 function toneForCompetency(id) {
   switch (id) {
-    case 'COMP-1':
+    case 'B2B-Lead-Gen':
       return 'ring-emerald-400/40 text-emerald-700 bg-emerald-500/10 dark:ring-[#00ff41]/40 dark:text-[#00ff41] dark:bg-[#00ff41]/10';
-    case 'COMP-2':
+    case 'Cloud-Data':
       return 'ring-cyan-400/35 text-cyan-700 bg-cyan-500/10 dark:ring-cyan-300/30 dark:text-cyan-200 dark:bg-cyan-300/10';
-    case 'COMP-3':
+    case 'Automation':
       return 'ring-fuchsia-400/30 text-fuchsia-700 bg-fuchsia-500/10 dark:ring-fuchsia-300/25 dark:text-fuchsia-200 dark:bg-fuchsia-300/10';
-    case 'COMP-4':
+    case 'Cross-Platform-Ads':
       return 'ring-amber-400/35 text-amber-700 bg-amber-500/10 dark:ring-amber-300/30 dark:text-amber-200 dark:bg-amber-300/10';
-    case 'COMP-5':
+    case 'Localization':
       return 'ring-pink-400/30 text-pink-700 bg-pink-500/10 dark:ring-pink-300/25 dark:text-pink-200 dark:bg-pink-300/10';
+    case 'Systems-Dev':
+      return 'ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5';
     default:
       return 'ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5';
   }
@@ -78,7 +80,7 @@ function Chip({ children, className, title, active, onClick }) {
   );
 }
 
-function ProjectRow({ project, competencyIndex, questionIndex }) {
+function ProjectRow({ project, competencyIndex }) {
   return (
     <div className="rounded-md bg-white/70 dark:bg-black/40 ring-1 ring-slate-200 dark:ring-white/10 px-4 py-3">
       <div className="flex items-start justify-between gap-4">
@@ -96,22 +98,13 @@ function ProjectRow({ project, competencyIndex, questionIndex }) {
       </div>
 
       <div className="mt-3 flex flex-wrap gap-2">
-        {(project?.google_competencies ?? []).map((id) => (
+        {(project?.core_competencies ?? []).map((id) => (
           <Chip
             key={id}
             className={toneForCompetency(id)}
             title={competencyIndex?.get(id)?.definition ?? id}
           >
             {id}
-          </Chip>
-        ))}
-        {(project?.interview_questions_answered ?? []).map((number) => (
-          <Chip
-            key={number}
-            className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
-            title={questionIndex?.get(number)?.theme ?? `Question ${number}`}
-          >
-            Q{number}
           </Chip>
         ))}
       </div>
@@ -124,7 +117,6 @@ export default function PortfolioTimeline() {
   const [loadState, setLoadState] = useState({ status: 'idle', error: null });
   const [openPeriodId, setOpenPeriodId] = useState(null);
   const [competencyFilter, setCompetencyFilter] = useState(null);
-  const [questionFilter, setQuestionFilter] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -149,16 +141,8 @@ export default function PortfolioTimeline() {
 
   const competencyIndex = useMemo(() => {
     const map = new Map();
-    for (const competency of resumeMeta?.google_competencies ?? []) {
+    for (const competency of resumeMeta?.core_competencies ?? []) {
       if (competency?.id) map.set(competency.id, competency);
-    }
-    return map;
-  }, [resumeMeta]);
-
-  const questionIndex = useMemo(() => {
-    const map = new Map();
-    for (const question of resumeMeta?.interview_questions ?? []) {
-      if (Number.isFinite(question?.number)) map.set(question.number, question);
     }
     return map;
   }, [resumeMeta]);
@@ -171,20 +155,17 @@ export default function PortfolioTimeline() {
 
   const filteredPeriods = useMemo(() => {
     return periods.filter((period) => {
-      const competencies = period?.google_competencies ?? [];
-      const questions = period?.interview_questions_answered ?? [];
+      const competencies = period?.core_competencies ?? [];
       if (competencyFilter && !competencies.includes(competencyFilter)) return false;
-      if (questionFilter && !questions.includes(questionFilter)) return false;
       return true;
     });
-  }, [periods, competencyFilter, questionFilter]);
+  }, [periods, competencyFilter]);
 
   function togglePeriod(periodId) {
     setOpenPeriodId((current) => (current === periodId ? null : periodId));
   }
 
-  const allCompetencies = useMemo(() => resumeMeta?.google_competencies ?? [], [resumeMeta]);
-  const allQuestions = useMemo(() => resumeMeta?.interview_questions ?? [], [resumeMeta]);
+  const allCompetencies = useMemo(() => resumeMeta?.core_competencies ?? [], [resumeMeta]);
 
   return (
     <section className="mt-10 rounded-xl bg-white/60 dark:bg-black/40 ring-1 ring-slate-200/80 dark:ring-[#00ff41]/15 px-5 py-5">
@@ -192,11 +173,10 @@ export default function PortfolioTimeline() {
         <div>
           <p className="text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">Interactive timeline</p>
           <h2 className="mt-2 text-sm sm:text-base tracking-widest text-[#00ff41] uppercase">
-            Periods · Competencies · Interview Coverage
+            Periods · Core Competencies
           </h2>
           <p className="mt-2 text-sm text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl">
-            Scan the 3 core periods. Each card shows which Google competencies are active and which interview questions
-            it answers.
+            Scan the core periods. Each card shows which competency blocks are active across periods and projects.
           </p>
         </div>
 
@@ -224,27 +204,6 @@ export default function PortfolioTimeline() {
             ))}
           </div>
 
-          <div className="mt-3 flex flex-wrap gap-2">
-            <Chip
-              active={!questionFilter}
-              onClick={() => setQuestionFilter(null)}
-              className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
-              title="Show all questions"
-            >
-              Q:ALL
-            </Chip>
-            {allQuestions.map((q) => (
-              <Chip
-                key={q.number}
-                active={questionFilter === q.number}
-                onClick={() => setQuestionFilter((current) => (current === q.number ? null : q.number))}
-                className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
-                title={`${q.label}: ${q.theme}`}
-              >
-                Q{q.number}
-              </Chip>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -331,22 +290,13 @@ export default function PortfolioTimeline() {
                       </div>
 
                       <div className="mt-4 flex flex-wrap gap-2">
-                        {(period.google_competencies ?? []).map((id) => (
+                        {(period.core_competencies ?? []).map((id) => (
                           <Chip
                             key={id}
                             className={toneForCompetency(id)}
                             title={competencyIndex.get(id)?.definition ?? id}
                           >
                             {id}
-                          </Chip>
-                        ))}
-                        {(period.interview_questions_answered ?? []).map((number) => (
-                          <Chip
-                            key={number}
-                            className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
-                            title={questionIndex.get(number)?.theme ?? `Question ${number}`}
-                          >
-                            Q{number}
                           </Chip>
                         ))}
                       </div>
@@ -375,7 +325,6 @@ export default function PortfolioTimeline() {
                                     key={project.id ?? project.name}
                                     project={project}
                                     competencyIndex={competencyIndex}
-                                    questionIndex={questionIndex}
                                   />
                                 ))}
                               </div>

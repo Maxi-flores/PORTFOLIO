@@ -4,9 +4,8 @@
 > - **Period ID:** `period-01-current-lisbon`
 > - **Location:** Lisbon, Portugal
 > - **Focus:** Commercial lead qualification and Meta cross-platform insights.
-> - **Copilot Directive:** Use the Meta Ad Library to uncover advertisers who lack a Google Ads presence and turn that gap into a prospecting pipeline.
-> - **Mapped Google Competency:** `COMP-1`, `COMP-4`, `COMP-5`
-> - **Answers Interview Question:** `1`, `2`, `3`
+> - **Copilot Directive:** Use the Meta Ad Library to uncover advertisers who lack SEM/search network coverage and turn that gap into a prospecting pipeline.
+> - **Mapped Core Competencies:** `[B2B-Lead-Gen]`, `[Cross-Platform-Ads]`, `[Automation]`, `[Systems-Dev]`, `[Localization]`
 
 ---
 
@@ -20,9 +19,9 @@
 
 ## Operational Mandate (Lisbon)
 
-- Engineered a repeatable workflow that converts **Meta-side demand signals** into **Google Ads-ready opportunities** without relying on gut-feel.
+- Engineered a repeatable workflow that converts **Meta-side demand signals** into **SEM-ready opportunities** without relying on gut-feel.
 - Triaged landing pages with a data-first rubric (message match, friction, speed, mobile UX) to determine whether Search/Shopping capture can scale.
-- Standardized consultative output: every lead ends with a measurable “next action” (fix, test, or launch) and a recommended Google surface (Search / Shopping / Display).
+- Standardized consultative output: every lead ends with a measurable “next action” (fix, test, or launch) and a recommended channel sequencing (Search / Shopping / Display).
 
 ---
 
@@ -41,9 +40,9 @@
 **Cloud Services**
 - Firebase
 
-**Google Web Tools**
+**Web Tools**
 - Chrome DevTools
-- Google Lighthouse
+- Lighthouse
 
 **Workflows**
 - Lead qualification
@@ -53,18 +52,17 @@
 
 ---
 
-## Meta Ad Library → Google Ads Prospecting Pipeline (Cross-Platform Arbitrage)
+## Meta Ad Library → Search Network Prospecting Pipeline (Cross-Platform Arbitrage)
 
-> **Project:** Meta Ad Library → Google Ads Prospecting Pipeline · `project-meta-library-prospecting`  
+> **Project:** Meta Ad Library → Search Network Prospecting Pipeline · `project-meta-library-prospecting`  
 > **Type:** workflow  
-> **Mapped Google Competency:** `COMP-1`, `COMP-2`, `COMP-4`  
-> **Answers Interview Question:** `1`, `3`, `7`
+> **Mapped Core Competencies:** `[B2B-Lead-Gen]`, `[Cross-Platform-Ads]`, `[Automation]`
 
 ### Why this works (Commercial logic)
 
 - Meta is a high-signal environment for **creative velocity** and **offer positioning** (who is actively spending to generate demand).
-- Google Search/Shopping are high-signal environments for **intent capture** (who is harvesting demand).
-- The highest-value prospect wedge is the gap: advertisers investing in Meta (demand gen) while underinvesting in Google (demand capture).
+- Search and product listing placements are high-signal environments for **intent capture** (who is harvesting demand).
+- The highest-value prospect wedge is the gap: advertisers investing in Meta (demand gen) while underinvesting in search intent capture (demand capture).
 
 ### Step-by-step workflow (How leads are sourced and qualified)
 
@@ -76,12 +74,12 @@
      - New variants → active testing loop
      - Multiple formats → distribution maturity
      - Repeated offers → repeatability and unit-economics confidence
-3. **Cross-reference Google Ads presence (the arbitrage check)**
-   - Run a structured check for “Google capture” signals:
-     - Brand and category queries in Google Search (are there sponsored placements?)
-     - Ads Transparency Center checks where applicable (confirming if they publish ads on Google surfaces)
-     - Landing page tracking footprints (e.g., whether Google tag patterns appear in network requests)
-   - Prioritize accounts with **strong Meta activity + weak/absent Google presence** as high-upside targets.
+3. **Cross-reference SEM/search network coverage (the arbitrage check)**
+   - Run a structured check for intent-capture coverage signals:
+     - Brand and category queries in search engines (are there sponsored placements?)
+     - Ads transparency database checks where applicable (confirming if they publish ads on search/display surfaces)
+     - Landing page tracking footprints (e.g., whether tag patterns appear in network requests)
+   - Prioritize accounts with **strong Meta activity + weak/absent search coverage** as high-upside targets.
 4. **Validate website and tracking readiness**
    - Use Chrome DevTools to inspect network/console behavior, script loads, and obvious measurement gaps.
    - Use Lighthouse to benchmark mobile UX constraints that would cap ROI if Search traffic were scaled.
@@ -93,7 +91,7 @@
 - **Creative velocity:** frequent refresh cadence implies budget appetite and optimization discipline.
 - **Offer clarity:** a crisp value prop + CTA implies scalable acquisition mechanics.
 - **Funnel integrity:** message match, trust cues, and conversion-path simplicity reduce wasted clicks.
-- **Capture gap:** weak/absent Google presence implies untapped high-intent demand.
+- **Capture gap:** weak/absent search coverage implies untapped high-intent demand.
 - **Performance baseline:** speed and mobile UX determine whether traffic scaling will compound or collapse.
 
 ---
@@ -113,14 +111,13 @@
 
 > **Project:** Powerframe (Dashboard & CRM Engine) · `project-powerframe-dashboard`  
 > **Type:** product  
-> **Mapped Google Competency:** `COMP-1`, `COMP-3`, `COMP-4`  
-> **Answers Interview Question:** `1`, `3`, `6`
+> **Mapped Core Competencies:** `[Systems-Dev]`, `[Automation]`, `[Cloud-Data]`, `[B2B-Lead-Gen]`
 
 ### What Powerframe operationalizes (From signal → pipeline)
 
 - Ran Powerframe as an operational control center: one surface to store evidence, enforce qualification structure, and keep pipeline decisions consistent.
 - Turned prospecting into a data workflow:
-  - **Inputs:** Meta signals, Google presence checks, website audit outputs
+  - **Inputs:** Meta signals, search coverage checks, website audit outputs
   - **Process:** scoring + stage transitions + next actions
   - **Outputs:** prioritized pipeline with measurable follow-ups
 
@@ -143,13 +140,13 @@ Example Firestore shape (conceptual):
 {
   "leads/{leadId}": {
     "source": "meta_ad_library",
-    "company": { "name": "…", "domain": "…" },
-    "signals": {
-      "meta": { "creativeVelocity": "high", "offerClarity": "clear" },
-      "google": { "adsPresenceDetected": false },
-      "site": { "mobileUXRisk": "medium", "trackingGaps": ["…"] }
-    },
-    "pipeline": { "stage": "qualified", "nextAction": "…" },
+	    "company": { "name": "…", "domain": "…" },
+	    "signals": {
+	      "meta": { "creativeVelocity": "high", "offerClarity": "clear" },
+	      "search_network": { "adsPresenceDetected": false },
+	      "site": { "mobileUXRisk": "medium", "trackingGaps": ["…"] }
+	    },
+	    "pipeline": { "stage": "qualified", "nextAction": "…" },
     "ownerUid": "…",
     "timestamps": { "createdAt": "…", "updatedAt": "…" }
   }
@@ -176,44 +173,21 @@ Example Firestore shape (conceptual):
 
 > **Project:** PowerStarter (Portfolio Hub) · `project-powerstarter-portfolio`  
 > **Type:** product  
-> **Mapped Google Competency:** `COMP-3`, `COMP-4`, `COMP-1`  
-> **Answers Interview Question:** `1`, `3`, `6`
+> **Mapped Core Competencies:** `[Systems-Dev]`, `[Automation]`, `[Cross-Platform-Ads]`
 
 - Built a React-based, documentation-first portfolio hub that communicates systems thinking and prospecting methodology with clarity.
 - Reinforced Firebase-aligned thinking (identity, governed data surfaces, traceability) so the portfolio reads like an operational asset.
 
 ---
 
-## Google Interview Questions (1–3) — Explicit Answers
+## Project Technical Metrics & Architecture Sign-off
 
-### Q1 · Lead sourcing — Where to find leads and how to qualify them
+**Diagnostics**
+- Evidence gates: Meta demand signals → search coverage checks → landing page readiness → next-action output.
+- Readiness rubric: message match, friction, mobile UX, and measurement foundations validated before scaling spend.
+- Pipeline discipline: stage transitions require captured signals + an explicit next step (fix / test / launch).
 
-- Source leads in Meta Ad Library by identifying advertisers with active spend signals: ongoing creatives, iterative variants, and clear offer/CTA language.
-- Qualify with a structured three-part gate:
-  - **Meta demand signals:** creative velocity + offer consistency → indicates commercial urgency.
-  - **Google capture gap:** cross-check whether they run Google Ads; if absent, treat it as uncaptured high-intent demand.
-  - **Website readiness:** validate that the landing page can convert traffic (DevTools + Lighthouse + friction audit).
-
-### Q2 · Advertiser types — Which business types are high-value advertisers
-
-- Prioritize businesses with repeatable offers and measurable conversion paths (can sustain acquisition scaling).
-- Favor verticals that benefit from intent capture and clear differentiation:
-  - Startups and SaaS-style offers (clear ICP + fast iteration)
-  - App/game developers (high LTV, strong experimentation culture)
-  - Freelancers and consultancies (lead-gen funnels with clear CTAs)
-  - E-commerce and catalog-like offers (Shopping-style mechanics, offer clarity)
-
-### Q3 · Google interest factors — Signals that indicate readiness for Google Ads
-
-- Treat “Google-ready” as an evidence-backed composite:
-  - **Demand capture fit:** the offer maps to high-intent queries; brand/category searches show opportunity.
-  - **Funnel integrity:** message match, trust cues, and a low-friction conversion path exist.
-  - **Technical readiness:** acceptable mobile UX/performance; basic measurement foundations are detectable via Chrome tooling.
-- When readiness is incomplete, pitch the *sequence*: fix tracking/performance first, then activate Search/Shopping to capture demand efficiently.
-
----
-
-> **Google Interview Alignment Wrap-up**
-> - **Mapped Competencies:** [COMP-1] Lead Identification & Prospecting · [COMP-4] Consultative & Commercial Mindset · [COMP-5] Cultural & Linguistic Agility
-> - **Interview Questions Covered:** Q1 (Lead sourcing) · Q2 (Advertiser types) · Q3 (Google interest factors)
-> - **Evidence Anchors:** `period-01-current-lisbon` · `project-meta-library-prospecting` · `project-powerframe-dashboard` · `project-powerstarter-portfolio`
+**Architecture sign-off**
+- Data shape: lead records store structured signals, evidence, and owner accountability (no ad-hoc notes as a system of record).
+- Access control: authenticated roles for creating/editing leads and moving stages.
+- Automation hooks: connector-friendly fields for scoring, staleness detection, and follow-up scheduling.

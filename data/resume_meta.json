@@ -7,83 +7,51 @@
     "source_documents": [
       {
         "path": "architecture.md",
-        "purpose": "Defines the 3 core periods plus Google competency and interview question alignment."
+        "purpose": "Defines the core periods plus competency mapping and project diagnostics."
       },
       {
         "path": "PF_REPO_DETAILS.md",
-        "purpose": "Defines WOMmedia ecosystem brands and the Google Web Tools / Firebase alignment narrative."
+        "purpose": "Defines WOMmedia ecosystem brands and the technical narrative framing."
       }
     ],
     "portfolio": {
       "repository": "Maxi-flores/PORTFOLIO",
       "site_url": "https://wai.powerframe.online",
       "deployment_url": "https://powerframe.online",
-      "target_role": "B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta/Google Ads Ecosystem)"
+      "target_role": "B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta + Intent-Based Search Networks)"
     },
     "last_updated_utc": "2026-06-03"
   },
-  "google_competencies": [
+  "core_competencies": [
     {
-      "id": "COMP-1",
-      "title": "Lead Identification & Prospecting",
-      "definition": "Sourcing high-value advertisers using digital signals."
+      "id": "B2B-Lead-Gen",
+      "title": "B2B Lead Generation",
+      "definition": "Signal-based lead discovery, qualification, and pipeline execution."
     },
     {
-      "id": "COMP-2",
-      "title": "Market Analysis & Trend Forecasting",
-      "definition": "Identifying growth industries and regional shift signals."
+      "id": "Cloud-Data",
+      "title": "Cloud & Data",
+      "definition": "Data modeling, analytics foundations, and cloud-native ops for measurement-ready systems."
     },
     {
-      "id": "COMP-3",
-      "title": "Technical Literacy & Data Quality",
-      "definition": "Leveraging cloud, data fundamentals, and ad infrastructure."
+      "id": "Automation",
+      "title": "Automation",
+      "definition": "Repeatable diagnostics, connector logic, and workflow automation."
     },
     {
-      "id": "COMP-4",
-      "title": "Consultative & Commercial Mindset",
-      "definition": "Translating business goals into advertising solutions (Search, Display, Shopping, YouTube, App)."
+      "id": "Cross-Platform-Ads",
+      "title": "Cross-Platform Ads",
+      "definition": "Performance marketing systems across paid media surfaces with structured experimentation."
     },
     {
-      "id": "COMP-5",
-      "title": "Cultural & Linguistic Agility",
-      "definition": "Native fluency in Dutch/Spanish, navigating NL, ES, and PT markets."
-    }
-  ],
-  "interview_questions": [
-    {
-      "number": 1,
-      "label": "Lead sourcing",
-      "theme": "Where to find leads and how to qualify them."
+      "id": "Localization",
+      "title": "Localization",
+      "definition": "Cross-market messaging, language precision, and localized UX heuristics."
     },
     {
-      "number": 2,
-      "label": "Advertiser types",
-      "theme": "Which business types and verticals are high-value advertisers."
-    },
-    {
-      "number": 3,
-      "label": "Google interest factors",
-      "theme": "Signals that indicate readiness for Google Ads products."
-    },
-    {
-      "number": 4,
-      "label": "Identifying trends",
-      "theme": "How to spot growth trends and prioritize industries."
-    },
-    {
-      "number": 5,
-      "label": "Market trends",
-      "theme": "Cross-market vertical insights (NL/ES/PT) and how they shift."
-    },
-    {
-      "number": 6,
-      "label": "Data vs content",
-      "theme": "Data quality, tracking fundamentals, and the difference between content and measurable signals."
-    },
-    {
-      "number": 7,
-      "label": "Vertical strategy",
-      "theme": "Which verticals scale with Google Ads and how to frame value (Search/Display/Shopping)."
+      "id": "Systems-Dev",
+      "title": "Systems Development",
+      "definition": "Product engineering mindset: architecture, tooling, and maintainable delivery."
     }
   ],
   "periods": [
@@ -100,27 +68,25 @@
         "country": "Portugal"
       },
       "focus": "Commercial lead qualification and Meta cross-platform insights.",
-      "copilot_directive": "Highlight how the Meta Ad Library can uncover competitors who lack a Google Ads presence, creating an untapped pipeline for prospecting.",
-      "google_competencies": ["COMP-1", "COMP-4", "COMP-5"],
-      "interview_questions_answered": [1, 2, 3],
+      "copilot_directive": "Highlight how the Meta Ad Library can uncover competitors who lack intent-capture coverage on search networks, creating an untapped pipeline for prospecting.",
+      "core_competencies": ["B2B-Lead-Gen", "Cross-Platform-Ads", "Automation", "Systems-Dev", "Localization"],
       "tech_stack": {
         "ads_platforms": ["Meta Ads Manager", "Meta Ad Library"],
         "web_stack": ["React", "React Router", "Vite", "Tailwind CSS"],
         "cloud_services": ["Firebase"],
-        "google_web_tools": ["Chrome DevTools", "Google Lighthouse"],
+        "web_tools": ["Chrome DevTools", "Lighthouse"],
         "workflows": ["Lead qualification", "Competitor signal analysis", "Landing page auditing"]
       },
       "projects": [
         {
           "id": "project-meta-library-prospecting",
-          "name": "Meta Ad Library → Google Ads Prospecting Pipeline",
+          "name": "Meta Ad Library → Search Network Prospecting Pipeline",
           "type": "workflow",
-          "summary": "A repeatable workflow to source advertisers via Meta signals (creative velocity, offer positioning) and prioritize those likely to benefit from Google Search/Shopping capture.",
-          "google_competencies": ["COMP-1", "COMP-2", "COMP-4"],
-          "interview_questions_answered": [1, 3, 7],
+          "summary": "A repeatable workflow to source advertisers via Meta signals (creative velocity, offer positioning) and prioritize those likely to benefit from intent-capture surfaces (search + product listing placements).",
+          "core_competencies": ["B2B-Lead-Gen", "Cross-Platform-Ads", "Automation"],
           "tech_stack": {
             "ads_platforms": ["Meta Ad Library", "Meta Ads Manager"],
-            "google_web_tools": ["Chrome DevTools", "Google Lighthouse"],
+            "web_tools": ["Chrome DevTools", "Lighthouse"],
             "workflows": ["Digital signal scoring", "Prospect research", "Qualification notes"]
           }
         },
@@ -128,9 +94,8 @@
           "id": "project-powerstarter-portfolio",
           "name": "PowerStarter (Portfolio Hub)",
           "type": "product",
-          "summary": "React-based multi-page portfolio surface used as the customer-facing hub for showcasing systems, patterns, and prospecting narratives.",
-          "google_competencies": ["COMP-3", "COMP-4", "COMP-1"],
-          "interview_questions_answered": [1, 3, 6],
+          "summary": "React-based multi-page portfolio surface used as the customer-facing hub for showcasing systems, patterns, and delivery narratives.",
+          "core_competencies": ["Systems-Dev", "Automation", "Cross-Platform-Ads"],
           "tech_stack": {
             "web_stack": ["React", "React Router", "Vite", "Tailwind CSS"],
             "cloud_services": ["Firebase"],
@@ -141,12 +106,11 @@
           "id": "project-powerframe-dashboard",
           "name": "Powerframe (Dashboard & CRM Engine)",
           "type": "product",
-          "summary": "Operational control center concept for managing client relations, tracking databases, and prospect qualification state.",
-          "google_competencies": ["COMP-1", "COMP-3", "COMP-4"],
-          "interview_questions_answered": [1, 3, 6],
+          "summary": "Operational control center concept for managing client relations, measurement readiness, and lead qualification state.",
+          "core_competencies": ["Systems-Dev", "Automation", "Cloud-Data", "B2B-Lead-Gen"],
           "tech_stack": {
             "cloud_services": ["Firebase", "Firestore", "Firebase Authentication", "Firebase Cloud Storage"],
-            "google_web_tools": ["Chrome DevTools", "Google Lighthouse"],
+            "web_tools": ["Chrome DevTools", "Lighthouse"],
             "workflows": ["CRM pipelines", "Data quality checks", "Connector-oriented automation"]
           }
         }
@@ -165,27 +129,25 @@
         "country": "Portugal"
       },
       "focus": "Technical aptitude, data structures, and automation logic with tracking infrastructure context.",
-      "copilot_directive": "Connect Windows/Cloud Data Fundamentals to modern tracking infrastructure (Google Tag, server-side, first-party data readiness).",
-      "google_competencies": ["COMP-3", "COMP-2", "COMP-1"],
-      "interview_questions_answered": [4, 6],
+      "copilot_directive": "Connect Windows/Cloud Data Fundamentals to modern tracking infrastructure (tagging, server-side patterns, first-party data readiness).",
+      "core_competencies": ["Cloud-Data", "Automation", "Systems-Dev"],
       "tech_stack": {
         "cloud_services": ["Firebase", "Firestore", "Firebase Authentication", "Firebase Cloud Storage"],
-        "google_tracking": ["Google Tag (gtag.js)", "Google Analytics 4 (GA4)"],
-        "google_web_tools": ["Chrome DevTools", "Google Lighthouse", "Wappalyzer", "BuiltWith"],
+        "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
+        "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
         "certifications": ["Microsoft Azure Fundamentals (AZ-900)", "Power Platform Functional Consultant (PL-200)"],
         "workflows": ["Tag auditing", "Technical readiness scoring", "First-party data readiness"]
       },
       "projects": [
         {
-          "id": "project-web-auditing-google-tag",
-          "name": "Google Tag + GA4 Technical Readiness Audits",
+          "id": "project-web-auditing-tag-ga4",
+          "name": "Tag + GA4 Technical Readiness Audits",
           "type": "workflow",
-          "summary": "Website audit workflow to detect tracking presence and performance signals (tagging, speed, mobile readiness) before pitching Google Ads solutions.",
-          "google_competencies": ["COMP-1", "COMP-3", "COMP-2"],
-          "interview_questions_answered": [1, 3, 4, 6],
+          "summary": "Website audit workflow to detect tracking presence and performance signals (tagging, speed, mobile readiness) before pitching performance marketing infrastructure.",
+          "core_competencies": ["Cloud-Data", "Automation", "Systems-Dev", "B2B-Lead-Gen"],
           "tech_stack": {
-            "google_tracking": ["Google Tag (gtag.js)", "Google Analytics 4 (GA4)"],
-            "google_web_tools": ["Chrome DevTools", "Google Lighthouse", "Wappalyzer", "BuiltWith"],
+            "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
+            "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
             "workflows": ["Page speed and UX diagnostics", "Tracking gap detection", "Prospect qualification notes"]
           }
         },
@@ -194,8 +156,7 @@
           "name": "Firebase Backend Backbone (Auth + Firestore + Storage)",
           "type": "architecture",
           "summary": "Backend reference architecture used across PowerApps and startup concepts for authentication, real-time data, and secure storage.",
-          "google_competencies": ["COMP-3", "COMP-1"],
-          "interview_questions_answered": [3, 6],
+          "core_competencies": ["Systems-Dev", "Cloud-Data", "Automation"],
           "tech_stack": {
             "cloud_services": ["Firebase", "Firestore", "Firebase Authentication", "Firebase Cloud Storage"],
             "workflows": ["First-party data modeling", "Secure access patterns"]
@@ -216,9 +177,8 @@
         "country": "Spain"
       },
       "focus": "Structural precision, visual networks, and cross-cultural communication; parallel between architecture and digital funnels.",
-      "copilot_directive": "Draw a parallel between structural engineering (foundations, hierarchy) and building digital funnels, UI/UX optimization, and visual targeting via Google Display.",
-      "google_competencies": ["COMP-5", "COMP-4", "COMP-2"],
-      "interview_questions_answered": [5, 7],
+      "copilot_directive": "Draw a parallel between structural engineering (foundations, hierarchy) and building digital funnels, UI/UX optimization, and display acquisition systems.",
+      "core_competencies": ["Localization", "Cross-Platform-Ads", "Systems-Dev"],
       "tech_stack": {
         "domains": ["Architecture foundations", "3D visualization", "BIM workflows", "Point clouds"],
         "tools": ["Tekla", "BIM tooling"],
@@ -230,8 +190,7 @@
           "name": "Mucho3D (ES Market) — 3D Consultation & Visualization",
           "type": "brand",
           "summary": "Spanish market identity for B2B 3D consultation, real estate visualization, and digital construction-oriented visual storytelling.",
-          "google_competencies": ["COMP-5", "COMP-4", "COMP-2"],
-          "interview_questions_answered": [5, 7],
+          "core_competencies": ["Localization", "B2B-Lead-Gen", "Cross-Platform-Ads"],
           "tech_stack": {
             "domains": ["3D visualization", "Real estate", "Digital construction"],
             "workflows": ["Visual hierarchy and landing page quality heuristics", "Cross-market positioning"]
@@ -242,8 +201,7 @@
           "name": "Flink3D (NL Market) — 3D Consultation & Visualization",
           "type": "brand",
           "summary": "Dutch market identity for B2B 3D consultation and visualization, emphasizing localized communication and market fluency.",
-          "google_competencies": ["COMP-5", "COMP-4", "COMP-2"],
-          "interview_questions_answered": [5, 7],
+          "core_competencies": ["Localization", "B2B-Lead-Gen", "Cross-Platform-Ads"],
           "tech_stack": {
             "domains": ["3D visualization", "Real estate", "Digital construction"],
             "workflows": ["Cross-border messaging", "Visual targeting considerations for Display"]
@@ -259,8 +217,7 @@
       "type": "umbrella",
       "summary": "Parent business umbrella engineered to deliver development, scalable solutions, and specialized consultancy for high-value verticals.",
       "target_verticals": ["Startups", "Game Developers", "App Developers", "Freelancers", "AI Consultancy Experts"],
-      "google_competencies": ["COMP-2", "COMP-4", "COMP-1"],
-      "interview_questions_answered": [2, 7],
+      "core_competencies": ["B2B-Lead-Gen", "Cross-Platform-Ads", "Automation", "Systems-Dev"],
       "tech_stack": {
         "web_stack": ["React", "Vite", "Tailwind CSS"],
         "cloud_services": ["Firebase"],
@@ -272,11 +229,10 @@
         "id": "brand-powerframe",
         "name": "Powerframe",
         "role_in_ecosystem": "Dashboard & CRM layer",
-        "google_competencies": ["COMP-1", "COMP-3", "COMP-4"],
-        "interview_questions_answered": [1, 3, 6],
+        "core_competencies": ["Systems-Dev", "Automation", "Cloud-Data", "B2B-Lead-Gen"],
         "tech_stack": {
           "cloud_services": ["Firebase", "Firestore", "Firebase Authentication", "Firebase Cloud Storage"],
-          "google_web_tools": ["Chrome DevTools", "Google Lighthouse"],
+          "web_tools": ["Chrome DevTools", "Lighthouse"],
           "workflows": ["CRM pipelines", "Data flow governance", "Connector-oriented automation"]
         }
       },
@@ -284,8 +240,7 @@
         "id": "brand-powerstarter",
         "name": "PowerStarter",
         "role_in_ecosystem": "Customer-facing hub and integration interface",
-        "google_competencies": ["COMP-3", "COMP-4", "COMP-1"],
-        "interview_questions_answered": [1, 3, 6],
+        "core_competencies": ["Systems-Dev", "Automation", "Cross-Platform-Ads"],
         "tech_stack": {
           "web_stack": ["React", "React Router", "Vite", "Tailwind CSS"],
           "cloud_services": ["Firebase"],
@@ -296,8 +251,7 @@
         "id": "brand-mucho3d",
         "name": "Mucho3D",
         "role_in_ecosystem": "Spanish market 3D consultancy identity",
-        "google_competencies": ["COMP-5", "COMP-4", "COMP-2"],
-        "interview_questions_answered": [5, 7],
+        "core_competencies": ["Localization", "B2B-Lead-Gen", "Cross-Platform-Ads"],
         "tech_stack": {
           "domains": ["3D visualization", "Digital construction", "Real estate"],
           "workflows": ["Localized B2B messaging", "Visual hierarchy discipline"]
@@ -307,8 +261,7 @@
         "id": "brand-flink3d",
         "name": "Flink3D",
         "role_in_ecosystem": "Dutch market 3D consultancy identity",
-        "google_competencies": ["COMP-5", "COMP-4", "COMP-2"],
-        "interview_questions_answered": [5, 7],
+        "core_competencies": ["Localization", "B2B-Lead-Gen", "Cross-Platform-Ads"],
         "tech_stack": {
           "domains": ["3D visualization", "Digital construction", "Real estate"],
           "workflows": ["Cross-border positioning", "Display-ready creative thinking"]
@@ -318,8 +271,7 @@
         "id": "brand-conceptshop",
         "name": "ConceptSHOP",
         "role_in_ecosystem": "Webshop + investment platform concept (multi-tenant)",
-        "google_competencies": ["COMP-4", "COMP-1", "COMP-3"],
-        "interview_questions_answered": [2, 7, 6],
+        "core_competencies": ["Systems-Dev", "Automation", "Cross-Platform-Ads", "Cloud-Data"],
         "tech_stack": {
           "cloud_services": ["Firebase", "Firestore"],
           "workflows": ["Inventory and listing logic", "Merchant-style routing concepts", "Conversion tracking readiness"]
@@ -329,34 +281,31 @@
         "id": "brand-dealinstinct",
         "name": "DealInstinct",
         "role_in_ecosystem": "Commerce/deal routing startup framework concept",
-        "google_competencies": ["COMP-4", "COMP-1", "COMP-2"],
-        "interview_questions_answered": [2, 7, 4],
+        "core_competencies": ["Systems-Dev", "Automation", "Cross-Platform-Ads"],
         "tech_stack": {
           "workflows": ["Deal discovery routing", "Offer-to-query matching", "Shopping-style feed thinking"],
-          "google_tracking": ["Google Analytics 4 (GA4)"]
+          "tracking_tools": ["Analytics 4 (GA4)"]
         }
       },
       {
         "id": "brand-bikerinstinct",
         "name": "BikerInstinct",
         "role_in_ecosystem": "Cycling niche commerce concept",
-        "google_competencies": ["COMP-2", "COMP-4", "COMP-1"],
-        "interview_questions_answered": [2, 7, 4],
+        "core_competencies": ["Systems-Dev", "Automation", "Cross-Platform-Ads"],
         "tech_stack": {
           "workflows": ["Niche vertical segmentation", "Product-first landing page framing"],
-          "google_tracking": ["Google Analytics 4 (GA4)"]
+          "tracking_tools": ["Analytics 4 (GA4)"]
         }
       }
     ],
-    "google_web_tools_and_scraping_logic": {
-      "id": "capability-google-web-tools",
-      "name": "Google Web Tools, Extensions & Scraping Logic",
-      "summary": "Auditing workflows that check websites for Google Tag and GA4 presence, plus performance and stack signals, to qualify leads before pitching Google Ads solutions.",
-      "google_competencies": ["COMP-1", "COMP-3", "COMP-2"],
-      "interview_questions_answered": [1, 3, 4, 6],
+    "web_tools_and_scraping_logic": {
+      "id": "capability-web-tools",
+      "name": "Web Tools, Extensions & Scraping Logic",
+      "summary": "Auditing workflows that check websites for tagging and GA4 presence, plus performance and stack signals, to qualify leads before pitching performance marketing infrastructure.",
+      "core_competencies": ["Automation", "Cloud-Data", "B2B-Lead-Gen"],
       "tech_stack": {
-        "google_tracking": ["Google Tag (gtag.js)", "Google Analytics 4 (GA4)"],
-        "google_web_tools": ["Chrome DevTools", "Google Lighthouse", "Wappalyzer", "BuiltWith"],
+        "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
+        "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
         "workflows": ["Tracking gap audits", "Mobile readiness checks", "Prospect technical scoring"]
       }
     }

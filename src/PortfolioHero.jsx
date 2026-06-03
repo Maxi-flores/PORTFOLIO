@@ -149,13 +149,13 @@ export default function PortfolioHero() {
           >
             <LinkedInIcon />
           </a>
-          <a
-            href="mailto:m.flores@girasoul.nl"
-            aria-label="Email"
-            className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
-          >
-            <EmailIcon />
-          </a>
+	          <a
+	            href="mailto:studio@wommedia.nl"
+	            aria-label="Email"
+	            className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
+	          >
+	            <EmailIcon />
+	          </a>
           <a
             href="https://www.behance.net/gallery/212342817/Curriculum-Vitae"
             target="_blank"

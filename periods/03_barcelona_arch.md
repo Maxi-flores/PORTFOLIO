@@ -3,10 +3,9 @@
 > **Period Metadata**
 > - **Period ID:** `period-03-barcelona-architecture`
 > - **Location:** Barcelona, Spain
-> - **Focus:** Structural precision, spatial hierarchy, and cross-cultural communication; translated into landing page optimization and Google Display Network funnel design.
-> - **Copilot Directive:** Build a strict analogy between structural architecture (foundations, hierarchy, load paths) and engineering high-converting landing pages + Google Display Network (GDN) funnels.
-> - **Mapped Google Competency:** `COMP-5`, `COMP-4`, `COMP-2`
-> - **Answers Interview Question:** `5`, `7`
+> - **Focus:** Structural precision, spatial hierarchy, and cross-cultural communication; translated into landing page optimization and display funnel design.
+> - **Copilot Directive:** Build a strict analogy between structural architecture (foundations, hierarchy, load paths) and engineering high-converting landing pages + display funnel systems.
+> - **Mapped Core Competencies:** `[Localization]`, `[Cross-Platform-Ads]`, `[Systems-Dev]`
 
 ---
 
@@ -53,15 +52,14 @@
 
 > **Project:** Mucho3D (ES Market) — 3D Consultation & Visualization · `project-mucho3d`  
 > **Type:** brand  
-> **Mapped Google Competency:** `COMP-5`, `COMP-4`, `COMP-2`  
-> **Answers Interview Question:** `5`, `7`
+> **Mapped Core Competencies:** `[Localization]`, `[B2B-Lead-Gen]`, `[Cross-Platform-Ads]`
 
 - Operated Mucho3D as an empirical “Spain-market lab” for how visual proof and tone affect conversion behavior in real estate / digital construction.
 - Learned what makes Spanish-market B2B pages convert in practice:
   - **Trust is visual-first:** renders, before/after context, and process clarity reduce perceived risk.
   - **Tone matters:** warmer framing and clear guidance improve comprehension for non-technical buyers.
   - **Fast contact pathways:** direct contact options (simple forms / clear phone/WhatsApp-style pathways where appropriate) reduce friction.
-- Mapped these learnings into Google Ads surface design:
+- Mapped these learnings into SEM + display surface design:
   - Display creative acts as the **first promise**; the landing page must fulfill it immediately (message match).
   - “Proof density” is a conversion lever: above-the-fold credibility cues prevent bounce from cold Display traffic.
 
@@ -71,8 +69,7 @@
 
 > **Project:** Flink3D (NL Market) — 3D Consultation & Visualization · `project-flink3d`  
 > **Type:** brand  
-> **Mapped Google Competency:** `COMP-5`, `COMP-4`, `COMP-2`  
-> **Answers Interview Question:** `5`, `7`
+> **Mapped Core Competencies:** `[Localization]`, `[B2B-Lead-Gen]`, `[Cross-Platform-Ads]`
 
 - Operated Flink3D as the Dutch-market counterpart: same service DNA, different conversion expectations and decision posture.
 - Used native Dutch fluency to capture “what sounds credible” in NL without translation loss:
@@ -83,9 +80,9 @@
 
 ---
 
-## Structural Design → Google Display Network Funnels (GDN)
+## Structural Design → Display Network Funnels
 
-- Designed GDN funnels like a building sequence (plan → structure → envelope → inspection):
+- Designed display funnels like a building sequence (plan → structure → envelope → inspection):
   - **Brief & program** → define the job-to-be-done and the single conversion action (call / quote / meeting).
   - **Structure** → align creative hierarchy with the landing page hierarchy (no narrative gaps).
   - **Envelope** → ensure message match survives placements (responsive Display formats still communicate the same promise).
@@ -101,29 +98,14 @@
 
 ---
 
-## Google Interview Questions (5 & 7) — Explicit Answers
+## Project Technical Metrics & Architecture Sign-off
 
-### Q5 · Market trends — Cross-market vertical insights (NL/ES/PT) and how they shift
+**Diagnostics**
+- Conversion architecture rubric: foundation (offer + proof) → hierarchy (above-the-fold order) → path (friction control) → inspection (measurable outcomes).
+- Localization checks: tone, proof artifacts, and contact friction adjusted per market (NL precision vs ES guided clarity).
+- Display funnel integrity: creative hierarchy aligns with landing hierarchy to preserve message match across placements.
 
-- Used native bilingual fluency (Dutch/Spanish) to operate and sell in both markets without losing nuance in value framing, objections, and credibility cues.
-- Built an empirical understanding of localized conversion behavior by running two market identities:
-  - **Spain (Mucho3D):** higher reliance on visual storytelling + guided clarity to accelerate trust for non-technical stakeholders.
-  - **Netherlands (Flink3D):** higher reliance on precision, scope clarity, and “no fluff” proof to reduce perceived risk.
-- Observed a consistent cross-market vertical pattern (real estate / construction): visual proof is non-negotiable, but *the proof format and the tone* must localize to convert.
-
-### Q7 · Vertical strategy — Which verticals scale with Google Ads and how to frame value
-
-- Used Mucho3D/Flink3D as “field evidence” that certain verticals scale because they naturally fit Google surfaces:
-  - **Real estate / digital construction:** location + intent capture (Search) plus credibility repetition (Display/remarketing).
-  - **3D/visual services:** Display is effective when creative communicates proof fast and the landing page converts cold traffic with high proof density.
-- Framed value by Google surface, like selecting the right structural system for the load:
-  - **Search:** capture explicit intent (queries reveal readiness; landers must be structurally clear).
-  - **Display (GDN):** prime trust visually and re-engage (creative-to-landing message match prevents “envelope leaks”).
-  - **Remarketing:** sequence proof over time (case visuals, process clarity, scope specifics) until the decision threshold is reached.
-
----
-
-> **Google Interview Alignment Wrap-up**
-> - **Mapped Competencies:** [COMP-5] Cultural & Linguistic Agility · [COMP-4] Consultative & Commercial Mindset · [COMP-2] Market Analysis & Trend Forecasting
-> - **Interview Questions Covered:** Q5 (Market trends) · Q7 (Vertical strategy)
-> - **Evidence Anchors:** `period-03-barcelona-architecture` · `project-mucho3d` · `project-flink3d`
+**Architecture sign-off**
+- Documentation discipline: scoped deliverables and constraints captured as specs (reduces interpretation drift).
+- Reusable heuristics: repeatable landing page QA patterns applied across brands and markets.
+- Cross-market delivery: consistent systems thinking across Mucho3D and Flink3D while adapting language and proof density.
