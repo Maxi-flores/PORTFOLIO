@@ -36,17 +36,17 @@ function formatDateRange(dateRange) {
 function toneForCompetency(id) {
   switch (id) {
     case 'COMP-1':
-      return 'ring-[#00ff41]/40 text-[#00ff41] bg-[#00ff41]/10';
+      return 'ring-emerald-400/40 text-emerald-700 bg-emerald-500/10 dark:ring-[#00ff41]/40 dark:text-[#00ff41] dark:bg-[#00ff41]/10';
     case 'COMP-2':
-      return 'ring-cyan-300/30 text-cyan-200 bg-cyan-300/10';
+      return 'ring-cyan-400/35 text-cyan-700 bg-cyan-500/10 dark:ring-cyan-300/30 dark:text-cyan-200 dark:bg-cyan-300/10';
     case 'COMP-3':
-      return 'ring-fuchsia-300/25 text-fuchsia-200 bg-fuchsia-300/10';
+      return 'ring-fuchsia-400/30 text-fuchsia-700 bg-fuchsia-500/10 dark:ring-fuchsia-300/25 dark:text-fuchsia-200 dark:bg-fuchsia-300/10';
     case 'COMP-4':
-      return 'ring-amber-300/30 text-amber-200 bg-amber-300/10';
+      return 'ring-amber-400/35 text-amber-700 bg-amber-500/10 dark:ring-amber-300/30 dark:text-amber-200 dark:bg-amber-300/10';
     case 'COMP-5':
-      return 'ring-pink-300/25 text-pink-200 bg-pink-300/10';
+      return 'ring-pink-400/30 text-pink-700 bg-pink-500/10 dark:ring-pink-300/25 dark:text-pink-200 dark:bg-pink-300/10';
     default:
-      return 'ring-gray-500/25 text-gray-300 bg-white/5';
+      return 'ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5';
   }
 }
 
@@ -54,9 +54,9 @@ function Chip({ children, className, title, active, onClick }) {
   const base =
     'inline-flex items-center rounded px-2 py-0.5 text-[10px] tracking-widest uppercase ring-1 transition-colors';
   const interactive = onClick
-    ? 'cursor-pointer hover:ring-white/25 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff41]/40'
+    ? 'cursor-pointer hover:ring-slate-300 hover:bg-slate-100 dark:hover:ring-white/25 dark:hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500/40 dark:focus-visible:ring-[#00ff41]/40'
     : '';
-  const emphasis = active ? 'ring-2 ring-white/30' : '';
+  const emphasis = active ? 'ring-2 ring-slate-400/40 dark:ring-white/30' : '';
 
   if (onClick) {
     return (
@@ -80,14 +80,16 @@ function Chip({ children, className, title, active, onClick }) {
 
 function ProjectRow({ project, competencyIndex, questionIndex }) {
   return (
-    <div className="rounded-md bg-black/40 ring-1 ring-white/10 px-4 py-3">
+    <div className="rounded-md bg-white/70 dark:bg-black/40 ring-1 ring-slate-200 dark:ring-white/10 px-4 py-3">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <p className="text-xs tracking-widest text-gray-200">{project?.name}</p>
-          {project?.summary ? <p className="mt-1 text-sm text-gray-400 leading-relaxed">{project.summary}</p> : null}
+          <p className="text-xs tracking-widest text-slate-900 dark:text-gray-200">{project?.name}</p>
+          {project?.summary ? (
+            <p className="mt-1 text-sm text-slate-600 dark:text-gray-400 leading-relaxed">{project.summary}</p>
+          ) : null}
         </div>
         {project?.type ? (
-          <span className="shrink-0 rounded border border-gray-700 bg-black/60 px-2 py-0.5 text-[10px] tracking-widest text-gray-400 uppercase">
+          <span className="shrink-0 rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] tracking-widest text-slate-600 uppercase dark:border-gray-700 dark:bg-black/60 dark:text-gray-400">
             {project.type}
           </span>
         ) : null}
@@ -106,7 +108,7 @@ function ProjectRow({ project, competencyIndex, questionIndex }) {
         {(project?.interview_questions_answered ?? []).map((number) => (
           <Chip
             key={number}
-            className="ring-gray-500/25 text-gray-300 bg-white/5"
+            className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
             title={questionIndex?.get(number)?.theme ?? `Question ${number}`}
           >
             Q{number}
@@ -185,26 +187,26 @@ export default function PortfolioTimeline() {
   const allQuestions = useMemo(() => resumeMeta?.interview_questions ?? [], [resumeMeta]);
 
   return (
-    <section className="mt-10 rounded-xl bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-5">
+    <section className="mt-10 rounded-xl bg-white/60 dark:bg-black/40 ring-1 ring-slate-200/80 dark:ring-[#00ff41]/15 px-5 py-5">
       <div className="flex items-start justify-between gap-6 flex-wrap">
         <div>
-          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Interactive timeline</p>
+          <p className="text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">Interactive timeline</p>
           <h2 className="mt-2 text-sm sm:text-base tracking-widest text-[#00ff41] uppercase">
             Periods · Competencies · Interview Coverage
           </h2>
-          <p className="mt-2 text-sm text-gray-400 leading-relaxed max-w-2xl">
+          <p className="mt-2 text-sm text-slate-600 dark:text-gray-400 leading-relaxed max-w-2xl">
             Scan the 3 core periods. Each card shows which Google competencies are active and which interview questions
             it answers.
           </p>
         </div>
 
         <div className="min-w-[260px]">
-          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Filters</p>
+          <p className="text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">Filters</p>
           <div className="mt-2 flex flex-wrap gap-2">
             <Chip
               active={!competencyFilter}
               onClick={() => setCompetencyFilter(null)}
-              className="ring-gray-500/25 text-gray-300 bg-white/5"
+              className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
               title="Show all competencies"
             >
               ALL
@@ -226,7 +228,7 @@ export default function PortfolioTimeline() {
             <Chip
               active={!questionFilter}
               onClick={() => setQuestionFilter(null)}
-              className="ring-gray-500/25 text-gray-300 bg-white/5"
+              className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
               title="Show all questions"
             >
               Q:ALL
@@ -236,7 +238,7 @@ export default function PortfolioTimeline() {
                 key={q.number}
                 active={questionFilter === q.number}
                 onClick={() => setQuestionFilter((current) => (current === q.number ? null : q.number))}
-                className="ring-gray-500/25 text-gray-300 bg-white/5"
+                className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
                 title={`${q.label}: ${q.theme}`}
               >
                 Q{q.number}
@@ -247,8 +249,8 @@ export default function PortfolioTimeline() {
       </div>
 
       {loadState.status === 'loading' ? (
-        <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-white/10 px-4 py-3">
-          <p className="text-sm text-gray-300 tracking-widest">Loading timeline…</p>
+        <div className="mt-6 rounded-lg bg-white/70 dark:bg-black/50 ring-1 ring-slate-200 dark:ring-white/10 px-4 py-3">
+          <p className="text-sm text-slate-700 dark:text-gray-300 tracking-widest">Loading timeline…</p>
         </div>
       ) : null}
 
@@ -272,45 +274,57 @@ export default function PortfolioTimeline() {
 
                 return (
                   <div key={period.id} className="relative">
-                    <div className="absolute left-2 top-0 bottom-0 w-px bg-[#00ff41]/15" />
+                    <div className="absolute left-2 top-0 bottom-0 w-px bg-[#00ff41]/15 dark:bg-[#00ff41]/15" />
                     <button
                       type="button"
                       onClick={() => togglePeriod(period.id)}
                       className={[
-                        'w-full text-left rounded-xl bg-black/50 ring-1 px-5 py-4 transition-colors',
-                        isOpen ? 'ring-[#00ff41]/35' : 'ring-white/10 hover:ring-white/20',
+                        'w-full text-left rounded-xl bg-white/70 dark:bg-black/50 ring-1 px-5 py-4 transition-colors',
+                        isOpen
+                          ? 'ring-[#00ff41]/35'
+                          : 'ring-slate-200 hover:ring-slate-300 dark:ring-white/10 dark:hover:ring-white/20',
                       ].join(' ')}
                     >
                       <div className="absolute left-0 top-6 -translate-x-1/2">
                         <div
                           className={[
                             'w-4 h-4 rounded-full ring-2',
-                            isOpen ? 'bg-[#00ff41] ring-[#00ff41]/30' : 'bg-black ring-[#00ff41]/25',
+                            isOpen
+                              ? 'bg-[#00ff41] ring-[#00ff41]/30'
+                              : 'bg-white dark:bg-black ring-[#00ff41]/25',
                           ].join(' ')}
                         />
                       </div>
 
                       <div className="flex items-start justify-between gap-4 flex-wrap">
                         <div className="min-w-0">
-                          <p className="text-[10px] tracking-widest text-gray-500 uppercase">
+                          <p className="text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">
                             {index + 1}. {range || 'Timeline period'}
                           </p>
-                          <h3 className="mt-1 text-sm sm:text-base tracking-wide text-gray-100">{period.title}</h3>
-                          {location ? <p className="mt-1 text-xs text-gray-400">{location}</p> : null}
-                          {period.focus ? <p className="mt-2 text-sm text-gray-400 leading-relaxed">{period.focus}</p> : null}
+                          <h3 className="mt-1 text-sm sm:text-base tracking-wide text-slate-900 dark:text-gray-100">
+                            {period.title}
+                          </h3>
+                          {location ? (
+                            <p className="mt-1 text-xs text-slate-600 dark:text-gray-400">{location}</p>
+                          ) : null}
+                          {period.focus ? (
+                            <p className="mt-2 text-sm text-slate-600 dark:text-gray-400 leading-relaxed">
+                              {period.focus}
+                            </p>
+                          ) : null}
                         </div>
 
                         <div className="shrink-0 text-right">
-                          <span className="inline-flex items-center gap-2 text-[10px] tracking-widest text-gray-500 uppercase">
+                          <span className="inline-flex items-center gap-2 text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">
                             <span
                               className={[
                                 'inline-block w-2 h-2 rounded-full',
-                                isOpen ? 'bg-[#00ff41]' : 'bg-gray-600',
+                                isOpen ? 'bg-[#00ff41]' : 'bg-slate-400 dark:bg-gray-600',
                               ].join(' ')}
                             />
                             {isOpen ? 'Expanded' : 'Collapsed'}
                           </span>
-                          <p className="mt-2 text-[10px] tracking-widest text-gray-600 uppercase select-none">
+                          <p className="mt-2 text-[10px] tracking-widest text-slate-500 dark:text-gray-600 uppercase select-none">
                             {period.projects?.length ? `${period.projects.length} projects` : 'No projects'}
                           </p>
                         </div>
@@ -329,7 +343,7 @@ export default function PortfolioTimeline() {
                         {(period.interview_questions_answered ?? []).map((number) => (
                           <Chip
                             key={number}
-                            className="ring-gray-500/25 text-gray-300 bg-white/5"
+                            className="ring-slate-300 text-slate-700 bg-slate-100 dark:ring-gray-500/25 dark:text-gray-300 dark:bg-white/5"
                             title={questionIndex.get(number)?.theme ?? `Question ${number}`}
                           >
                             Q{number}
@@ -340,15 +354,21 @@ export default function PortfolioTimeline() {
                       {isOpen ? (
                         <div className="mt-5 space-y-4">
                           {period.copilot_directive ? (
-                            <div className="rounded-lg bg-black/40 ring-1 ring-[#00ff41]/10 px-4 py-3">
-                              <p className="text-[10px] tracking-widest text-gray-500 uppercase">Directive</p>
-                              <p className="mt-2 text-sm text-gray-300 leading-relaxed">{period.copilot_directive}</p>
+                            <div className="rounded-lg bg-white/70 dark:bg-black/40 ring-1 ring-[#00ff41]/10 px-4 py-3">
+                              <p className="text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">
+                                Directive
+                              </p>
+                              <p className="mt-2 text-sm text-slate-700 dark:text-gray-300 leading-relaxed">
+                                {period.copilot_directive}
+                              </p>
                             </div>
                           ) : null}
 
                           {period.projects?.length ? (
                             <div>
-                              <p className="text-[10px] tracking-widest text-gray-500 uppercase">Projects</p>
+                              <p className="text-[10px] tracking-widest text-slate-500 dark:text-gray-500 uppercase">
+                                Projects
+                              </p>
                               <div className="mt-2 grid grid-cols-1 gap-3">
                                 {period.projects.map((project) => (
                                   <ProjectRow
@@ -369,8 +389,8 @@ export default function PortfolioTimeline() {
               })}
             </div>
           ) : (
-            <div className="rounded-lg bg-black/50 ring-1 ring-white/10 px-4 py-3">
-              <p className="text-sm text-gray-300">No periods match the active filters.</p>
+            <div className="rounded-lg bg-white/70 dark:bg-black/50 ring-1 ring-slate-200 dark:ring-white/10 px-4 py-3">
+              <p className="text-sm text-slate-700 dark:text-gray-300">No periods match the active filters.</p>
             </div>
           )}
         </div>
@@ -378,4 +398,3 @@ export default function PortfolioTimeline() {
     </section>
   );
 }
-
