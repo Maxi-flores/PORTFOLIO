@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import PortfolioTimeline from './components/PortfolioTimeline.jsx';
+import { PortfolioTimeline } from '../components/PortfolioTimeline';
 import NeuralShell from './layout/NeuralShell.jsx';
 
 // ── Icons ──────────────────────────────────────────────────────────────────
