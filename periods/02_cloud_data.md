@@ -64,7 +64,7 @@ This literacy is what turns an audit into a consultative pitch: instrumentation 
 
 ## Tag + GA4 Technical Readiness Audits (Tracking + Performance Signals)
 
-> **Project:** Tag + GA4 Technical Readiness Audits · `project-web-auditing-google-tag`  
+> **Project:** Tag + GA4 Technical Readiness Audits · `project-web-auditing-tag-ga4`  
 > **Type:** workflow  
 > **Mapped Core Competencies:** `[Cloud-Data]`, `[Automation]`, `[Systems-Dev]`, `[B2B-Lead-Gen]`
 

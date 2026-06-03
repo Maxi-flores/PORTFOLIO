@@ -4,10 +4,10 @@
 
 Current Portfolio Template Version: 1.0.0 
 Source: package.json ("version")
-Target Profile: B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta/Google Ads Ecosystem)
+Target Profile: B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta + Intent-Based Search Networks)
 Deployment URL: https://powerframe.online
 
-This file is the source reference for future auto-build theme options, mapping frontend components directly to Google Competencies [COMP-1 tot COMP-5] as defined in architecture.md.
+This file is the source reference for future auto-build theme options, mapping frontend components directly to core competency blocks as defined in architecture.md.
 
 === Whole Application governance plan to perfection:
 
@@ -19,7 +19,7 @@ Portfolio Template Core Purpose:
 Governance:
 *   Update this file whenever the portfolio template version changes.
 *   Keep version references aligned with package.json.
-*   Verify that any theme adjustment or structural change maintains the 100% alignment with the 7 Google Interview questions.
+*   Verify that any theme adjustment or structural change maintains alignment with the core competency blocks and diagnostic framing.
 
 Priority:
 CRITICAL

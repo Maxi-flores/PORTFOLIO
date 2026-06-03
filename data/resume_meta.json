@@ -140,7 +140,7 @@
       },
       "projects": [
         {
-          "id": "project-web-auditing-google-tag",
+          "id": "project-web-auditing-tag-ga4",
           "name": "Tag + GA4 Technical Readiness Audits",
           "type": "workflow",
           "summary": "Website audit workflow to detect tracking presence and performance signals (tagging, speed, mobile readiness) before pitching performance marketing infrastructure.",
