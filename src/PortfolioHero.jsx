@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import PortfolioTimeline from './components/PortfolioTimeline.jsx';
 import NeuralShell from './layout/NeuralShell.jsx';
 
 // ── Icons ──────────────────────────────────────────────────────────────────
@@ -126,12 +127,15 @@ export default function PortfolioHero() {
             >
               <TerminalIcon />
               <span>Open GitHub</span>
-            </a>
-          </div>
-        <footer className="mt-10 flex items-center gap-6">
-          <a
-            href="https://github.com/Maxi-flores"
-            target="_blank"
+	            </a>
+	          </div>
+
+        <PortfolioTimeline />
+
+	        <footer className="mt-10 flex items-center gap-6">
+	          <a
+	            href="https://github.com/Maxi-flores"
+	            target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
             className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
