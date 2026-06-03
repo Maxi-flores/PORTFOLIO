@@ -97,7 +97,7 @@ function BadgeRow({ competencies, questions, competencyLookup, questionLookup })
   );
 }
 
-export default function PortfolioTimeline() {
+export function PortfolioTimeline() {
   const [state, setState] = useState({ status: 'loading', data: null, error: null });
 
   useEffect(() => {
@@ -311,3 +311,4 @@ export default function PortfolioTimeline() {
   );
 }
 
+export default PortfolioTimeline;
