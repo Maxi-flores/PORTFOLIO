@@ -18,7 +18,7 @@
       "repository": "Maxi-flores/PORTFOLIO",
       "site_url": "https://wai.powerframe.online",
       "deployment_url": "https://powerframe.online",
-      "target_role": "B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta + Intent-Based Search Networks)"
+      "target_role": "Performance Marketing Systems · B2B Lead Generation Infrastructure · Automated Client Sourcing"
     },
     "last_updated_utc": "2026-06-03"
   },
@@ -40,8 +40,8 @@
     },
     {
       "id": "Cross-Platform-Ads",
-      "title": "Cross-Platform Ads",
-      "definition": "Performance marketing systems across paid media surfaces with structured experimentation."
+      "title": "Performance Marketing Systems",
+      "definition": "Performance marketing systems across acquisition surfaces with structured experimentation."
     },
     {
       "id": "Localization",
@@ -57,7 +57,7 @@
   "periods": [
     {
       "id": "period-01-current-lisbon",
-      "title": "Customer Support & Ads Specialist (Lisbon)",
+      "title": "Customer Support & Performance Marketing Systems (Lisbon)",
       "date_range": {
         "start": "2025-08",
         "end": "present",
@@ -67,8 +67,8 @@
         "city": "Lisbon",
         "country": "Portugal"
       },
-      "focus": "Commercial lead qualification and Meta cross-platform insights.",
-      "copilot_directive": "Highlight how the Meta Ad Library can uncover competitors who lack intent-capture coverage on search networks, creating an untapped pipeline for prospecting.",
+      "focus": "Commercial lead qualification and performance marketing systems diagnostics.",
+      "copilot_directive": "Highlight how competitive signal analysis reveals gaps in B2B lead generation infrastructure, enabling automated client sourcing for under-served accounts.",
       "core_competencies": ["B2B-Lead-Gen", "Cross-Platform-Ads", "Automation", "Systems-Dev", "Localization"],
       "tech_stack": {
         "ads_platforms": ["Meta Ads Manager", "Meta Ad Library"],
@@ -79,15 +79,15 @@
       },
       "projects": [
         {
-          "id": "project-meta-library-prospecting",
-          "name": "Meta Ad Library → Search Network Prospecting Pipeline",
+          "id": "project-automated-client-sourcing",
+          "name": "Competitive Signals → Automated Client Sourcing Pipeline",
           "type": "workflow",
-          "summary": "A repeatable workflow to source advertisers via Meta signals (creative velocity, offer positioning) and prioritize those likely to benefit from intent-capture surfaces (search + product listing placements).",
+          "summary": "A repeatable workflow to translate competitive signals (creative velocity, offer positioning) into automated client sourcing, prioritizing accounts that benefit from intent-capture infrastructure.",
           "core_competencies": ["B2B-Lead-Gen", "Cross-Platform-Ads", "Automation"],
           "tech_stack": {
             "ads_platforms": ["Meta Ad Library", "Meta Ads Manager"],
             "web_tools": ["Chrome DevTools", "Lighthouse"],
-            "workflows": ["Digital signal scoring", "Prospect research", "Qualification notes"]
+            "workflows": ["Digital signal scoring", "Client sourcing research", "Qualification notes"]
           }
         },
         {
@@ -148,7 +148,7 @@
           "tech_stack": {
             "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
             "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
-            "workflows": ["Page speed and UX diagnostics", "Tracking gap detection", "Prospect qualification notes"]
+            "workflows": ["Page speed and UX diagnostics", "Tracking gap detection", "Client qualification notes"]
           }
         },
         {
@@ -221,7 +221,7 @@
       "tech_stack": {
         "web_stack": ["React", "Vite", "Tailwind CSS"],
         "cloud_services": ["Firebase"],
-        "workflows": ["B2B discovery calls", "Vertical prioritization", "Prospect qualification"]
+        "workflows": ["B2B discovery calls", "Vertical prioritization", "Client qualification"]
       }
     },
     "brands": [
@@ -306,7 +306,7 @@
       "tech_stack": {
         "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
         "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
-        "workflows": ["Tracking gap audits", "Mobile readiness checks", "Prospect technical scoring"]
+        "workflows": ["Tracking gap audits", "Mobile readiness checks", "Client technical scoring"]
       }
     }
   }
