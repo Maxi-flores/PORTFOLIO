@@ -4,7 +4,7 @@
 
 Current Portfolio Template Version: 1.0.0 
 Source: package.json ("version")
-Target Profile: Dutch Speaking Lead Prospector - Google Ads (Spain)
+Target Profile: B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta/Google Ads Ecosystem)
 Deployment URL: https://powerframe.online
 
 This file is the source reference for future auto-build theme options, mapping frontend components directly to Google Competencies [COMP-1 tot COMP-5] as defined in architecture.md.

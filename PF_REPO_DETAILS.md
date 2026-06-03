@@ -1,10 +1,10 @@
-# WOMmedia Monorepo Ecosystem & Google Ads Competency Mapping
+# WOMmedia Monorepo Ecosystem & Ad Ecosystem Competency Mapping
 
 ## === Core Business Architecture: WOMmedia
 
 **WOMmedia** is our parent business name and core operational umbrella. It is engineered to deliver development, scalable solutions, and specialized consultancy for high-value target verticals:
 *   **Target Verticals:** Startups, Game Developers, App Developers, Freelancers, and AI Consultancy Experts.
-*   *Google Alignment:* Directly addresses **Interview Question 2 & 7 (Advertiser Types and Verticals)**. This framework proves deep insider knowledge of high-growth, high-ad-spend industries that scale massively using Google Ads Products.
+*   *Ad Ecosystem Alignment:* Directly addresses **Interview Question 2 & 7 (Advertiser Types and Verticals)**. This framework proves deep knowledge of high-growth, high-ad-spend industries that scale using modern ad platforms.
 
 ---
 
@@ -26,7 +26,7 @@
 *   **Powerframe Dashboard & CRM:** Customized application engine acting as an operational control center. Integrates with internal tracking databases to manage client relations and data flows.
 *   **PowerStarter:** React + TypeScript multi-page application platform used as our main customer-facing hub and integration interface.
 *   *Core Function:* These act as our **Custom PowerApps** designed to build quick, seamless integrations, connectors, and automation tools across all types of external apps and client businesses.
-*   *Google Alignment:* Directly mirrors the role of a Lead Prospector: identifying a business's infrastructure bottlenecks and delivering tech-driven solutions to optimize their commercial funnel ([COMP-1] / [COMP-3]).
+*   *Ad Ecosystem Alignment:* Mirrors B2B lead qualification workflows: identifying infrastructure bottlenecks and delivering tech-driven solutions that improve tracking and conversion readiness ([COMP-1] / [COMP-3]).
 
 ---
 
@@ -54,7 +54,7 @@ Our custom PowerApps and frontend hubs leverage the core Google Developer and Cl
 ├── PF_REPO_DETAILS.md      # This active ecosystem configuration file
 └── components/             # PowerApp modular UI elements (Tailwind / React)
 ```
-*(Note: Sapient KB has been deprecated from the active repository list. It is currently being repositioned into an autonomous manager layer for future PowerApp integration).*
+*(Note: The Knowledgebase module is being repositioned into a System Automation Layer for future cross-platform integration work.)*
 
 ---
 

@@ -1,8 +1,8 @@
-# Portfolio Architecture: Google Ads Recruitment Alignment
+# Portfolio Architecture: Ad Ecosystem & Systems Alignment
 
 ## 1. Executive Summary & Goal
-This repository (wai.powerframe.online) serves as an interactive, data-driven portfolio designed to secure the role of **Dutch Speaking Lead Prospector - Google Ads Products** at Google (Spain relocation from Portugal). 
-The architecture bridges the candidate's diverse background (Architecture, Meta Ads, Cloud Data, Bilingual Customer Support) directly into the core competencies required by Google Recruitment.
+This repository (wai.powerframe.online) serves as an interactive, data-driven portfolio designed to showcase **B2B Lead Generation & Cross-Platform Ad Arbitrage (Meta/Google Ads Ecosystem)** alongside systems development (cloud + automation). 
+The architecture bridges a diverse background (Architecture, Meta Ads, Cloud Data, Bilingual Customer Support) into repeatable competencies that support lead qualification, technical audits, and scalable delivery.
 
 ---
 
