@@ -1,4 +1,4 @@
-# August 2025 – Present · Customer Support & Ads Specialist (Lisbon) — WOMmedia
+# August 2025 – Present · Customer Support & Ads Specialist (Lisbon) — WOMmedia / Powerframe
 
 > **Period Metadata**
 > - **Period ID:** `period-01-current-lisbon`
@@ -10,11 +10,19 @@
 
 ---
 
+## Role Context (Support + Ads Operations)
+
+- Ran a customer-facing support motion with a commercial lens: **diagnose**, **de-risk**, and **convert** ambiguous conversations into decision-ready next steps.
+- Operated as the “signal translator” between what customers *say* (objections, constraints, urgency) and what the data *shows* (offer clarity, funnel friction, technical readiness).
+- Built repeatable qualification mechanics that prioritize outcomes over opinions: evidence, scoring, and clear actions per prospect.
+
+---
+
 ## Operational Mandate (Lisbon)
 
-- Engineered a repeatable prospect qualification workflow that converts **Meta-side commercial signals** into **Google Ads-ready opportunities**.
-- Audited landing pages with a **data-first rubric** (UX clarity, speed, funnel friction) to determine whether Search/Shopping capture can scale.
-- Leveraged WOMmedia’s consultative lens to translate raw signals into **actionable next steps** (what to fix, what to launch, what to prioritize).
+- Engineered a repeatable workflow that converts **Meta-side demand signals** into **Google Ads-ready opportunities** without relying on gut-feel.
+- Triaged landing pages with a data-first rubric (message match, friction, speed, mobile UX) to determine whether Search/Shopping capture can scale.
+- Standardized consultative output: every lead ends with a measurable “next action” (fix, test, or launch) and a recommended Google surface (Search / Shopping / Display).
 
 ---
 
@@ -41,32 +49,7 @@
 - Lead qualification
 - Competitor signal analysis
 - Landing page auditing
-
----
-
-## Powerframe (Dashboard & CRM Engine) — Tactical Deployment on Firebase
-
-> **Project:** Powerframe (Dashboard & CRM Engine) · `project-powerframe-dashboard`  
-> **Type:** product  
-> **Mapped Google Competency:** `COMP-1`, `COMP-3`, `COMP-4`  
-> **Answers Interview Question:** `1`, `3`, `6`
-
-### Why Powerframe exists (Operational Control Center)
-
-- Operated Powerframe as a **custom PowerApp-style control surface**: fast iteration, connector-oriented automation, and decision-ready dashboards.
-- Centralized prospect and client relationship state into a **single operational surface** so qualification decisions stay consistent.
-- Standardized “what good looks like” by enforcing structured notes for: offer positioning, funnel readiness, and technical gaps.
-
-### Firebase backbone (Auth + Firestore + Storage)
-
-- Leveraged **Firebase Authentication** to enforce controlled access patterns across internal workflows.
-- Used **Firestore** as the real-time data backbone for pipeline state and qualification artifacts.
-- Used **Firebase Cloud Storage** as a secure attachment layer for supporting evidence (screenshots, audit exports, and reference assets).
-
-### CRM pipeline discipline (From signal → decision)
-
-- Segmented prospects into decision-oriented states (research → audit → qualified → next action) to reduce “open loops”.
-- Converted observations into structured outputs: “what to fix first”, “what to test”, and “what product fit to pitch” (Search/Display/Shopping).
+- Support-to-sales handoff discipline
 
 ---
 
@@ -77,24 +60,115 @@
 > **Mapped Google Competency:** `COMP-1`, `COMP-2`, `COMP-4`  
 > **Answers Interview Question:** `1`, `3`, `7`
 
-### The pipeline (Repeatable, not random)
+### Why this works (Commercial logic)
 
-- Parsed **Meta-side activity signals** (creative velocity and offer positioning) to infer commercial urgency.
-- Cross-checked for **missing Google Ads presence** to identify advertisers likely leaving high-intent demand uncaptured.
-- Captured evidence and decisions as **qualification notes** to keep the loop auditable and scalable.
+- Meta is a high-signal environment for **creative velocity** and **offer positioning** (who is actively spending to generate demand).
+- Google Search/Shopping are high-signal environments for **intent capture** (who is harvesting demand).
+- The highest-value prospect wedge is the gap: advertisers investing in Meta (demand gen) while underinvesting in Google (demand capture).
 
-### Signal scoring rubric (What gets prioritized)
+### Step-by-step workflow (How leads are sourced and qualified)
 
-- **Creative velocity:** frequent creative refresh implies an active optimization loop and budget appetite.
-- **Offer clarity:** clear proposition and pricing/CTA suggest readiness to scale.
-- **Funnel integrity:** landing-page structure supports intent capture (message match, next-step clarity).
-- **Performance readiness:** speed and mobile UX pass a baseline quality bar (Lighthouse + DevTools).
+1. **Identify active advertisers on Meta**
+   - Use Meta Ad Library to find advertisers with consistent creative volume, fresh variants, and clear CTAs.
+   - Extract stable identifiers: advertiser name, landing page domain(s), offer hooks, and geo/language targeting context.
+2. **Score Meta-side commercial urgency**
+   - Treat creative patterns as operational signals:
+     - New variants → active testing loop
+     - Multiple formats → distribution maturity
+     - Repeated offers → repeatability and unit-economics confidence
+3. **Cross-reference Google Ads presence (the arbitrage check)**
+   - Run a structured check for “Google capture” signals:
+     - Brand and category queries in Google Search (are there sponsored placements?)
+     - Ads Transparency Center checks where applicable (confirming if they publish ads on Google surfaces)
+     - Landing page tracking footprints (e.g., whether Google tag patterns appear in network requests)
+   - Prioritize accounts with **strong Meta activity + weak/absent Google presence** as high-upside targets.
+4. **Validate website and tracking readiness**
+   - Use Chrome DevTools to inspect network/console behavior, script loads, and obvious measurement gaps.
+   - Use Lighthouse to benchmark mobile UX constraints that would cap ROI if Search traffic were scaled.
+5. **Create a consultative “next action” package**
+   - Output a 1-page summary per lead: evidence, risks, and the recommended Ads surface sequencing (what to launch first and why).
 
-### Landing page quality evaluation (DevTools + Lighthouse)
+### Signal scoring rubric (Inputs → decision)
 
-- Audited Core UX friction: above-the-fold clarity, form/checkout complexity, and information hierarchy.
-- Diagnosed speed bottlenecks and mobile constraints using Lighthouse performance signals.
-- Translated the audit into a consultative pitch: fix performance + message match, then align the right Google product surface (Search/Display/Shopping).
+- **Creative velocity:** frequent refresh cadence implies budget appetite and optimization discipline.
+- **Offer clarity:** a crisp value prop + CTA implies scalable acquisition mechanics.
+- **Funnel integrity:** message match, trust cues, and conversion-path simplicity reduce wasted clicks.
+- **Capture gap:** weak/absent Google presence implies untapped high-intent demand.
+- **Performance baseline:** speed and mobile UX determine whether traffic scaling will compound or collapse.
+
+---
+
+## Website Readiness Audits (Chrome DevTools + Lighthouse)
+
+- Audited “conversion friction” like an engineer: isolate bottlenecks, quantify impact proxies (speed/UX), then prescribe fixes in order-of-operations.
+- Validated whether a site can *sustain* paid traffic:
+  - Above-the-fold clarity and intent alignment
+  - Form/checkout complexity and trust barriers
+  - Mobile layout stability and performance budget issues
+- Translated technical findings into commercial language: “what breaks ROI”, “what unlocks scale”, and “what to ship first”.
+
+---
+
+## Powerframe (Dashboard & CRM Engine) — Firebase-Backed Lead Operations
+
+> **Project:** Powerframe (Dashboard & CRM Engine) · `project-powerframe-dashboard`  
+> **Type:** product  
+> **Mapped Google Competency:** `COMP-1`, `COMP-3`, `COMP-4`  
+> **Answers Interview Question:** `1`, `3`, `6`
+
+### What Powerframe operationalizes (From signal → pipeline)
+
+- Ran Powerframe as an operational control center: one surface to store evidence, enforce qualification structure, and keep pipeline decisions consistent.
+- Turned prospecting into a data workflow:
+  - **Inputs:** Meta signals, Google presence checks, website audit outputs
+  - **Process:** scoring + stage transitions + next actions
+  - **Outputs:** prioritized pipeline with measurable follow-ups
+
+### Firebase Auth integration (Governed access, faster execution)
+
+- Used **Firebase Authentication** to enforce identity and access control so pipeline data remains accurate and auditable across internal workflows.
+- Structured roles around operational needs (e.g., who can create/edit leads, who can move stages, who can export evidence).
+
+### Firestore integration (Lead status + deal pipelines as real-time data)
+
+- Used **Firestore** as the canonical CRM state store: leads, deals, stage history, and qualification artifacts.
+- Modeled pipeline state as first-class data (not spreadsheet notes), enabling:
+  - real-time status views (pipeline / kanban)
+  - stage conversion visibility (where leads stall)
+  - “staleness” detection (who needs a next action)
+
+Example Firestore shape (conceptual):
+
+```json
+{
+  "leads/{leadId}": {
+    "source": "meta_ad_library",
+    "company": { "name": "…", "domain": "…" },
+    "signals": {
+      "meta": { "creativeVelocity": "high", "offerClarity": "clear" },
+      "google": { "adsPresenceDetected": false },
+      "site": { "mobileUXRisk": "medium", "trackingGaps": ["…"] }
+    },
+    "pipeline": { "stage": "qualified", "nextAction": "…" },
+    "ownerUid": "…",
+    "timestamps": { "createdAt": "…", "updatedAt": "…" }
+  }
+}
+```
+
+### Pipeline discipline (Commercial rigor)
+
+- Standardized stage movement with evidence gates (a lead moves only when signals are captured and a next action is defined).
+- Captured structured activities (touchpoints, objections, next steps) so the pipeline remains measurable and coaching-ready.
+- Used the CRM as a feedback loop: patterns from wins/losses refine the scoring rubric and improve future lead quality.
+
+---
+
+## Support-to-Commercial Loop (Customer Support that feeds prospecting quality)
+
+- Captured recurring objections and constraints as “voice of customer” inputs for better qualification and pitch framing.
+- Reduced ambiguity in conversations by converting support inputs into a structured discovery checklist (problem → impact → urgency → constraints).
+- Elevated the consultative motion: prioritize the right product surface (Search / Shopping / Display) based on the customer’s reality, not a generic script.
 
 ---
 
@@ -105,8 +179,8 @@
 > **Mapped Google Competency:** `COMP-3`, `COMP-4`, `COMP-1`  
 > **Answers Interview Question:** `1`, `3`, `6`
 
-- Leveraged a React-based, documentation-first workflow to present systems, patterns, and prospecting narratives with clarity.
-- Used Firebase-aligned thinking (identity, data surfaces, governance) to keep the portfolio structured like a real operational asset.
+- Built a React-based, documentation-first portfolio hub that communicates systems thinking and prospecting methodology with clarity.
+- Reinforced Firebase-aligned thinking (identity, governed data surfaces, traceability) so the portfolio reads like an operational asset.
 
 ---
 
@@ -114,25 +188,28 @@
 
 ### Q1 · Lead sourcing — Where to find leads and how to qualify them
 
-- Source leads from **Meta Ad Library** by filtering advertisers with active creative output and coherent offers.
-- Convert discovery into qualification with a two-part check:
-  - **Commercial signal strength:** creative velocity + offer positioning.
-  - **Cross-platform arbitrage check:** validate whether the advertiser has an active Google Ads presence; if not, treat it as uncaptured demand.
-  - **Website readiness:** landing page quality and funnel clarity (DevTools + Lighthouse).
+- Source leads in Meta Ad Library by identifying advertisers with active spend signals: ongoing creatives, iterative variants, and clear offer/CTA language.
+- Qualify with a structured three-part gate:
+  - **Meta demand signals:** creative velocity + offer consistency → indicates commercial urgency.
+  - **Google capture gap:** cross-check whether they run Google Ads; if absent, treat it as uncaptured high-intent demand.
+  - **Website readiness:** validate that the landing page can convert traffic (DevTools + Lighthouse + friction audit).
 
 ### Q2 · Advertiser types — Which business types are high-value advertisers
 
-- Prioritize advertisers that exhibit:
-  - Repeatable offers and clear CTAs (scalable acquisition mechanics).
-  - A product surface that can benefit from intent capture (Search) and/or visual demand generation (Display).
-- Map prospects into WOMmedia’s high-value vertical frames (startups, app/game developers, freelancers, AI consultancy) while staying market-aware across PT/ES/NL contexts.
+- Prioritize businesses with repeatable offers and measurable conversion paths (can sustain acquisition scaling).
+- Favor verticals that benefit from intent capture and clear differentiation:
+  - Startups and SaaS-style offers (clear ICP + fast iteration)
+  - App/game developers (high LTV, strong experimentation culture)
+  - Freelancers and consultancies (lead-gen funnels with clear CTAs)
+  - E-commerce and catalog-like offers (Shopping-style mechanics, offer clarity)
 
 ### Q3 · Google interest factors — Signals that indicate readiness for Google Ads
 
-- Treat “Google-ready” as a composite of signals:
-  - **Demand capture fit:** clear queries exist for the offer; landing page matches intent.
-  - **Funnel integrity:** message match, credible proof, and a friction-minimized conversion path.
-  - **Technical literacy:** performance and analytics readiness are visible via Chrome tooling audits.
+- Treat “Google-ready” as an evidence-backed composite:
+  - **Demand capture fit:** the offer maps to high-intent queries; brand/category searches show opportunity.
+  - **Funnel integrity:** message match, trust cues, and a low-friction conversion path exist.
+  - **Technical readiness:** acceptable mobile UX/performance; basic measurement foundations are detectable via Chrome tooling.
+- When readiness is incomplete, pitch the *sequence*: fix tracking/performance first, then activate Search/Shopping to capture demand efficiently.
 
 ---
 
