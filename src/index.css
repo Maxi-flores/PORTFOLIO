@@ -15,6 +15,21 @@
   50%       { opacity: 0; }
 }
 
+@keyframes reveal-in {
+  0% { opacity: 0; transform: translateY(10px); filter: blur(2px); }
+  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes terminal-progress {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(260%); }
+}
+
+@keyframes terminal-pulse {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
 .blink {
   animation: blink 1s step-start infinite;
 }
@@ -75,4 +90,55 @@
 body {
   margin: 0;
   background-color: #020804;
+}
+
+.route-loader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.route-loader--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.terminal-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 9999px;
+  background: rgba(0, 255, 65, 0.9);
+  animation: terminal-pulse 0.9s infinite;
+}
+
+.terminal-bar {
+  background: linear-gradient(90deg, rgba(0, 255, 65, 0), rgba(0, 255, 65, 0.7), rgba(0, 255, 65, 0));
+  animation: terminal-progress 0.9s linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(2px);
+}
+
+.reveal--in {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  animation: reveal-in 560ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .terminal-dot,
+  .terminal-bar,
+  .reveal--in {
+    animation: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
 }

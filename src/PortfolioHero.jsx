@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PortfolioTimeline from './components/PortfolioTimeline.jsx';
+import Reveal from './components/Reveal.jsx';
 import NeuralShell from './layout/NeuralShell.jsx';
 
 // ── Icons ──────────────────────────────────────────────────────────────────
@@ -164,7 +165,9 @@ export default function PortfolioHero() {
           </div>
         </div>
 
-        <PortfolioTimeline />
+        <Reveal>
+          <PortfolioTimeline />
+        </Reveal>
 
         <footer className="px-5 mt-2 mb-10 flex items-center gap-6">
           <a

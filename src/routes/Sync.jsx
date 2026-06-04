@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NeuralShell from '../layout/NeuralShell.jsx';
+import Reveal from '../components/Reveal.jsx';
 import Radar from '../../components/backgrounds/Radar.jsx';
 
 const RADAR_PROJECTS = [
@@ -239,15 +240,16 @@ export default function Sync() {
     >
       <div className="mt-6 flex flex-col lg:min-h-[calc(100vh-220px)] lg:justify-end">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-end">
-          <section className="rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
-            <h2 className="text-sm tracking-widest text-[#00ff41] uppercase">Location</h2>
+          <Reveal>
+            <section className="rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
+              <h2 className="text-sm tracking-widest text-[#00ff41] uppercase">Location</h2>
 
-            <div className="mt-4 space-y-3">
-              <ContactRow label="Based In" display="Lisbon, Portugal" />
-            </div>
+              <div className="mt-4 space-y-3">
+                <ContactRow label="Based In" display="Lisbon, Portugal" />
+              </div>
 
-            <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Message</h3>
-            <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+              <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Message</h3>
+              <form onSubmit={handleSubmit} className="mt-4 space-y-3">
               <div>
                 <label htmlFor="contact-name" className="block text-[10px] tracking-widest text-gray-500 uppercase">
                   Name
@@ -297,41 +299,43 @@ export default function Sync() {
               </button>
             </form>
 
-            <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Connect</h3>
-            <div className="mt-4 flex items-center gap-3 flex-wrap">
-              <SocialIconLink href="https://github.com/Maxi-flores" label="GitHub" newTab>
-                <GitHubIcon />
-              </SocialIconLink>
-              <SocialIconLink
-                href="https://www.linkedin.com/in/maximiliano-flores-68b534134/"
-                label="LinkedIn"
-                newTab
-              >
-                <LinkedInIcon />
-              </SocialIconLink>
-              <SocialIconLink href="https://www.behance.net/gallery/212342817/Curriculum-Vitae" label="Behance" newTab>
-                <BehanceIcon />
-              </SocialIconLink>
-              <SocialIconLink href="mailto:studio@wommedia.nl" label="Email">
-                <EmailIcon />
-              </SocialIconLink>
-            </div>
-          </section>
+              <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Connect</h3>
+              <div className="mt-4 flex items-center gap-3 flex-wrap">
+                <SocialIconLink href="https://github.com/Maxi-flores" label="GitHub" newTab>
+                  <GitHubIcon />
+                </SocialIconLink>
+                <SocialIconLink
+                  href="https://www.linkedin.com/in/maximiliano-flores-68b534134/"
+                  label="LinkedIn"
+                  newTab
+                >
+                  <LinkedInIcon />
+                </SocialIconLink>
+                <SocialIconLink href="https://www.behance.net/gallery/212342817/Curriculum-Vitae" label="Behance" newTab>
+                  <BehanceIcon />
+                </SocialIconLink>
+                <SocialIconLink href="mailto:studio@wommedia.nl" label="Email">
+                  <EmailIcon />
+                </SocialIconLink>
+              </div>
+            </section>
+          </Reveal>
 
-          <section className="rounded-lg bg-black/40 ring-1 ring-cyan-400/20 px-5 py-4">
-            <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Closure</h2>
-            <p className="mt-3 text-sm text-gray-300 leading-relaxed">
-              Available for freelance opportunities, technical collaborations, and digital product development — especially
-              where AI and automation reduce friction from idea to shipped system. Open to work and study paths that deepen
-              cloud fundamentals, tooling, and production-ready engineering workflows.
-            </p>
+          <Reveal>
+            <section className="rounded-lg bg-black/40 ring-1 ring-cyan-400/20 px-5 py-4">
+              <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Closure</h2>
+              <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+                Available for freelance opportunities, technical collaborations, and digital product development — especially
+                where AI and automation reduce friction from idea to shipped system. Open to work and study paths that deepen
+                cloud fundamentals, tooling, and production-ready engineering workflows.
+              </p>
 
-            <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
-              <div className="relative h-[420px]">
-                {/* TODO(theme): consider CSS variables to adapt global accent colors based on selected project category. */}
-                <div className="absolute inset-0 z-0">
-                  <Radar color="#29ff55" backgroundColor="#020804" />
-                </div>
+              <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
+                <div className="relative h-[420px]">
+                  {/* TODO(theme): consider CSS variables to adapt global accent colors based on selected project category. */}
+                  <div className="absolute inset-0 z-0">
+                    <Radar color="#29ff55" backgroundColor="#020804" />
+                  </div>
 
                 <svg
                   viewBox="0 0 100 100"
@@ -366,9 +370,10 @@ export default function Sync() {
                 <div className="absolute inset-0 z-30 pointer-events-none">
                   <OverlayCard project={activeProject} />
                 </div>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </Reveal>
         </div>
       </div>
     </NeuralShell>
