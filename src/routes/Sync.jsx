@@ -1,4 +1,146 @@
+import { useState } from 'react';
 import NeuralShell from '../layout/NeuralShell.jsx';
+
+const RADAR_PROJECTS = [
+  {
+    id: 'powerframe',
+    name: 'Powerframe',
+    status: 'Active build',
+    description: 'Plugin-first web surface for manageable project modules and telemetry-aware workflows.',
+    version: 'v1.x',
+    progress: 0.72,
+    position: { x: 22, y: 34 },
+    category: 'platform',
+  },
+  {
+    id: 'powerstarter',
+    name: 'PowerStarter',
+    status: 'Active iteration',
+    description: 'Creative Startup Platform surface to document systems, patterns, and shipping loops.',
+    version: 'v1.0.0',
+    progress: 0.64,
+    position: { x: 40, y: 58 },
+    category: 'surface',
+  },
+  {
+    id: 'therockettree',
+    name: 'TheRocketTree',
+    status: 'Prototype',
+    description: 'Unity + web integration experiments with supporting surfaces and state tooling.',
+    version: 'v0.x',
+    progress: 0.38,
+    position: { x: 60, y: 38 },
+    category: '3d',
+  },
+  {
+    id: 'mucho3d',
+    name: 'Mucho3D',
+    status: 'Showcase',
+    description: '3D and digital studies integrated into web ecosystems and measurable presentation layers.',
+    version: 'v0.9',
+    progress: 0.55,
+    position: { x: 74, y: 66 },
+    category: '3d',
+  },
+  {
+    id: 'mcp-umbrella',
+    name: 'Manageable Projects Umbrella',
+    status: 'R&D',
+    description: 'MCP bridging AI and Python automation scripts for interoperability and cross-platform workflows.',
+    version: 'v0.1',
+    progress: 0.22,
+    position: { x: 52, y: 20 },
+    category: 'automation',
+  },
+  {
+    id: 'azure-learning',
+    name: 'Azure AZ-900 Fundamentals',
+    status: 'Learning track',
+    description: 'Cloud fundamentals: governance, security baseline, subscriptions, and resource management discipline.',
+    version: '2026',
+    progress: 0.48,
+    position: { x: 32, y: 78 },
+    category: 'cloud',
+  },
+];
+
+function clamp01(value) {
+  if (typeof value !== 'number' || Number.isNaN(value)) return 0;
+  return Math.min(1, Math.max(0, value));
+}
+
+function ProgressBar({ value }) {
+  const pct = Math.round(clamp01(value) * 100);
+  return (
+    <div className="mt-3">
+      <div className="flex items-center justify-between gap-4">
+        <p className="text-[10px] tracking-widest text-gray-500 uppercase">Progress</p>
+        <p className="text-[10px] tracking-widest text-gray-400">{pct}%</p>
+      </div>
+      <div className="mt-2 h-2 rounded bg-black/60 ring-1 ring-white/10 overflow-hidden">
+        <div className="h-full bg-[#29ff55]/60" style={{ width: `${pct}%` }} />
+      </div>
+    </div>
+  );
+}
+
+function OverlayCard({ project }) {
+  if (!project) return null;
+  return (
+    <div className="absolute right-4 top-4 w-[min(320px,calc(100%-2rem))] rounded-lg bg-black/70 backdrop-blur ring-1 ring-[#29ff55]/20 px-4 py-4">
+      <p className="text-[10px] tracking-widest text-gray-500 uppercase">Project</p>
+      <h3 className="mt-1 text-sm tracking-wide text-white">{project.name}</h3>
+
+      <div className="mt-3 grid grid-cols-2 gap-3">
+        <div>
+          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Status</p>
+          <p className="mt-1 text-sm text-gray-300">{project.status}</p>
+        </div>
+        <div>
+          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Version</p>
+          <p className="mt-1 text-sm text-gray-300">{project.version}</p>
+        </div>
+      </div>
+
+      <p className="mt-3 text-sm text-gray-300 leading-relaxed">{project.description}</p>
+      <ProgressBar value={project.progress} />
+    </div>
+  );
+}
+
+function ProjectDot({ project, active, onEnter, onLeave }) {
+  const { x, y } = project.position;
+  const isActive = active?.id === project.id;
+
+  return (
+    <button
+      type="button"
+      onMouseEnter={() => onEnter(project)}
+      onMouseLeave={onLeave}
+      onFocus={() => onEnter(project)}
+      onBlur={onLeave}
+      className={[
+        'absolute -translate-x-1/2 -translate-y-1/2 rounded-full',
+        'h-3 w-3 ring-1 ring-[#29ff55]/50 bg-[#29ff55]/60',
+        'transition-transform duration-150 hover:scale-110 focus:scale-110 outline-none',
+      ].join(' ')}
+      style={{ left: `${x}%`, top: `${y}%` }}
+      aria-label={project.name}
+    >
+      <span
+        className={[
+          'absolute inset-0 rounded-full',
+          isActive ? 'ring-2 ring-[#29ff55]/50' : 'ring-1 ring-white/10',
+        ].join(' ')}
+      />
+      {isActive ? (
+        <span className="absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap rounded border border-[#29ff55]/30 bg-black/70 px-2 py-1 text-[10px] tracking-widest text-[#29ff55]">
+          {project.name}
+        </span>
+      ) : null}
+    </button>
+  );
+}
 
 function ContactRow({ label, href, display, newTab }) {
   const commonClass =
@@ -72,6 +214,8 @@ function SocialIconLink({ href, label, newTab, children }) {
 }
 
 export default function Sync() {
+  const [activeProject, setActiveProject] = useState(null);
+
   function handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -173,11 +317,50 @@ export default function Sync() {
         </section>
 
         <section className="rounded-lg bg-black/40 ring-1 ring-cyan-400/20 px-5 py-4">
-          <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Availability</h2>
+          <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Closure</h2>
           <p className="mt-3 text-sm text-gray-300 leading-relaxed">
-            Focus areas: website development, UI/UX implementation, cloud/data fundamentals, Power Platform automation,
-            and AI-assisted development with BIM/Tekla/point cloud context.
+            Available for freelance opportunities, technical collaborations, and digital product development — especially
+            where AI and automation reduce friction from idea to shipped system. Open to work and study paths that deepen
+            cloud fundamentals, tooling, and production-ready engineering workflows.
           </p>
+
+          <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
+            <div className="relative h-[420px]">
+              {/* TODO(theme): consider CSS variables to adapt global accent colors based on selected project category. */}
+              {/* Phase 5 swaps this placeholder background for the official React Bits Radar component. */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(41,255,85,0.12),rgba(2,8,4,0.9))]" />
+
+              <svg
+                viewBox="0 0 100 100"
+                className="absolute inset-0 h-full w-full pointer-events-none"
+                preserveAspectRatio="none"
+              >
+                {activeProject ? (
+                  <line
+                    x1={activeProject.position.x}
+                    y1={activeProject.position.y}
+                    x2="92"
+                    y2="14"
+                    stroke="#29ff55"
+                    strokeOpacity="0.55"
+                    strokeWidth="0.8"
+                  />
+                ) : null}
+              </svg>
+
+              {RADAR_PROJECTS.map((project) => (
+                <ProjectDot
+                  key={project.id}
+                  project={project}
+                  active={activeProject}
+                  onEnter={setActiveProject}
+                  onLeave={() => setActiveProject(null)}
+                />
+              ))}
+
+              <OverlayCard project={activeProject} />
+            </div>
+          </div>
         </section>
       </div>
     </NeuralShell>
