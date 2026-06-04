@@ -38,7 +38,7 @@ export default function NeuralShell({ prompt, title, subtitle, rightSlot, childr
 
           <div className="flex items-center gap-2 flex-wrap">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/ecosystem">Knowledgebase</NavLink>
+            <NavLink to="/ecosystem">KnowledgeBase</NavLink>
             <NavLink to="/ai">AI</NavLink>
             <NavLink to="/sync">Contact</NavLink>
             {rightSlot}

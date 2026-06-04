@@ -149,7 +149,7 @@ export default function PortfolioHero() {
               to="/ecosystem"
               className="glow-green px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
             >
-              Knowledgebase
+              KnowledgeBase
             </Link>
 
             <a

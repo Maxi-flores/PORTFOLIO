@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
 
-const KNOWLEDGEBASE_MODULES = [
+const knowledgeBaseModules = [
   {
     id: 'powerframe',
     name: 'Powerframe',
-    tag: 'SYSTEM',
+    tag: 'PLUGIN',
+    siteUrl: 'https://powerframe.online',
+    siteLabel: 'powerframe.online',
     repoUrl: 'https://github.com/Maxi-flores/Powerframe-V1',
     purpose: [
       'Domain-agnostic external system/dashboard foundations.',
@@ -19,6 +21,8 @@ const KNOWLEDGEBASE_MODULES = [
     id: 'powerstarter',
     name: 'PowerStarter',
     tag: 'JOURNAL',
+    siteUrl: 'https://powerstarter.online',
+    siteLabel: 'powerstarter.online',
     repoUrl: 'https://github.com/Maxi-flores/PowerStarter',
     purpose: ['Feed / growth journal and project development hub.'],
     direction: [
@@ -30,6 +34,8 @@ const KNOWLEDGEBASE_MODULES = [
     id: 'therockettree',
     name: 'TheRocketTree',
     tag: 'UNITY',
+    siteUrl: 'https://therockettree.io',
+    siteLabel: 'therockettree.io',
     repoUrl: 'https://github.com/Maxi-flores/TheRocketTree-App',
     purpose: ['Unity3D system direction with supporting web surfaces.'],
     direction: [
@@ -38,21 +44,36 @@ const KNOWLEDGEBASE_MODULES = [
     ],
   },
   {
-    id: 'system-automation-layer',
-    name: 'System Automation Layer',
-    tag: 'KNOWLEDGEBASE',
+    id: 'mucho3d',
+    name: 'Mucho3D',
+    tag: 'PLUGIN',
+    siteUrl: 'https://mucho3d.dev',
+    siteLabel: 'mucho3d.dev',
     repoUrl: null,
-    purpose: ['System Automation Layer — Research and development on autonomous tools and custom cross-platform app integrations.'],
+    purpose: ['3D and digital studies direction focused on web-integrated presentation systems.'],
     direction: [
-      'Portfolio relevance: connector-first patterns and repeatable automation workflows.',
-      'Technical direction: autonomous tools, cross-platform integrations, and app orchestration.',
+      'Portfolio relevance: generic 3D and digital studies integrated into web ecosystems and metric-driven visualization systems.',
+      'Technical direction: reusable web surfaces for showcasing 3D outputs alongside measurable UI presentation.',
+    ],
+  },
+  {
+    id: 'system-automation-layer',
+    name: 'Manageable Projects Umbrella',
+    tag: 'KnowledgeBase',
+    repoUrl: null,
+    purpose: [
+      'MCP bridging AI & Python automation scripts for metric shaping, tool interoperability, and repeatable cross-platform workflows.',
+    ],
+    direction: [
+      'Portfolio relevance: generic 3D and digital studies integrated into web ecosystems and metric-driven visualization systems.',
+      'Technical direction: automation + AI integration, custom tools, pipeline architecture, governance, and multi-project ecosystem management.',
     ],
   },
 ];
 
 function tagStyles(tag) {
-  switch ((tag ?? '').toUpperCase()) {
-    case 'SYSTEM':
+  switch (tag) {
+    case 'PLUGIN':
       return {
         ring: 'ring-1 ring-[#00ff41]/50',
         title: 'text-[#00ff41]',
@@ -73,7 +94,7 @@ function tagStyles(tag) {
         badge: 'bg-fuchsia-500/10 text-fuchsia-200 border-fuchsia-300/30',
         glow: 'glow-gray',
       };
-    case 'KNOWLEDGEBASE':
+    case 'KnowledgeBase':
     default:
       return {
         ring: 'ring-1 ring-gray-500/20',
@@ -98,6 +119,39 @@ function TagBadge({ tag }) {
   );
 }
 
+function BrandMark({ id }) {
+  const palette =
+    id === 'powerframe'
+      ? { bg: '#00ff41', fg: '#020804', label: 'PF' }
+      : id === 'powerstarter'
+        ? { bg: '#22d3ee', fg: '#020804', label: 'PS' }
+      : id === 'therockettree'
+          ? { bg: '#e879f9', fg: '#020804', label: 'RT' }
+          : id === 'mucho3d'
+            ? { bg: '#f59e0b', fg: '#020804', label: 'M3' }
+          : { bg: '#a1a1aa', fg: '#020804', label: 'KB' };
+
+  return (
+    <svg viewBox="0 0 48 48" className="w-10 h-10 shrink-0" aria-hidden="true">
+      <rect x="4" y="4" width="40" height="40" rx="10" fill={palette.bg} opacity="0.18" />
+      <rect x="8" y="8" width="32" height="32" rx="9" fill={palette.bg} opacity="0.12" />
+      <rect x="12" y="12" width="24" height="24" rx="8" fill={palette.bg} opacity="0.28" />
+      <text
+        x="24"
+        y="29"
+        textAnchor="middle"
+        fontSize="14"
+        fontFamily={'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace'}
+        fontWeight="700"
+        fill={palette.fg}
+        opacity="0.9"
+      >
+        {palette.label}
+      </text>
+    </svg>
+  );
+}
+
 function ModuleCard({ module }) {
   const styles = tagStyles(module.tag);
 
@@ -111,6 +165,21 @@ function ModuleCard({ module }) {
       ].join(' ')}
     >
       <div className="flex items-start gap-3">
+        {module.siteUrl ? (
+          <a
+            href={module.siteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${module.name} website`}
+            className="rounded-lg ring-1 ring-white/10 bg-black/30 hover:bg-black/40 transition-colors"
+          >
+            <BrandMark id={module.id} />
+          </a>
+        ) : (
+          <div className="rounded-lg ring-1 ring-white/10 bg-black/30">
+            <BrandMark id={module.id} />
+          </div>
+        )}
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className={['text-sm sm:text-base font-semibold tracking-wide', styles.title].join(' ')}>
@@ -118,6 +187,16 @@ function ModuleCard({ module }) {
             </h3>
             <TagBadge tag={module.tag} />
           </div>
+          {module.siteUrl && module.siteLabel ? (
+            <a
+              href={module.siteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-flex text-[10px] tracking-widest text-gray-500 underline decoration-white/10 hover:text-gray-200 hover:decoration-white/40 transition-colors"
+            >
+              {module.siteLabel}
+            </a>
+          ) : null}
         </div>
       </div>
 
@@ -153,7 +232,7 @@ function ModuleCard({ module }) {
 }
 
 export default function EcosystemWrapper() {
-  const modules = useMemo(() => KNOWLEDGEBASE_MODULES, []);
+  const modules = useMemo(() => knowledgeBaseModules, []);
 
   return (
     <div>
@@ -161,8 +240,8 @@ export default function EcosystemWrapper() {
         <div className="text-right">
           <p className="text-[10px] tracking-widest text-gray-600 uppercase">Tags</p>
           <p className="mt-1 text-xs tracking-widest text-gray-400">
-            <span className="text-[#00ff41]">SYSTEM</span> · <span className="text-cyan-200">JOURNAL</span> ·{' '}
-            <span className="text-fuchsia-200">UNITY</span> · <span className="text-gray-300">KNOWLEDGEBASE</span>
+            <span className="text-[#00ff41]">PLUGIN</span> · <span className="text-cyan-200">JOURNAL</span> ·{' '}
+            <span className="text-fuchsia-200">UNITY</span> · <span className="text-gray-300">KnowledgeBase</span>
           </p>
         </div>
       </div>
