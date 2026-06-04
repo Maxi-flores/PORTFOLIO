@@ -1,0 +1,42 @@
+# ROLE & REFINEMENT OBJECTIVE
+You are an expert Frontend Engineer and Creative UI/UX Architect. Your task is to apply a new set of structural refinements, naming convention updates, and micro-interactions (animations & old-school mouse aesthetics) across the portfolio template.
+
+---
+
+## 🏗️ 1. ARCHITECTURAL RENAMING & COMPONENT RESTRUCTURE
+
+### 📚 KnowledgeBase & AI Navigation Swap
+* **Action:** Swap the naming hierarchy in the routing/tab system to align with the new structural architecture:
+  1. Change the global **"KnowledgeBase"** tab identifier and header title to **"Portfolio"**.
+  2. Change the current **"AI"** tab/section identifier so that it is nested or displayed as **"KnowledgeBase"** instead.
+  3. Ensure all internal navigation links, buttons, and routing paths are refactored to prevent broken links.
+
+### ⏳ AI Page (Now KnowledgeBase) Timeline Upgrade
+* **Action:** Upgrade the layout of the timeline inside the new KnowledgeBase page (formerly AI page). 
+* **Design Rule:** Replicate the structural design language of the Home Page timeline. It must get a **similar dynamic Tag Box Summary component** right above or alongside the timeline tracks to summarize key technical data or categories.
+
+### 🏁 Closure Section Update
+* **Action:** Locate the "Closure" text block or footer component.
+* **Refinement:** Rename this entire section to **"Final Version Updates"** and ensure its content explicitly focuses on the deployment log, governance plan, and final release metadata sync.
+
+---
+
+## ⚡ 2. INTERACTIVE EFFECTS & ANIMATIONS
+
+### 🌀 Skeleton/Spin Loading Effects
+* **Action:** Integrate a subtle, high-tech loading state (e.g., a sleek terminal-style loading spinner, a progressive data-stream animation, or skeleton layout placeholders) that triggers when switching between routes or tabs.
+
+### ✨ Appearing Components Effect (Scroll/Mount Animations)
+* **Action:** Implement an "Appearing Effect" for components as they mount or scroll into view. 
+* **Implementation:** Use a clean CSS/Tailwind transition setup or a lightweight library (like Framer Motion or simple Intersection Observer API). Apply an elegant **fade-in-up** or **glitch-reveal** effect that matches the current cyber-terminal visual style.
+
+---
+
+## 🖱️ 3. VISUAL ASSET: OLD-SCHOOL MOUSE PICTOGRAM
+* **Action:** Introduce an old-school, retro/pixelated mouse cursor pictogram or custom pointer asset into the UI.
+* **Usage Context:** Use it either as a custom interactive cursor fallback for the desktop application, or embed it as a retro visual indicator icon next to hyperlinks and clickable table rows (such as the updated `Wommedia.nl` and `Therockettree` tabs) to emphasize its interactive nature.
+
+---
+
+# OUTPUT DELIVERY EXPECTATION
+Generate the full React / Tailwind code updates or granular diffs implementing these layout renames, animation layers, timeline tag boxes, and the old-school mouse asset integration across the affected workspace files.
