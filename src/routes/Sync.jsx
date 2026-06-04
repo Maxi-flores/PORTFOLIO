@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import NeuralShell from '../layout/NeuralShell.jsx';
+import Radar from '../../components/backgrounds/Radar.jsx';
 
 const RADAR_PROJECTS = [
   {
@@ -327,12 +328,13 @@ export default function Sync() {
           <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
             <div className="relative h-[420px]">
               {/* TODO(theme): consider CSS variables to adapt global accent colors based on selected project category. */}
-              {/* Phase 5 swaps this placeholder background for the official React Bits Radar component. */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(41,255,85,0.12),rgba(2,8,4,0.9))]" />
+              <div className="absolute inset-0 z-0">
+                <Radar color="#29ff55" backgroundColor="#020804" />
+              </div>
 
               <svg
                 viewBox="0 0 100 100"
-                className="absolute inset-0 h-full w-full pointer-events-none"
+                className="absolute inset-0 z-10 h-full w-full pointer-events-none"
                 preserveAspectRatio="none"
               >
                 {activeProject ? (
@@ -348,17 +350,21 @@ export default function Sync() {
                 ) : null}
               </svg>
 
-              {RADAR_PROJECTS.map((project) => (
-                <ProjectDot
-                  key={project.id}
-                  project={project}
-                  active={activeProject}
-                  onEnter={setActiveProject}
-                  onLeave={() => setActiveProject(null)}
-                />
-              ))}
+              <div className="absolute inset-0 z-20">
+                {RADAR_PROJECTS.map((project) => (
+                  <ProjectDot
+                    key={project.id}
+                    project={project}
+                    active={activeProject}
+                    onEnter={setActiveProject}
+                    onLeave={() => setActiveProject(null)}
+                  />
+                ))}
+              </div>
 
-              <OverlayCard project={activeProject} />
+              <div className="absolute inset-0 z-30 pointer-events-none">
+                <OverlayCard project={activeProject} />
+              </div>
             </div>
           </div>
         </section>
