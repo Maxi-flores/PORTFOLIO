@@ -1,0 +1,58 @@
+Prompt 4 — Contact Page
+
+Based on m1–m5.
+
+Read Edit_List.md and implement ONLY the changes assigned to page 4 (Contact).
+
+Required changes:
+
+m1:
+Replace Availability block.
+
+New purpose:
+Professional closure section describing:
+
+* Availability for freelance opportunities
+* Technical collaborations
+* Digital product development
+* AI and automation projects
+* Work and study opportunities
+
+Generate concise professional copy.
+
+m2:
+Replace current radar implementation with:
+
+https://reactbits.dev/backgrounds/radar?color=29ff55
+
+Integrate into existing design language.
+
+m3:
+Radar dots must represent projects.
+
+Each dot:
+
+* Project position
+* Hover state
+* Magnetic line effect
+* Tooltip label
+
+m4:
+Hovering a project should open an overlay card containing:
+
+* Project name
+* Current status
+* Description
+* Version information
+* Progress information
+
+m5:
+Investigate feasibility of dynamic theme switching.
+
+If feasible:
+Implement automatic theme color adaptation based on selected project category.
+
+If not feasible:
+Create architectural plan and TODO notes for implementation.
+
+Preserve current visual identity and cyber-terminal styling.
