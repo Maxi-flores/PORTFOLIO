@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 
 const TOPICS = [
-  { key: 'R&D', label: 'autonomous tools' },
-  { key: 'INT', label: 'custom integrations' },
+  { key: 'MCP', label: 'AI + Python orchestration' },
+  { key: 'OPS', label: 'tool interoperability' },
 ];
 
 export default function SapientVolumetricTree() {
@@ -16,7 +16,8 @@ export default function SapientVolumetricTree() {
       <p className="text-[10px] tracking-widest text-gray-500 uppercase">Automation Focus</p>
       <p className="mt-1 text-sm tracking-widest text-[#00ff41]">{caption}</p>
       <p className="mt-2 text-xs text-gray-400 leading-relaxed">
-        Select a focus area. Research and development on autonomous tools and custom cross-platform app integrations.
+        Select a focus area. MCP-first bridging of AI workflows and Python automation scripts for repeatable, cross-platform
+        project execution.
       </p>
 
       <div className="mt-4 grid grid-cols-2 gap-2">

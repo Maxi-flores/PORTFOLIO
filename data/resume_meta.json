@@ -52,6 +52,26 @@
       "id": "Systems-Dev",
       "title": "Systems Development",
       "definition": "Product engineering mindset: architecture, tooling, and maintainable delivery."
+    },
+    {
+      "id": "System1-GMS",
+      "title": "Governance Management System",
+      "definition": "Data orchestration guardrails, governance rules, and operational structure for managed systems."
+    },
+    {
+      "id": "System2-CRM",
+      "title": "Customer Relationship Module",
+      "definition": "Customer pipelines, contact state, and structured relationship tracking across projects."
+    },
+    {
+      "id": "System3-TPR",
+      "title": "Telemetry + Performance Routing",
+      "definition": "Metric shaping, signal routing, and readiness validation for measurable workflows."
+    },
+    {
+      "id": "System4-WMS",
+      "title": "Workflow Management System",
+      "definition": "Work orchestration patterns: resources, task flow, and operational workflow control."
     }
   ],
   "periods": [
@@ -92,9 +112,9 @@
         },
         {
           "id": "project-powerstarter-portfolio",
-          "name": "PowerStarter (Portfolio Hub)",
+          "name": "PowerStarter (Creative Startup Platform)",
           "type": "product",
-          "summary": "React-based multi-page portfolio surface used as the customer-facing hub for showcasing systems, patterns, and delivery narratives.",
+          "summary": "React-based customer-facing surface for showcasing projects, platform patterns, and a creative startup narrative with an automation-friendly structure.",
           "core_competencies": ["Systems-Dev", "Automation", "Cross-Platform-Ads"],
           "tech_stack": {
             "web_stack": ["React", "React Router", "Vite", "Tailwind CSS"],
@@ -104,21 +124,21 @@
         },
         {
           "id": "project-powerframe-dashboard",
-          "name": "Powerframe (Dashboard & CRM Engine)",
+          "name": "Powerframe (Web/App Plugin Tools)",
           "type": "product",
-          "summary": "Operational control center concept for managing client relations, measurement readiness, and lead qualification state.",
-          "core_competencies": ["Systems-Dev", "Automation", "Cloud-Data", "B2B-Lead-Gen"],
+          "summary": "Web/app plugin toolset concept focused on manageable system modules, telemetry-aware workflows, and structured operations.",
+          "core_competencies": ["System1-GMS", "System2-CRM", "System3-TPR", "System4-WMS"],
           "tech_stack": {
             "cloud_services": ["Firebase", "Firestore", "Firebase Authentication", "Firebase Cloud Storage"],
             "web_tools": ["Chrome DevTools", "Lighthouse"],
-            "workflows": ["CRM pipelines", "Data quality checks", "Connector-oriented automation"]
+            "workflows": ["Managed system modules", "Data governance patterns", "Telemetry routing", "Connector-oriented automation"]
           }
         }
       ]
     },
     {
       "id": "period-02-cloud-data",
-      "title": "Cloud Data & IT Certification",
+      "title": "Azure Cloud Fundamentals & Data Foundations",
       "date_range": {
         "start": "2026",
         "end": "2026",
@@ -128,27 +148,36 @@
         "city": "Lisbon",
         "country": "Portugal"
       },
-      "focus": "Technical aptitude, data structures, and automation logic with tracking infrastructure context.",
-      "copilot_directive": "Connect Windows/Cloud Data Fundamentals to modern tracking infrastructure (tagging, server-side patterns, first-party data readiness).",
+      "focus": "Cloud fundamentals learning path focused on data orchestration, governance, security basics, and resource/subscription management patterns.",
+      "copilot_directive": "Emphasize Azure fundamentals as a foundation for managed data systems: governance, access control, and operational resource discipline.",
       "core_competencies": ["Cloud-Data", "Automation", "Systems-Dev"],
       "tech_stack": {
-        "cloud_services": ["Firebase", "Firestore", "Firebase Authentication", "Firebase Cloud Storage"],
-        "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
-        "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
+        "cloud_services": ["Microsoft Azure (fundamentals)", "Azure Portal", "Azure Resource Manager (ARM)"],
+        "web_tools": ["Azure documentation", "Learning labs", "CLI fundamentals"],
         "certifications": ["Microsoft Azure Fundamentals (AZ-900)", "Power Platform Functional Consultant (PL-200)"],
-        "workflows": ["Tag auditing", "Technical readiness scoring", "First-party data readiness"]
+        "workflows": [
+          "Subscription and resource group management",
+          "Identity + access (RBAC) fundamentals",
+          "Governance via policies, tags, and naming discipline",
+          "Security baseline concepts and shared responsibility",
+          "Service map literacy for data + automation"
+        ]
       },
       "projects": [
         {
           "id": "project-web-auditing-tag-ga4",
-          "name": "Tag + GA4 Technical Readiness Audits",
+          "name": "Azure AZ-900 Cloud Data Fundamentals [Certified Assessments]",
           "type": "workflow",
-          "summary": "Website audit workflow to detect tracking presence and performance signals (tagging, speed, mobile readiness) before pitching performance marketing infrastructure.",
-          "core_competencies": ["Cloud-Data", "Automation", "Systems-Dev", "B2B-Lead-Gen"],
+          "summary": "Certified assessment track and hands-on labs covering Azure cloud fundamentals with emphasis on data governance, security basics, and scalable resource management.",
+          "core_competencies": ["Cloud-Data", "Systems-Dev", "Automation"],
           "tech_stack": {
-            "tracking_tools": ["Tag (gtag.js)", "Analytics 4 (GA4)"],
-            "web_tools": ["Chrome DevTools", "Lighthouse", "Wappalyzer", "BuiltWith"],
-            "workflows": ["Page speed and UX diagnostics", "Tracking gap detection", "Client qualification notes"]
+            "cloud_services": ["Microsoft Azure (AZ-900 scope)"],
+            "workflows": [
+              "Map services and responsibilities across Azure",
+              "Practice subscription, resource, and cost awareness basics",
+              "Apply governance patterns (policies/tags) for managed environments",
+              "Study security concepts: identity, access, and baseline controls"
+            ]
           }
         },
         {
@@ -166,7 +195,7 @@
     },
     {
       "id": "period-03-barcelona-architecture",
-      "title": "Customer Support (Barcelona) & Architecture Foundations",
+      "title": "Customer Support (Barcelona) & Odin Project Python & Web Development Self Study",
       "date_range": {
         "start": "2023",
         "end": "2024",
@@ -176,13 +205,13 @@
         "city": "Barcelona",
         "country": "Spain"
       },
-      "focus": "Structural precision, visual networks, and cross-cultural communication; parallel between architecture and digital funnels.",
-      "copilot_directive": "Draw a parallel between structural engineering (foundations, hierarchy) and building digital funnels, UI/UX optimization, and display acquisition systems.",
+      "focus": "Customer support discipline and cross-cultural communication, paired with self-study in Python + web development foundations through The Odin Project.",
+      "copilot_directive": "Connect structured learning (Python/web fundamentals, iteration, debugging) with building reliable UI surfaces and automation-friendly workflows.",
       "core_competencies": ["Localization", "Cross-Platform-Ads", "Systems-Dev"],
       "tech_stack": {
-        "domains": ["Architecture foundations", "3D visualization", "BIM workflows", "Point clouds"],
-        "tools": ["Tekla", "BIM tooling"],
-        "workflows": ["Visual hierarchy analysis", "Documentation discipline"]
+        "domains": ["Python fundamentals", "Web development foundations", "3D visualization studies"],
+        "tools": ["The Odin Project", "Local dev tooling"],
+        "workflows": ["Practice projects", "Iteration discipline", "UI fundamentals"]
       },
       "projects": [
         {
