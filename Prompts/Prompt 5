@@ -1,0 +1,25 @@
+IMPORTANT RADAR IMPLEMENTATION REQUIREMENT
+
+For m2, do not create a custom imitation of the radar background.
+
+Use the official open-source React Bits Radar component from:
+
+https://reactbits.dev/backgrounds/radar?color=29ff55
+
+Requirements:
+
+* Open the React Bits Radar page.
+* Copy/use the official component implementation, props, CSS/Tailwind structure, and required dependencies exactly as provided.
+* Use color: #29ff55.
+* Preserve the original animation behavior, radar sweep, grid, glow, fade/falloff, and background behavior.
+* Do not simplify, rewrite, approximate, or replace it with a homemade SVG/canvas version.
+* If the project uses TypeScript, use the official TS version.
+* If the project uses JavaScript, use the official JS version.
+* Integrate it as a reusable component, for example:
+  components/backgrounds/Radar.tsx
+  or
+  components/backgrounds/Radar.jsx
+* Only modify styling where required to fit the existing portfolio layout, without changing the original radar animation logic.
+* Document the source in a comment:
+  “Radar background based on the official React Bits Radar component.”
+* After implementation, verify visually that the result matches the React Bits demo page as closely as possible.
