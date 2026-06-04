@@ -224,9 +224,9 @@ export default function Sync() {
     const message = String(formData.get('message') || '');
     const email = String(formData.get('email') || '');
 
-	    const subject = `Inquiry from ${name || 'Anonymous'}`;
-	    const body = `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`;
-	    const mailtoHref = `mailto:studio@wommedia.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const subject = `Inquiry from ${name || 'Anonymous'}`;
+    const body = `Name: ${name}\r\nEmail: ${email}\r\n\r\nMessage:\r\n${message}`;
+    const mailtoHref = `mailto:studio@wommedia.nl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     window.location.href = mailtoHref;
   }
@@ -237,137 +237,139 @@ export default function Sync() {
       title="Contact"
       subtitle="Location details and a direct message form (opens your email client)."
     >
-      <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
-        <section className="rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
-          <h2 className="text-sm tracking-widest text-[#00ff41] uppercase">Location</h2>
+      <div className="mt-6 flex flex-col lg:min-h-[calc(100vh-220px)] lg:justify-end">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:items-end">
+          <section className="rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
+            <h2 className="text-sm tracking-widest text-[#00ff41] uppercase">Location</h2>
 
-          <div className="mt-4 space-y-3">
-            <ContactRow label="Based In" display="Lisbon, Portugal" />
-          </div>
-
-          <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Message</h3>
-          <form onSubmit={handleSubmit} className="mt-4 space-y-3">
-            <div>
-              <label htmlFor="contact-name" className="block text-[10px] tracking-widest text-gray-500 uppercase">
-                Name
-              </label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                className="mt-2 w-full rounded-md bg-black/60 ring-1 ring-white/10 px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00ff41]/40"
-                placeholder="Your name"
-              />
+            <div className="mt-4 space-y-3">
+              <ContactRow label="Based In" display="Lisbon, Portugal" />
             </div>
 
-            <div>
-              <label htmlFor="contact-email" className="block text-[10px] tracking-widest text-gray-500 uppercase">
-                Email
-              </label>
-              <input
-                id="contact-email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                className="mt-2 w-full rounded-md bg-black/60 ring-1 ring-white/10 px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00ff41]/40"
-                placeholder="studio@wommedia.nl"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="contact-message" className="block text-[10px] tracking-widest text-gray-500 uppercase">
-                Message
-              </label>
-              <textarea
-                id="contact-message"
-                name="message"
-                rows={5}
-                className="mt-2 w-full rounded-md bg-black/60 ring-1 ring-white/10 px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00ff41]/40"
-                placeholder="Write your message..."
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="glow-green w-full px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
-            >
-              Send Message
-            </button>
-          </form>
-
-          <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Connect</h3>
-          <div className="mt-4 flex items-center gap-3 flex-wrap">
-            <SocialIconLink href="https://github.com/Maxi-flores" label="GitHub" newTab>
-              <GitHubIcon />
-            </SocialIconLink>
-            <SocialIconLink
-              href="https://www.linkedin.com/in/maximiliano-flores-68b534134/"
-              label="LinkedIn"
-              newTab
-            >
-              <LinkedInIcon />
-            </SocialIconLink>
-            <SocialIconLink href="https://www.behance.net/gallery/212342817/Curriculum-Vitae" label="Behance" newTab>
-              <BehanceIcon />
-            </SocialIconLink>
-	            <SocialIconLink href="mailto:studio@wommedia.nl" label="Email">
-	              <EmailIcon />
-	            </SocialIconLink>
-          </div>
-        </section>
-
-        <section className="rounded-lg bg-black/40 ring-1 ring-cyan-400/20 px-5 py-4">
-          <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Closure</h2>
-          <p className="mt-3 text-sm text-gray-300 leading-relaxed">
-            Available for freelance opportunities, technical collaborations, and digital product development — especially
-            where AI and automation reduce friction from idea to shipped system. Open to work and study paths that deepen
-            cloud fundamentals, tooling, and production-ready engineering workflows.
-          </p>
-
-          <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
-            <div className="relative h-[420px]">
-              {/* TODO(theme): consider CSS variables to adapt global accent colors based on selected project category. */}
-              <div className="absolute inset-0 z-0">
-                <Radar color="#29ff55" backgroundColor="#020804" />
+            <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Message</h3>
+            <form onSubmit={handleSubmit} className="mt-4 space-y-3">
+              <div>
+                <label htmlFor="contact-name" className="block text-[10px] tracking-widest text-gray-500 uppercase">
+                  Name
+                </label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  className="mt-2 w-full rounded-md bg-black/60 ring-1 ring-white/10 px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00ff41]/40"
+                  placeholder="Your name"
+                />
               </div>
 
-              <svg
-                viewBox="0 0 100 100"
-                className="absolute inset-0 z-10 h-full w-full pointer-events-none"
-                preserveAspectRatio="none"
+              <div>
+                <label htmlFor="contact-email" className="block text-[10px] tracking-widest text-gray-500 uppercase">
+                  Email
+                </label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  className="mt-2 w-full rounded-md bg-black/60 ring-1 ring-white/10 px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00ff41]/40"
+                  placeholder="studio@wommedia.nl"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="contact-message" className="block text-[10px] tracking-widest text-gray-500 uppercase">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows={5}
+                  className="mt-2 w-full rounded-md bg-black/60 ring-1 ring-white/10 px-3 py-2 text-sm text-gray-200 placeholder:text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#00ff41]/40"
+                  placeholder="Write your message..."
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="glow-green w-full px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
               >
-                {activeProject ? (
-                  <line
-                    x1={activeProject.position.x}
-                    y1={activeProject.position.y}
-                    x2="92"
-                    y2="14"
-                    stroke="#29ff55"
-                    strokeOpacity="0.55"
-                    strokeWidth="0.8"
-                  />
-                ) : null}
-              </svg>
+                Send Message
+              </button>
+            </form>
 
-              <div className="absolute inset-0 z-20">
-                {RADAR_PROJECTS.map((project) => (
-                  <ProjectDot
-                    key={project.id}
-                    project={project}
-                    active={activeProject}
-                    onEnter={setActiveProject}
-                    onLeave={() => setActiveProject(null)}
-                  />
-                ))}
-              </div>
+            <h3 className="mt-8 text-sm tracking-widest text-[#00ff41] uppercase">Connect</h3>
+            <div className="mt-4 flex items-center gap-3 flex-wrap">
+              <SocialIconLink href="https://github.com/Maxi-flores" label="GitHub" newTab>
+                <GitHubIcon />
+              </SocialIconLink>
+              <SocialIconLink
+                href="https://www.linkedin.com/in/maximiliano-flores-68b534134/"
+                label="LinkedIn"
+                newTab
+              >
+                <LinkedInIcon />
+              </SocialIconLink>
+              <SocialIconLink href="https://www.behance.net/gallery/212342817/Curriculum-Vitae" label="Behance" newTab>
+                <BehanceIcon />
+              </SocialIconLink>
+              <SocialIconLink href="mailto:studio@wommedia.nl" label="Email">
+                <EmailIcon />
+              </SocialIconLink>
+            </div>
+          </section>
 
-              <div className="absolute inset-0 z-30 pointer-events-none">
-                <OverlayCard project={activeProject} />
+          <section className="rounded-lg bg-black/40 ring-1 ring-cyan-400/20 px-5 py-4">
+            <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Closure</h2>
+            <p className="mt-3 text-sm text-gray-300 leading-relaxed">
+              Available for freelance opportunities, technical collaborations, and digital product development — especially
+              where AI and automation reduce friction from idea to shipped system. Open to work and study paths that deepen
+              cloud fundamentals, tooling, and production-ready engineering workflows.
+            </p>
+
+            <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
+              <div className="relative h-[420px]">
+                {/* TODO(theme): consider CSS variables to adapt global accent colors based on selected project category. */}
+                <div className="absolute inset-0 z-0">
+                  <Radar color="#29ff55" backgroundColor="#020804" />
+                </div>
+
+                <svg
+                  viewBox="0 0 100 100"
+                  className="absolute inset-0 z-10 h-full w-full pointer-events-none"
+                  preserveAspectRatio="none"
+                >
+                  {activeProject ? (
+                    <line
+                      x1={activeProject.position.x}
+                      y1={activeProject.position.y}
+                      x2="92"
+                      y2="14"
+                      stroke="#29ff55"
+                      strokeOpacity="0.55"
+                      strokeWidth="0.8"
+                    />
+                  ) : null}
+                </svg>
+
+                <div className="absolute inset-0 z-20">
+                  {RADAR_PROJECTS.map((project) => (
+                    <ProjectDot
+                      key={project.id}
+                      project={project}
+                      active={activeProject}
+                      onEnter={setActiveProject}
+                      onLeave={() => setActiveProject(null)}
+                    />
+                  ))}
+                </div>
+
+                <div className="absolute inset-0 z-30 pointer-events-none">
+                  <OverlayCard project={activeProject} />
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
       </div>
     </NeuralShell>
   );

@@ -12,10 +12,10 @@ export default function Ecosystem() {
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 items-start">
         <EcosystemWrapper />
         <aside className="rounded-lg bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-4">
-          <p className="text-[10px] tracking-widest text-gray-500 uppercase">Manageable Projects Umbrella</p>
+          <p className="text-[10px] tracking-widest text-gray-500 uppercase">WOMmedia</p>
           <p className="mt-2 text-sm text-gray-300 leading-relaxed">
-            MCP bridging AI & Python automation scripts to orchestrate tools, shape metrics, and connect workflows across
-            platforms with repeatable, governance-friendly project structure.
+            Parent umbrella brand focused on shipping web surfaces, automation layers, and measurable growth systems
+            across startups, builders, and high-intent verticals.
           </p>
           <div className="mt-4">
             <SapientVolumetricTree />
