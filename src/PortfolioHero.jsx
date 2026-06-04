@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PortfolioTimeline from './components/PortfolioTimeline.jsx';
+import Reveal from './components/Reveal.jsx';
 import NeuralShell from './layout/NeuralShell.jsx';
 
 // ── Icons ──────────────────────────────────────────────────────────────────
@@ -146,10 +147,10 @@ export default function PortfolioHero() {
 
           <div className="flex flex-wrap gap-4 mt-5">
             <Link
-              to="/ecosystem"
+              to="/portfolio"
               className="glow-green px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
             >
-              KnowledgeBase
+              Portfolio
             </Link>
 
             <a
@@ -164,7 +165,9 @@ export default function PortfolioHero() {
           </div>
         </div>
 
-        <PortfolioTimeline />
+        <Reveal>
+          <PortfolioTimeline />
+        </Reveal>
 
         <footer className="px-5 mt-2 mb-10 flex items-center gap-6">
           <a
