@@ -57,16 +57,18 @@ const knowledgeBaseModules = [
     ],
   },
   {
-    id: 'system-automation-layer',
-    name: 'Manageable Projects Umbrella',
+    id: 'wommedia',
+    name: 'WOMmedia',
     tag: 'KnowledgeBase',
+    siteUrl: 'https://wommedia.nl',
+    siteLabel: 'wommedia.nl',
     repoUrl: null,
     purpose: [
-      'MCP bridging AI & Python automation scripts for metric shaping, tool interoperability, and repeatable cross-platform workflows.',
+      'Parent brand umbrella engineered to deliver development, scalable solutions, and specialized consultancy for high-value verticals.',
     ],
     direction: [
-      'Portfolio relevance: generic 3D and digital studies integrated into web ecosystems and metric-driven visualization systems.',
-      'Technical direction: automation + AI integration, custom tools, pipeline architecture, governance, and multi-project ecosystem management.',
+      'Brand story: a delivery studio built around the loop of sketch → structure → ship → measure → iterate.',
+      'Technical direction: React/Vite/Tailwind web surfaces, Firebase-backed data primitives, and automation-first tooling that keeps builds repeatable.',
     ],
   },
 ];
@@ -121,7 +123,9 @@ function TagBadge({ tag }) {
 
 function BrandMark({ id }) {
   const palette =
-    id === 'powerframe'
+    id === 'wommedia'
+      ? { bg: '#d8b4fe', fg: '#020804', label: 'WM' }
+      : id === 'powerframe'
       ? { bg: '#00ff41', fg: '#020804', label: 'PF' }
       : id === 'powerstarter'
         ? { bg: '#22d3ee', fg: '#020804', label: 'PS' }
@@ -154,6 +158,10 @@ function BrandMark({ id }) {
 
 function ModuleCard({ module }) {
   const styles = tagStyles(module.tag);
+  const siteHoverClass =
+    module.id === 'therockettree'
+      ? 'hover:text-[#d8b4fe] hover:decoration-[#d8b4fe]/60'
+      : 'hover:text-gray-200 hover:decoration-white/40';
 
   return (
     <section
@@ -192,7 +200,10 @@ function ModuleCard({ module }) {
               href={module.siteUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-1 inline-flex text-[10px] tracking-widest text-gray-500 underline decoration-white/10 hover:text-gray-200 hover:decoration-white/40 transition-colors"
+              className={[
+                'mt-1 inline-flex text-[10px] tracking-widest text-gray-500 underline decoration-white/10 transition-colors',
+                siteHoverClass,
+              ].join(' ')}
             >
               {module.siteLabel}
             </a>
