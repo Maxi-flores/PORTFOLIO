@@ -1,0 +1,77 @@
+Prompt 3 — AI Page
+
+Based on l1–l6.
+
+Read Edit_List.md and implement ONLY the changes assigned to page 3 (AI Page).
+
+Required changes:
+
+l1:
+Rename page title from current title to:
+
+"AI Mastering Learning Curve"
+
+l2:
+Convert current large narrative block into a timeline row.
+
+Use the same timeline visual structure used on the Home page.
+
+Add relevant tags.
+
+Focus:
+
+* Linux
+* Ollama
+* Local LLMs
+* Open-source experimentation
+
+l3:
+Create second timeline row.
+
+Focus:
+
+* Prompt engineering
+* OpenAI
+* Claude
+* Component generation
+* UI automation
+
+Add tags.
+
+l4:
+Create third timeline row.
+
+Focus:
+
+* Claude CLI
+* JSON payload workflows
+* AI-assisted development
+* System orchestration
+
+Add tags.
+
+l5:
+Create fourth timeline row.
+
+Focus:
+
+* Azure learning
+* GitHub automation
+* Cloud fundamentals
+* Workflow scaling
+
+Add tags.
+
+l6:
+Create an additional future roadmap block.
+
+Focus:
+
+* MCP architecture
+* Multi-agent systems
+* AI orchestration
+* Cloud certifications
+* Production automation
+* Advanced pipeline engineering
+
+Maintain the existing design system and timeline style from the Home page.
