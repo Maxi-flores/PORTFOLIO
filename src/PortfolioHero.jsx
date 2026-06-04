@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PortfolioTimeline } from '../components/PortfolioTimeline';
 import NeuralShell from './layout/NeuralShell.jsx';
@@ -61,10 +61,48 @@ function useUtcOffset() {
   }, []);
 }
 
+function useCityClock(timeZone, locale = undefined) {
+  const [now, setNow] = useState(() => new Date());
+
+  useEffect(() => {
+    const id = window.setInterval(() => setNow(new Date()), 1000);
+    return () => window.clearInterval(id);
+  }, []);
+
+  return useMemo(() => {
+    try {
+      const timeParts = new Intl.DateTimeFormat(locale, {
+        timeZone,
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+      }).formatToParts(now);
+
+      const time = timeParts
+        .filter((part) => part.type !== 'dayPeriod' && part.type !== 'timeZoneName')
+        .map((part) => part.value)
+        .join('');
+
+      const zoneName = new Intl.DateTimeFormat(locale, {
+        timeZone,
+        timeZoneName: 'short',
+      })
+        .formatToParts(now)
+        .find((part) => part.type === 'timeZoneName')?.value;
+
+      return { time, zoneName: zoneName ?? null };
+    } catch {
+      return { time: now.toLocaleTimeString(locale), zoneName: null };
+    }
+  }, [locale, now, timeZone]);
+}
+
 // ── Component ──────────────────────────────────────────────────────────────
 
 export default function PortfolioHero() {
   const utcOffset = useUtcOffset();
+  const lisbonClock = useCityClock('Europe/Lisbon');
 
   return (
     <NeuralShell
@@ -72,33 +110,31 @@ export default function PortfolioHero() {
       title="Who Am I — Maximiliano Flores"
       subtitle={
         <>
-          AI user and cloud data developer building portfolio systems, web interfaces and automation workflows with both
-          traditional development skills and modern AI-assisted techniques.
+          Technology enthusiast with customer support experience, building web and automation projects while learning
+          cloud/data fundamentals and applying AI-assisted development to ship faster.
         </>
       }
       rightSlot={
         <div className="text-right">
           <p className="text-[10px] tracking-widest text-gray-600 uppercase">Stationed At</p>
           <p className="mt-1 text-xs tracking-widest text-gray-400">
-            Lisbon, Portugal · <span className="text-[#00ff41]/70">{utcOffset}</span>
+            Lisbon, Portugal · <span className="text-[#00ff41]/70">{lisbonClock.time}</span>
+            <span className="text-gray-500">{lisbonClock.zoneName ? ` ${lisbonClock.zoneName}` : ` ${utcOffset}`}</span>
           </p>
         </div>
       }
     >
-      <div className="flex flex-col justify-center py-10 gap-6 max-w-3xl">
-
-          {/* Prompt prefix */}
+      <div className="flex flex-col gap-6 pt-8">
+        <div className="px-5">
           <p className="text-[#00ff41]/60 text-sm tracking-widest">
             ~/portfolio <span className="text-[#00ff41]">$</span> ./whoami
           </p>
 
-          {/* Job title */}
-          <h2 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-[#00ff41] dotted-underline w-fit">
+          <h2 className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold tracking-wide text-[#00ff41] dotted-underline w-fit">
             AI user · Cloud Data · Web + Automation
           </h2>
 
-          {/* Bio */}
-          <p className="text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl">
+          <p className="mt-4 text-gray-400 text-sm sm:text-base leading-relaxed max-w-xl">
             I started out in architecture, designing with 2D and 3D building systems. To speed up my workflow, I picked
             up Python to automate generating sheets of sketches. That process naturally hooked me onto development. When
             I was living in Barcelona, alongside working in customer service, I spent my time diving deep into the basics
@@ -108,8 +144,7 @@ export default function PortfolioHero() {
             build and deploy complex infrastructure for all kinds of ideas.
           </p>
 
-          {/* ── Buttons ──────────────────────────────────────────────────── */}
-          <div className="flex flex-wrap gap-4 mt-2">
+          <div className="flex flex-wrap gap-4 mt-5">
             <Link
               to="/ecosystem"
               className="glow-green px-5 py-2.5 border border-[#00ff41] text-[#00ff41] text-sm tracking-widest uppercase rounded transition-all duration-200 hover:bg-[#00ff41]/10 hover:text-white"
@@ -125,15 +160,16 @@ export default function PortfolioHero() {
             >
               <TerminalIcon />
               <span>Open GitHub</span>
-	            </a>
-	          </div>
+            </a>
+          </div>
+        </div>
 
         <PortfolioTimeline />
 
-	        <footer className="mt-10 flex items-center gap-6">
-	          <a
-	            href="https://github.com/Maxi-flores"
-	            target="_blank"
+        <footer className="px-5 mt-2 mb-10 flex items-center gap-6">
+          <a
+            href="https://github.com/Maxi-flores"
+            target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
             className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
@@ -149,13 +185,13 @@ export default function PortfolioHero() {
           >
             <LinkedInIcon />
           </a>
-	          <a
-	            href="mailto:studio@wommedia.nl"
-	            aria-label="Email"
-	            className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
-	          >
-	            <EmailIcon />
-	          </a>
+          <a
+            href="mailto:studio@wommedia.nl"
+            aria-label="Email"
+            className="text-gray-500 hover:text-[#00ff41] transition-colors duration-200"
+          >
+            <EmailIcon />
+          </a>
           <a
             href="https://www.behance.net/gallery/212342817/Curriculum-Vitae"
             target="_blank"

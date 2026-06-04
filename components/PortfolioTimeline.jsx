@@ -227,6 +227,14 @@ export function PortfolioTimeline() {
                             const name = typeof project.name === 'string' ? project.name : 'Untitled project';
                             const summary = typeof project.summary === 'string' ? project.summary : null;
                             const type = typeof project.type === 'string' ? project.type : null;
+                            const typeLabel =
+                              typeof type === 'string'
+                                ? type.toLowerCase() === 'product'
+                                  ? 'PaaS'
+                                  : type.toLowerCase() === 'brand'
+                                    ? '3D Gen'
+                                    : type.toUpperCase()
+                                : null;
 
                             return (
                               <div
@@ -244,9 +252,9 @@ export function PortfolioTimeline() {
                                       </p>
                                     ) : null}
                                   </div>
-                                  {type ? (
-                                    <span className="shrink-0 rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] tracking-widest text-slate-600 uppercase dark:border-gray-700 dark:bg-black/60 dark:text-gray-400">
-                                      {type}
+                                  {typeLabel ? (
+                                    <span className="shrink-0 rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] tracking-widest text-slate-600 dark:border-gray-700 dark:bg-black/60 dark:text-gray-400">
+                                      {typeLabel}
                                     </span>
                                   ) : null}
                                 </div>
