@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import RetroMouseGlyph from './components/RetroMouseGlyph.jsx';
 
 const portfolioModules = [
   {
@@ -162,6 +163,7 @@ function ModuleCard({ module }) {
     module.id === 'therockettree'
       ? 'hover:text-[#d8b4fe] hover:decoration-[#d8b4fe]/60'
       : 'hover:text-gray-200 hover:decoration-white/40';
+  const showMouseGlyph = module.id === 'wommedia' || module.id === 'therockettree';
 
   return (
     <section
@@ -201,11 +203,16 @@ function ModuleCard({ module }) {
               target="_blank"
               rel="noopener noreferrer"
               className={[
-                'mt-1 inline-flex text-[10px] tracking-widest text-gray-500 underline decoration-white/10 transition-colors',
+                'mt-1 inline-flex items-center gap-1 text-[10px] tracking-widest text-gray-500 underline decoration-white/10 transition-colors',
                 siteHoverClass,
               ].join(' ')}
             >
               {module.siteLabel}
+              {showMouseGlyph ? (
+                <span className="text-[#00ff41]/70 no-underline">
+                  <RetroMouseGlyph className="w-3.5 h-3.5" />
+                </span>
+              ) : null}
             </a>
           ) : null}
         </div>

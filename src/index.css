@@ -92,6 +92,19 @@ body {
   background-color: #020804;
 }
 
+@media (pointer: fine) {
+  html {
+    cursor: url('/retro-mouse.svg') 6 6, auto;
+  }
+
+  a,
+  button,
+  [role='button'],
+  input[type='submit'] {
+    cursor: url('/retro-mouse.svg') 6 6, pointer;
+  }
+}
+
 .route-loader {
   opacity: 0;
   pointer-events: none;
