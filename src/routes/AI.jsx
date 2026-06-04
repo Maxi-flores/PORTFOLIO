@@ -2,6 +2,11 @@ import { useMemo, useState } from 'react';
 import Reveal from '../components/Reveal.jsx';
 import NeuralShell from '../layout/NeuralShell.jsx';
 
+function formatTelemetryLabel(token) {
+  if (token === 'prospector') return 'PROSPECTOR';
+  return token;
+}
+
 function TagPill({ label }) {
   return (
     <span className="inline-flex items-center rounded-full px-2 py-1 text-[10px] tracking-widest ring-1 ring-inset ring-white/10 bg-white/5 text-gray-200 select-none">
@@ -35,7 +40,7 @@ function TagRow({ tags }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       {tags.map((tag) => (
-        <TagPill key={tag} label={tag} />
+        <TagPill key={tag} label={formatTelemetryLabel(tag)} />
       ))}
     </div>
   );
@@ -53,7 +58,7 @@ function TimelineRow({ label, title, body, tags }) {
           </div>
           <TagRow tags={tags} />
         </div>
-        <p className="mt-3 text-sm text-gray-300 leading-relaxed">{body}</p>
+        <p className="mt-3 text-sm text-gray-300 leading-relaxed whitespace-pre-line">{body}</p>
       </div>
     </article>
   );
@@ -62,6 +67,17 @@ function TimelineRow({ label, title, body, tags }) {
 export default function AI() {
   const timelineRows = useMemo(
     () => [
+      {
+        id: 'foundational-prospector',
+        label: 'Foundational Era',
+        title: '📡 Strategic Prospecting & Domain Quickscanning',
+        tags: ['prospector'],
+        body: [
+          'Context & Methodology: Initiated my professional trajectory by executing high-density prospecting operations during early career roles, specializing in competitive tender contests and domain bid scouting. Built a rigorous framework for performing a “Quickscan” across every technical + operational signal available inside a target domain.',
+          'Architectural Forecasting Support: Every structural layer, dependency, and domain anomaly was audited and documented. This high-fidelity intelligence became a baseline diagnostic layer for senior developers and architects, empowering them to forecast architectural possibilities with precision.',
+          'Strategic Outcomes: By mapping hidden system opportunities and engineering roadblocks early in the bidding phase, these quickscans provided the blueprint required to arrange, price, and capture major domain opportunities.',
+        ].join('\n\n'),
+      },
       {
         id: 'local-llm',
         label: 'Row 1',
@@ -107,7 +123,7 @@ export default function AI() {
   }, [timelineRows]);
 
   const allTags = useMemo(() => {
-    const list = [...tagIndex.entries()].map(([label, count]) => ({ label, count }));
+    const list = [...tagIndex.entries()].map(([value, count]) => ({ value, label: formatTelemetryLabel(value), count }));
     list.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
     return list;
   }, [tagIndex]);
@@ -163,11 +179,11 @@ export default function AI() {
                 />
                 {allTags.map((tag) => (
                   <TagChip
-                    key={tag.label}
+                    key={tag.value}
                     label={tag.label}
                     count={tag.count}
-                    active={tagFilter === tag.label}
-                    onClick={() => setTagFilter((current) => (current === tag.label ? null : tag.label))}
+                    active={tagFilter === tag.value}
+                    onClick={() => setTagFilter((current) => (current === tag.value ? null : tag.value))}
                   />
                 ))}
               </div>
