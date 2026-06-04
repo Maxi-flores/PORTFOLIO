@@ -1,0 +1,92 @@
+Read Edit_List.md and implement ONLY the changes assigned to page 1 (Home / Who Am I page).
+
+Required changes:
+
+a1:
+Replace the current hero subtitle with a more human and professional introduction. Remove wording similar to:
+"AI user and data developer building portfolio systems"
+
+Create a concise personal introduction that reflects:
+
+* Technology enthusiast
+* Customer support experience
+* Cloud/Data learning
+* AI-assisted development
+* Web and automation projects
+
+a2:
+Replace the static timestamp with a realtime city clock component using local city time.
+
+b1:
+Realign the entire hero section vertically.
+Ensure the body text visually aligns with the Portfolio Periods & Project Metadata timeline below.
+Improve spacing and centering.
+
+c1:
+Rename:
+"Portfolio Hub"
+to:
+"Creative Startup Platform"
+
+c2:
+Replace all PRODUCT labels with:
+"PaaS"
+
+d1:
+Rename:
+"Dashboard & Engine"
+to:
+"Web/App Plugin Tools"
+
+d2:
+Replace tags with:
+[System1-GMS]
+[System2-CRM]
+[System3-TPR]
+[System4-WMS]
+
+e1:
+Rename:
+"GA4 Technical Readiness Audits"
+to:
+"Azure AZ-900 Cloud Data Fundamentals [Certified Assessments]"
+
+e2:
+Rewrite the entire block.
+
+Prompt 1 — Home / Who Am I Page
+
+Based on page 1 annotations (a1–g1).
+
+Focus on:
+
+* Data orchestration
+* Governance
+* Security
+* Subscription management
+* Resource management
+* Cloud fundamentals
+* Azure learning journey
+
+f1:
+Remove:
+"Architecture Foundations"
+
+Replace with:
+"Odin Project Python & Web Development Self Study"
+
+Create suitable supporting text.
+
+f2:
+Remove:
+"Startup Learning & Orientation"
+
+g1:
+Replace all:
+"BRAND"
+
+with:
+"3D Gen"
+
+Preserve current design language, spacing, typography, and cyber-terminal styling.
+Do not modify unrelated sections.
