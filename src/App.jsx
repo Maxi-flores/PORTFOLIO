@@ -11,8 +11,10 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ecosystem" element={<Ecosystem />} />
-          <Route path="/ai" element={<AI />} />
+          <Route path="/portfolio" element={<Ecosystem />} />
+          <Route path="/knowledgebase" element={<AI />} />
+          <Route path="/ecosystem" element={<Navigate to="/portfolio" replace />} />
+          <Route path="/ai" element={<Navigate to="/knowledgebase" replace />} />
           <Route path="/sync" element={<Sync />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

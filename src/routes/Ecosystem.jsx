@@ -5,8 +5,8 @@ import NeuralShell from '../layout/NeuralShell.jsx';
 export default function Ecosystem() {
   return (
     <NeuralShell
-      prompt="~/portfolio/knowledgebase $"
-      title="KnowledgeBase"
+      prompt="~/portfolio/portfolio $"
+      title="Portfolio"
       subtitle="Concise project map of current portfolio systems and technical direction."
     >
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-6 items-start">

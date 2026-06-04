@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-const knowledgeBaseModules = [
+const portfolioModules = [
   {
     id: 'powerframe',
     name: 'Powerframe',
@@ -59,7 +59,7 @@ const knowledgeBaseModules = [
   {
     id: 'wommedia',
     name: 'WOMmedia',
-    tag: 'KnowledgeBase',
+    tag: 'Portfolio',
     siteUrl: 'https://wommedia.nl',
     siteLabel: 'wommedia.nl',
     repoUrl: null,
@@ -96,7 +96,7 @@ function tagStyles(tag) {
         badge: 'bg-fuchsia-500/10 text-fuchsia-200 border-fuchsia-300/30',
         glow: 'glow-gray',
       };
-    case 'KnowledgeBase':
+    case 'Portfolio':
     default:
       return {
         ring: 'ring-1 ring-gray-500/20',
@@ -243,7 +243,7 @@ function ModuleCard({ module }) {
 }
 
 export default function EcosystemWrapper() {
-  const modules = useMemo(() => knowledgeBaseModules, []);
+  const modules = useMemo(() => portfolioModules, []);
 
   return (
     <div>
@@ -252,7 +252,7 @@ export default function EcosystemWrapper() {
           <p className="text-[10px] tracking-widest text-gray-600 uppercase">Tags</p>
           <p className="mt-1 text-xs tracking-widest text-gray-400">
             <span className="text-[#00ff41]">PLUGIN</span> · <span className="text-cyan-200">JOURNAL</span> ·{' '}
-            <span className="text-fuchsia-200">UNITY</span> · <span className="text-gray-300">KnowledgeBase</span>
+            <span className="text-fuchsia-200">UNITY</span> · <span className="text-gray-300">Portfolio</span>
           </p>
         </div>
       </div>

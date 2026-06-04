@@ -40,9 +40,9 @@ function TimelineRow({ label, title, body, tags }) {
 export default function AI() {
   return (
     <NeuralShell
-      prompt="~/portfolio/ai $"
-      title="AI Mastering Learning Curve"
-      subtitle="Chronological learning and engineering narrative."
+      prompt="~/portfolio/knowledgebase $"
+      title="KnowledgeBase"
+      subtitle="Chronological AI learning and engineering narrative."
     >
       <nav className="flex flex-wrap items-center gap-2">
         <a
