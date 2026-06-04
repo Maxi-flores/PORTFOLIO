@@ -1,0 +1,58 @@
+# ROLE & OBJECTIVE
+You are an expert Frontend Engineer and UI/UX Architect. Your task is to resolve specific technical conflicts across multiple pages of the portfolio application, implement a styling adjustment, and embed a detailed professional workflow philosophy section.
+
+---
+
+## 1. TECHNICAL BUG FIXES & PAGE REALIGNMENTS
+
+### 🏠 Home Page (Responsiveness Fix)
+* **Conflict:** The Timeline section appears blank on desktop viewports but renders correctly on mobile devices.
+* **Action:** Inspect the desktop-specific Tailwind breakpoints (`md:`, `lg:`, `xl:`) or conditional rendering logic. Fix the hidden visibility classes (e.g., accidental `hidden md:none` or layout blocking overflows) to ensure the timeline displays properly on all desktop screens.
+
+### 📚 KnowledgeBase Page (Component Content & Button Cleanup)
+* **Conflict:** The lowest table row incorrectly displays an "MCP" text box lacking proper context, branding, or operational logic.
+* **Action:** 
+  1. Completely remove the `ops` and `mcp` button components and their associated click handlers from this row.
+  2. Strip out the generic automation text.
+  3. Replace it with a dedicated context description for "Wommedia".
+  4. Embed the official website hyperlink (`Wommedia.nl`) along with the official Wommedia logo.
+  5. Expand the "Wommedia" tab section to feature an enhanced, engaging brand storytelling narrative.
+
+### 🤖 AI Page (Layout & Data Deepening)
+* **Conflict 1:** The button menu row is incorrectly positioned within the global header layout wrapper instead of sitting directly above the main body layout.
+* **Action 1:** Reposition the menu row component within the DOM tree, moving it out of the header wrapper and placing it directly above the page body container.
+* **Conflict 2:** The roadmap engineering targets in the lowest table row are too shallow.
+* **Action 2:** Expand the roadmap entries with highly technical, detailed, and specific milestones representing upcoming engineering targets.
+
+### 📇 Contacts Page (Footer-Level Alignment)
+* **Conflict:** Table box rows fail to align correctly at the bottom of the viewport when served on desktop environments.
+* **Action:** Apply layout constraints (e.g., using flexbox flex-direction column layouts, `justify-between`, or pinning classes like `mt-auto`) to ensure the table rows align perfectly along the lower edge of the desktop server screen interface.
+
+---
+
+## 2. VISUAL & STYLE REFINEMENT
+* **Component:** `Therockettree` Tab Link.
+* **Action:** Modify the CSS/Tailwind `:hover` state transition color for this specific tab to match a precise **light purple** accent shade, unifying it with the theme.
+
+---
+
+## 3. NEW CONTENT: DEEP-DIVE UI/UX & ENGINEERING WORKFLOW
+Add a newly structured informational section detailing my technical design approach and structural engineering philosophy:
+
+> ### 📐 Design Approach & Engineering Workflow
+>
+> 1. **Handcrafted Foundations:** Every layout begins completely by hand, moving deliberately from initial conceptual sketch designs straight to preliminary layout architectures.
+> 2. **Technical Layout Foundations:** Embracing traditional structural underlayer methodologies, concepts are translated into precise technical structural blueprints across all header, body, and footer frameworks.
+> 3. **Architectural Analogy (Structural Page Leveling):** Mimicking multi-level building construction, application pages serve as structural boundaries. We position our digital walls on exact layout grids to maintain absolute structural integrity throughout the platform.
+> 4. **Scalable Routing Architecture:** Page rootings are systematically scaled across web and mobile web apps by determining highly predictable, logical, and user-friendly hierarchies for navigational buttons and deep-linking structures.
+> 5. **Early Concept Publishing:** Concept development pages are built and published in early deployment phases with contextual data sets and native UI components embedded from day one.
+> 6. **API Integration Realism:** As layouts mature into complex, high-performance platform systems, theoretical ideas turn into robust realities through deep, seamless API ecosystem integrations.
+> 7. **Component Automation Logic:** Every UI element relies on decoupled JavaScript operational logic and clean JSON schemas, deploying autonomous functions onsite while staying fully synchronized with overall project build parameters and global design token tokens.
+> 8. **Infrastructure-Driven Frontend:** Frontend application health and status rely entirely on a properly configured web framework, optimized end-to-end through meticulous DNS routing and deterministic server-side deployments.
+> 9. **State Maintenance & Continuous DevOps:** Like physical engineering structures, state maintenance is a perpetual process. We actively embrace change by adapting continuous task automation to maximize system health.
+> 10. **Refinement Dedication:** Crafting highly tailored solutions demands extensive time and focus. Even when utilizing cutting-edge AI utility tools, deep manual refinement remains essential to produce flawless, production-grade results.
+
+---
+
+# OUTPUT DELIVERY EXPECTATION
+Execute all the layout corrections and update the static components with the newly expanded technical text layouts. Provide the resulting code diffs or complete component updates.
