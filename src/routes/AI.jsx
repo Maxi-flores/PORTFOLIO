@@ -1,10 +1,31 @@
 import NeuralShell from '../layout/NeuralShell.jsx';
+import { useMemo, useState } from 'react';
 
 function TagPill({ label }) {
   return (
     <span className="inline-flex items-center rounded-full px-2 py-1 text-[10px] tracking-widest ring-1 ring-inset ring-white/10 bg-white/5 text-gray-200 select-none">
       {label}
     </span>
+  );
+}
+
+function TagChip({ label, count, active, onClick }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className={[
+        'inline-flex items-center gap-2 rounded-full px-2.5 py-1 text-[10px] tracking-widest ring-1 ring-inset transition-colors',
+        active
+          ? 'ring-[#00ff41]/40 bg-[#00ff41]/10 text-[#00ff41]'
+          : 'ring-white/10 bg-white/5 text-gray-200 hover:bg-white/10',
+      ].join(' ')}
+    >
+      <span>{label}</span>
+      <span className={['rounded px-1.5 py-0.5 text-[10px]', active ? 'bg-black/40' : 'bg-black/30'].join(' ')}>
+        {count}
+      </span>
+    </button>
   );
 }
 
@@ -38,6 +59,63 @@ function TimelineRow({ label, title, body, tags }) {
 }
 
 export default function AI() {
+  const timelineRows = useMemo(
+    () => [
+      {
+        id: 'local-llm',
+        label: 'Row 1',
+        title: 'Local LLM fundamentals and open-source experimentation',
+        tags: ['Linux', 'Ollama', 'Local LLMs', 'Open-source'],
+        body: 'Started locally on Linux (Mint), installing Ollama to compare open-source local models with cloud LLMs. Focused on understanding model behavior, constraints, and where automation can replace repetitive manual scripting.',
+      },
+      {
+        id: 'prompting-components',
+        label: 'Row 2',
+        title: 'Prompt engineering + component generation workflows',
+        tags: ['Prompting', 'OpenAI', 'Claude', 'Components', 'UI automation'],
+        body: 'Moved from experiments to structured prompting: generating UI components, shaping layouts, and iterating faster. Adopted OpenAI + Claude as production companions for rapid interface assembly and automation-driven polish.',
+      },
+      {
+        id: 'json-orchestration',
+        label: 'Row 3',
+        title: 'CLI-driven orchestration with JSON payloads',
+        tags: ['Claude CLI', 'JSON payloads', 'AI-assisted dev', 'Orchestration'],
+        body: 'Integrated Claude CLI and JSON payload workflows to drive repeatable changes across folders and components. This shifted the workflow from hand-written patches to AI-assisted system orchestration with predictable inputs and outputs.',
+      },
+      {
+        id: 'cloud-scaling',
+        label: 'Row 4',
+        title: 'Cloud fundamentals + workflow scaling',
+        tags: ['Azure', 'GitHub automation', 'Cloud fundamentals', 'Scaling'],
+        body: 'Expanded into Azure learning for cloud fundamentals and operational discipline, while scaling development through GitHub automation and agentic workflows. Goal: reduce friction from idea → shipped system with stable release patterns.',
+      },
+    ],
+    [],
+  );
+
+  const [tagFilter, setTagFilter] = useState(null);
+
+  const tagIndex = useMemo(() => {
+    const map = new Map();
+    for (const row of timelineRows) {
+      for (const tag of row.tags ?? []) {
+        map.set(tag, (map.get(tag) ?? 0) + 1);
+      }
+    }
+    return map;
+  }, [timelineRows]);
+
+  const allTags = useMemo(() => {
+    const list = [...tagIndex.entries()].map(([label, count]) => ({ label, count }));
+    list.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+    return list;
+  }, [tagIndex]);
+
+  const filteredRows = useMemo(() => {
+    if (!tagFilter) return timelineRows;
+    return timelineRows.filter((row) => (row.tags ?? []).includes(tagFilter));
+  }, [tagFilter, timelineRows]);
+
   return (
     <NeuralShell
       prompt="~/portfolio/knowledgebase $"
@@ -66,33 +144,46 @@ export default function AI() {
       </nav>
 
       <section id="ai-timeline" className="mt-4 rounded-xl bg-black/40 ring-1 ring-[#00ff41]/15 px-5 py-5">
-        <div className="relative">
-          <div className="absolute left-2 top-0 bottom-0 w-px bg-white/10" />
-          <div className="space-y-5">
-            <TimelineRow
-              label="Row 1"
-              title="Local LLM fundamentals and open-source experimentation"
-              tags={['Linux', 'Ollama', 'Local LLMs', 'Open-source']}
-              body="Started locally on Linux (Mint), installing Ollama to compare open-source local models with cloud LLMs. Focused on understanding model behavior, constraints, and where automation can replace repetitive manual scripting."
-            />
-            <TimelineRow
-              label="Row 2"
-              title="Prompt engineering + component generation workflows"
-              tags={['Prompting', 'OpenAI', 'Claude', 'Components', 'UI automation']}
-              body="Moved from experiments to structured prompting: generating UI components, shaping layouts, and iterating faster. Adopted OpenAI + Claude as production companions for rapid interface assembly and automation-driven polish."
-            />
-            <TimelineRow
-              label="Row 3"
-              title="CLI-driven orchestration with JSON payloads"
-              tags={['Claude CLI', 'JSON payloads', 'AI-assisted dev', 'Orchestration']}
-              body="Integrated Claude CLI and JSON payload workflows to drive repeatable changes across folders and components. This shifted the workflow from hand-written patches to AI-assisted system orchestration with predictable inputs and outputs."
-            />
-            <TimelineRow
-              label="Row 4"
-              title="Cloud fundamentals + workflow scaling"
-              tags={['Azure', 'GitHub automation', 'Cloud fundamentals', 'Scaling']}
-              body="Expanded into Azure learning for cloud fundamentals and operational discipline, while scaling development through GitHub automation and agentic workflows. Goal: reduce friction from idea → shipped system with stable release patterns."
-            />
+        <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-6 items-start">
+          <aside className="rounded-lg bg-black/50 ring-1 ring-white/10 px-4 py-4">
+            <p className="text-[10px] tracking-widest text-gray-500 uppercase">Tag Box Summary</p>
+            <h2 className="mt-2 text-sm tracking-widest text-[#00ff41] uppercase">Signals · Categories</h2>
+            <p className="mt-2 text-sm text-gray-400 leading-relaxed">
+              Filter the timeline by technical tag clusters. Mirrors the Home timeline filter language.
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <TagChip
+                label="ALL"
+                count={timelineRows.length}
+                active={!tagFilter}
+                onClick={() => setTagFilter(null)}
+              />
+              {allTags.map((tag) => (
+                <TagChip
+                  key={tag.label}
+                  label={tag.label}
+                  count={tag.count}
+                  active={tagFilter === tag.label}
+                  onClick={() => setTagFilter((current) => (current === tag.label ? null : tag.label))}
+                />
+              ))}
+            </div>
+          </aside>
+
+          <div className="relative">
+            <div className="absolute left-2 top-0 bottom-0 w-px bg-white/10" />
+            <div className="space-y-5">
+              {filteredRows.map((row) => (
+                <TimelineRow
+                  key={row.id}
+                  label={row.label}
+                  title={row.title}
+                  tags={row.tags}
+                  body={row.body}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
