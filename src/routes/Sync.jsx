@@ -323,12 +323,16 @@ export default function Sync() {
 
           <Reveal>
             <section className="rounded-lg bg-black/40 ring-1 ring-cyan-400/20 px-5 py-4">
-              <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Closure</h2>
+              <h2 className="text-sm tracking-widest text-cyan-200 uppercase">Final Version Updates</h2>
               <p className="mt-3 text-sm text-gray-300 leading-relaxed">
-                Available for freelance opportunities, technical collaborations, and digital product development — especially
-                where AI and automation reduce friction from idea to shipped system. Open to work and study paths that deepen
-                cloud fundamentals, tooling, and production-ready engineering workflows.
+                Release-mode snapshot: deployment log, governance plan, and final metadata sync for the active portfolio
+                surfaces. Focus is on stability, traceability, and a clean handoff from iteration to maintainable ops.
               </p>
+              <ul className="mt-4 space-y-1 text-xs text-gray-400 leading-relaxed">
+                <li>Deployment log: versions shipped, release notes, and rollback-ready checkpoints.</li>
+                <li>Governance plan: access boundaries, change control, and long-term stewardship.</li>
+                <li>Metadata sync: domains, repo references, and release identifiers kept consistent.</li>
+              </ul>
 
               <div className="mt-6 rounded-lg bg-black/50 ring-1 ring-[#29ff55]/15 overflow-hidden">
                 <div className="relative h-[420px]">
