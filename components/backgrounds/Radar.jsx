@@ -9,7 +9,7 @@ function hexToVec3(hex) {
   return [
     parseInt(h.slice(0, 2), 16) / 255,
     parseInt(h.slice(2, 4), 16) / 255,
-    parseInt(h.slice(4, 6), 16) / 255,
+    parseInt(h.slice(4, 6), 16) / 255
   ];
 }
 
@@ -101,7 +101,7 @@ export default function Radar({
   falloff = 2.0,
   brightness = 1.0,
   enableMouseInteraction = true,
-  mouseInfluence = 0.1,
+  mouseInfluence = 0.1
 }) {
   const containerRef = useRef(null);
 
@@ -118,7 +118,10 @@ export default function Radar({
 
     function handleMouseMove(e) {
       const rect = gl.canvas.getBoundingClientRect();
-      targetMouse = [(e.clientX - rect.left) / rect.width, 1.0 - (e.clientY - rect.top) / rect.height];
+      targetMouse = [
+        (e.clientX - rect.left) / rect.width,
+        1.0 - (e.clientY - rect.top) / rect.height
+      ];
     }
 
     function handleMouseLeave() {
@@ -156,8 +159,8 @@ export default function Radar({
         uBrightness: { value: brightness },
         uMouse: { value: new Float32Array([0.5, 0.5]) },
         uMouseInfluence: { value: mouseInfluence },
-        uEnableMouse: { value: enableMouseInteraction },
-      },
+        uEnableMouse: { value: enableMouseInteraction }
+      }
     });
 
     const mesh = new Mesh(gl, { geometry, program });
@@ -198,24 +201,7 @@ export default function Radar({
       container.removeChild(gl.canvas);
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
-  }, [
-    speed,
-    scale,
-    ringCount,
-    spokeCount,
-    ringThickness,
-    spokeThickness,
-    sweepSpeed,
-    sweepWidth,
-    sweepLobes,
-    color,
-    backgroundColor,
-    falloff,
-    brightness,
-    enableMouseInteraction,
-    mouseInfluence,
-  ]);
+  }, [speed, scale, ringCount, spokeCount, ringThickness, spokeThickness, sweepSpeed, sweepWidth, sweepLobes, color, backgroundColor, falloff, brightness, enableMouseInteraction, mouseInfluence]);
 
   return <div ref={containerRef} className="radar-container" />;
 }
-
