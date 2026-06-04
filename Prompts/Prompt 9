@@ -1,0 +1,45 @@
+# ROLE & CONTENT ENGINEERING OBJECTIVE
+You are an expert Technical Copywriter and UI/UX Storyteller. Your task is to inject a new, highly detailed historical milestone into the "Design Timeline" section of the portfolio and systematically link it to the newly structured KnowledgeBase telemetry.
+
+---
+
+## 🛠️ TASK 1: TIMELINE EXPANSION & HISTORICAL CONTEXT
+
+### 1. Target Component / Location
+* **Target:** Locate the foundational milestone row within the `Design Timeline` component (e.g., Early Career / Foundations track node).
+
+### 2. Narrative Integration & Core Concepts
+Inject an engaging, technical, and professional narrative that explicitly highlights the following career facts:
+* **Prospecting & Tenders:** Detail your early career role performing deep prospecting and high-stakes market scouting work, specifically centered around analyzing tender contests and competitive domain bids.
+* **The Art of the Quickscan:** Explain your specialized methodology of executing a "Quickscan" on every granular detail available within a target domain (infrastructure indicators, business schemas, and technology layers).
+* **The Senior Developer Multiplier:** Explicitly frame this prospecting work as the critical technical foundation that enabled expert development seniors and software architects to accurately forecast system possibilities, map engineering constraints, and strategically arrange high-value domain opportunities.
+
+---
+
+## 📝 VERBATIM TEXT CONTENT / INITIATION TEMPLATE
+Structure the timeline row content using the following tone and detail baseline:
+
+> ### 🛰️ Foundational Era: Strategic Prospecting & Domain Quickscanning
+> 
+> * **Context & Methodology:** Initiated professional trajectory by executing high-density prospecting operations during my first career role, specializing in competitive tender contests. Developed a rigorous framework for executing a comprehensive "Quickscan" on every technical and operational detail available across targeted digital and corporate domains.
+> 
+> * **Architectural Forecasting Support:** Every structural layer, dependency, and domain anomaly was meticulously audited and documented. This high-fidelity intelligence served as the baseline diagnostic layer for expert development seniors, empowering them to forecast architectural possibilities with absolute precision.
+> 
+> * **Strategic Outcomes:** By mapping out hidden system opportunities and engineering roadblocks early in the bidding phase, these quickscans provided the blueprint required to successfully arrange, price, and capture major domain opportunities.
+
+---
+
+## 🏷️ TASK 2: KNOWLEDGEBASE FILTER & METADATA SYNC (CRITICAL)
+
+### 1. Tag Box Summary Addition
+* **Target:** `KnowledgeBasePage` (formerly the AI page layout).
+* **Action:** Dynamically inject a new filtering token tag named **`PROSPECTOR`** into the page's Tag Box Summary (Telemetry Categorization Logs matrix).
+
+### 2. Live Data Association
+* **Action:** Ensure this newly added historical item (or the corresponding database array entry) is categorized under the `prospector` value so that when a user clicks the **`PROSPECTOR`** filter button chip, the timeline instantly isolates and displays this entry with its updated counter incremented (e.g., `PROSPECTOR [1]`).
+* **Visual Anchor:** Use an appropriate technical icon for this timeline node (e.g., a radar tracking grid line, magnifying glass glyph, or terminal command line symbol).
+
+---
+
+# OUTPUT DELIVERY EXPECTATION
+Update the unified source data schema files for both the Timeline components and the **KnowledgeBase** page filters. Ensure the state management layer binds the new `prospector` tag accurately across the frontend view logic.
