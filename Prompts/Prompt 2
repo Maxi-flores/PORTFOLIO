@@ -1,0 +1,88 @@
+Prompt 2 — Knowledgebase Page
+
+Based on h1–k2.
+
+Read Edit_List.md and implement ONLY the changes assigned to page 2 (Knowledgebase).
+
+Required changes:
+
+h1:
+Rename:
+"SYSTEM"
+to:
+"PLUGIN"
+
+h2:
+Rename:
+"KNOWLEDGEBASE"
+to:
+"KnowledgeBase"
+
+i1:
+Replace placeholder icon.
+Insert actual Powerframe branding.
+Add:
+powerframe.online
+
+i2:
+Replace placeholder icon.
+Insert actual PowerStarter branding.
+Add:
+powerstarter.online
+
+i3:
+Replace placeholder icon.
+Insert actual TheRocketTree branding.
+Add:
+therockettree.io
+
+i4:
+Replace placeholder icon.
+Insert actual Mucho3D branding.
+Add:
+mucho3d.dev
+
+j1:
+Replace current System Automation Layer description.
+
+New topic:
+"MCP Bridging AI & Python Automation Scripts"
+
+Generate a professional description explaining:
+
+* MCP integrations
+* AI orchestration
+* Python automation
+* Metric shaping
+* Tool interoperability
+* Cross-platform workflows
+
+j2:
+Replace Portfolio Relevance section.
+
+New topic:
+Generic 3D and digital studies integrated into existing web ecosystems and metric-driven visualization systems.
+
+Generate a professional description.
+
+k1:
+Replace:
+"System Automation Layer"
+
+with:
+"Manageable Projects Umbrella"
+
+Generate a professional description covering:
+
+* Automation
+* AI integration
+* Custom tools
+* Pipeline architecture
+* Project governance
+* Multi-project ecosystem management
+
+k2:
+Update automation focus section to match the new umbrella concept while preserving UI layout.
+
+Preserve layout and card structure.
+Do not modify unrelated content.
