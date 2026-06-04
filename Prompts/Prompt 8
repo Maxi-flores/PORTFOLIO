@@ -1,0 +1,49 @@
+# ROLE & PRODUCTION BUILD CONSOLIDATION
+You are an expert Frontend Engineer and Lead DevOps Architect. Your task is to execute the architectural changes, component creations, and visual layer micro-interactions requested in the latest refinement iteration (Prompt 7) into a flawless, production-ready implementation.
+
+---
+
+## 🏗️ 1. ROUTING & NAVIGATION MATRIX UPDATE
+* **Action:** Refactor the routing tree and navigation tabs to complete the structural swap without causing broken paths.
+* **Specifications:**
+  1. Change the global **"KnowledgeBase"** tab identifier and page header title to **"Portfolio"**.
+  2. Change the current **"AI"** tab/section identifier to **"KnowledgeBase"** instead.
+  3. Map the primary clean endpoints to `/portfolio` and `/knowledgebase`.
+  4. Implement backwards-compatible framework redirects inside the router: intercept traffic hitting legacy paths `/ecosystem` or `/ai` and seamlessly forward them (`replace: true`) to their new respective nodes.
+
+---
+
+## ⚡ 2. MICRO-INTERACTIONS & TRANSITION ANIMATIONS
+
+### A. Terminal Route Transition Guard Overlay
+* **Action:** Build an interactive page transition interceptor component.
+* **Behavior:** When a route mutation triggers, render a high-tech terminal-style loading overlay card. It must display a flashing indicator status containing the text: `SYS_MUTATION: FETCHING_NODE_DATA...`. Complete the transition fade smoothly after a short processing delay.
+
+### B. Element Scroll-Reveal Layer
+* **Action:** Create a reusable wrapper or directive utilizing the `IntersectionObserver` API or custom Tailwind transition rules.
+* **Behavior:** Apply a subtle **fade-in-up** or structural reveal effect (`animate-terminal-reveal`) that triggers smoothly whenever key application sections or timeline containers enter the user's viewport.
+
+---
+
+## 🎨 3. COMPONENT UPGRADES & ASSET INJECTIONS
+
+### A. KnowledgeBase Timeline (with Tag Box Summary Filter)
+* **Action:** Upgrade the layout of the newly renamed KnowledgeBase page timeline to match the Home page design language.
+* **Feature:** Implement a **Tag Box Summary** component directly above the timeline grid tracks. It must house interactive categorization pills displaying dynamic project counters (e.g., `ALL`, `CORE-AI`, `AUTOMATION`, `INFRASTRUCTURE`) to serve as live data filters.
+
+### B. Retro Pointer Assets & Glyph Indicators
+* **Action:** Set up an old-school, pixelated mouse cursor graphic (`/public/retro-mouse.svg`).
+* **Behavior:** 
+  - Apply this graphic globally across all fine-pointer desktop displays via CSS (`cursor: url(...)`).
+  - Embed a miniaturized inline retro mouse glyph indicator icon directly next to external module links (such as `Wommedia.nl` and `Therockettree.io`) that shifts slightly on hover to signal interactivity.
+
+---
+
+## 📝 4. CLOSURE UPDATE & DATA LOG
+* **Action:** Locate the legacy "Closure" block at the bottom of the stack and rename it to **"Final Version Updates"**.
+* **Content:** Refocus the narrative entirely on the deployment log parameters, structural governance protocols, and the active version reference matrix synchronized directly with `package.json`.
+
+---
+
+# OUTPUT DELIVERY EXPECTATION
+Generate the unified, fully integrated source files (`App.tsx`, `index.css`, and `KnowledgeBasePage.tsx`) ready for compilation. Ensure there are no type conflicts or broken route dependencies.
